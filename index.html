@@ -723,13 +723,14 @@
         }
 
         .preview-label-row {
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             padding: 3px 6px;
-            border-radius: 999px;
+            border-radius: 6px;
             cursor: default;
             transition: background 0.12s ease-out, color 0.12s ease-out;
+            width: 100%;
         }
 
         .preview-dot {
@@ -737,16 +738,32 @@
             height: 6px;
             border-radius: 999px;
             background: rgba(148, 163, 184, 0.8);
+            flex-shrink: 0;
         }
 
         .preview-name {
             font-size: 13px;
+            flex-grow: 1;
+        }
+
+        .perm-labels-container {
+            display: flex;
+            gap: 4px;
+            flex-shrink: 0;
+        }
+
+        .perm-label {
+            font-size: 9px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
         }
 
         .preview-perms {
-            margin-left: 18px;
-            font-size: 11px;
-            color: var(--text-soft);
+            display: none;
         }
 
         .preview-description {
@@ -1718,6 +1735,16 @@
             }, []);
         }
 
+        function generateHslColorFromString(str) {
+            if (!str) return 'hsl(210, 8%, 45%)';
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                hash = str.charCodeAt(i) + ((hash << 5) - hash);
+            }
+            const h = Math.abs(hash) % 360;
+            return `hsl(${h}, 65%, 45%)`;
+        }
+
         function buildMenuTreeForModule(moduleName, locale) {
             const menuIdsInModule = new Set(
                 previewModulesMenus
@@ -1758,18 +1785,21 @@
                     const title = localizeMenuTitle(ch.Id, locale);
                     const description = localizeMenuDescription(ch.Id, locale);
                     const permKeys = permsMap[ch.Id] || [];
-                    const permLabels = localizePermissions(permKeys, locale);
-                    const permText = permLabels.length
-                        ? permLabels.join(", ")
-                        : (locale === "bs" ? "Nema posebnih permisija" : "No specific permissions");
+
+                    const permLabelsHtml = permKeys.map(key => {
+                        const localizedName = localizePermissions([key], locale)[0] || key;
+                        const bgColor = generateHslColorFromString(key);
+                        return `<span class="perm-label" style="background-color: ${bgColor}; color: #fff;" title="${escapeHtml(localizedName)}">${escapeHtml(key)}</span>`;
+                    }).join('');
+
                     html += `
 <li class="preview-node" data-menu-id="${ch.Id}">
-    <div class="preview-label-row" title="${escapeHtml(permText)}">
+    <div class="preview-label-row">
         <span class="preview-dot"></span>
         <span class="preview-name">${escapeHtml(title)}</span>
+        <div class="perm-labels-container">${permLabelsHtml}</div>
     </div>
-    <div class="preview-description">${escapeHtml(description)}</div>
-    <div class="preview-perms">${escapeHtml(permText)}</div>
+    ${description ? `<div class="preview-description">${escapeHtml(description)}</div>` : ''}
     ${renderNodes(String(ch.Id), depth + 1)}
 </li>`;
                 });
