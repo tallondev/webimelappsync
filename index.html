@@ -762,6 +762,18 @@
             white-space: nowrap;
         }
 
+        .api-label {
+            font-size: 9px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+            background-color: #8b5cf6;
+            color: #fff;
+        }
+
         .preview-perms {
             display: none;
         }
@@ -1353,6 +1365,12 @@
                             <option value="">Učitavanje...</option>
                         </select>
                     </div>
+                    <div class="preview-controls-group" style="padding-top: 20px;">
+                        <label class="lang-pill">
+                            <input type="checkbox" id="preview-api-only" style="margin-right: 4px;">
+                            <span>Prikaži i API menije</span>
+                        </label>
+                    </div>
                     <div class="preview-controls-group preview-controls-group--right">
                         <span class="preview-label">Jezik</span>
                         <div class="preview-langs">
@@ -1746,9 +1764,15 @@
         }
 
         function buildMenuTreeForModule(moduleName, locale) {
+            const showApiOnly = document.getElementById("preview-api-only").checked;
+
             const menuIdsInModule = new Set(
                 previewModulesMenus
-                    .filter((x) => x.ModuleName === moduleName && x.Status === 1 && x.ApiOnly === 0)
+                    .filter((x) => {
+                        if (x.ModuleName !== moduleName || x.Status !== 1) return false;
+                        if (showApiOnly) return true;
+                        return x.ApiOnly === 0;
+                    })
                     .map(x => x.MenuId)
             );
 
@@ -1760,6 +1784,7 @@
                         ...m,
                         ParentMenuId: mm ? mm.ParentMenuId : null,
                         SortNumber: mm ? mm.SortNumber : 0,
+                        ApiOnly: mm ? mm.ApiOnly : 0,
                     };
                 })
                 .sort((a, b) => a.SortNumber - b.SortNumber);
@@ -1792,11 +1817,14 @@
                         return `<span class="perm-label" style="background-color: ${bgColor}; color: #fff;" title="${escapeHtml(localizedName)}">${escapeHtml(key)}</span>`;
                     }).join('');
 
+                    const apiOnlyLabel = ch.ApiOnly === 1 ? '<span class="api-label">API</span>' : '';
+
                     html += `
 <li class="preview-node" data-menu-id="${ch.Id}">
     <div class="preview-label-row">
         <span class="preview-dot"></span>
         <span class="preview-name">${escapeHtml(title)}</span>
+        ${apiOnlyLabel}
         <div class="perm-labels-container">${permLabelsHtml}</div>
     </div>
     ${description ? `<div class="preview-description">${escapeHtml(description)}</div>` : ''}
@@ -1925,6 +1953,12 @@
 
             const moduleSelect = document.getElementById("preview-module");
             moduleSelect.addEventListener("change", () => {
+                if (!previewDataLoaded) return;
+                renderPreviewTree();
+            });
+
+            const apiOnlyCheckbox = document.getElementById("preview-api-only");
+            apiOnlyCheckbox.addEventListener("change", () => {
                 if (!previewDataLoaded) return;
                 renderPreviewTree();
             });
