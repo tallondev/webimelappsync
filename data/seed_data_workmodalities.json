@@ -1,0 +1,146 @@
+[
+  {
+    "Type": 1,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Redovan rad" },
+      { "Locale": "en", "Name": "Regular work" }
+    ]
+  },
+  {
+    "Type": 2,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Plaćeni prekid rada" },
+      { "Locale": "en", "Name": "Paid work interruption" }
+    ]
+  },
+  {
+    "Type": 3,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Noćni rad" },
+      { "Locale": "en", "Name": "Night work" }
+    ]
+  },
+  {
+    "Type": 4,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Prekovremeni rad" },
+      { "Locale": "en", "Name": "Overtime work" }
+    ]
+  },
+  {
+    "Type": 5,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Preraspodjela" },
+      { "Locale": "en", "Name": "Redistribution" }
+    ]
+  },
+  {
+    "Type": 6,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Rad neradnim danom" },
+      { "Locale": "en", "Name": "Work on non-working day" }
+    ]
+  },
+  {
+    "Type": 7,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Službeni put" },
+      { "Locale": "en", "Name": "Business trip" }
+    ]
+  },
+  {
+    "Type": 8,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Terenski rad" },
+      { "Locale": "en", "Name": "Field work" }
+    ]
+  },
+  {
+    "Type": 9,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Pripravnost - Dežurstvo" },
+      { "Locale": "en", "Name": "On-call duty" }
+    ]
+  },
+  {
+    "Type": 10,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Sedmični odmor" },
+      { "Locale": "en", "Name": "Weekly rest" }
+    ]
+  },
+  {
+    "Type": 11,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Godišnji odmor" },
+      { "Locale": "en", "Name": "Annual leave" }
+    ]
+  },
+  {
+    "Type": 12,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Praznik" },
+      { "Locale": "en", "Name": "Public holiday" }
+    ]
+  },
+  {
+    "Type": 13,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Bolovanje" },
+      { "Locale": "en", "Name": "Sick leave" }
+    ]
+  },
+  {
+    "Type": 14,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Roditeljsko odsustvo" },
+      { "Locale": "en", "Name": "Parental leave" }
+    ]
+  },
+  {
+    "Type": 15,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Plaćeni dopust" },
+      { "Locale": "en", "Name": "Paid leave" }
+    ]
+  },
+  {
+    "Type": 16,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Neplaćeni dopust" },
+      { "Locale": "en", "Name": "Unpaid leave" }
+    ]
+  },
+  {
+    "Type": 17,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Štrajk" },
+      { "Locale": "en", "Name": "Strike" }
+    ]
+  },
+  {
+    "Type": 18,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Isključenje sa rada" },
+      { "Locale": "en", "Name": "Work exclusion" }
+    ]
+  }
+]

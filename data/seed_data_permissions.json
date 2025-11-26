@@ -1,0 +1,74 @@
+[
+  {
+    "Name": "view",
+    "Enabled": 1,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Pregled", "Description": "Dozvola za pregled podataka" },
+      { "Locale": "en", "Name": "View", "Description": "Permission to view data" }
+    ]
+  },
+  {
+    "Name": "add",
+    "Enabled": 1,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Dodavanje", "Description": "Dozvola za dodavanje podataka" },
+      { "Locale": "en", "Name": "Add", "Description": "Permission to add data" }
+    ]
+  },
+  {
+    "Name": "edit",
+    "Enabled": 1,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Ispravka", "Description": "Dozvola za ispravku podataka" },
+      { "Locale": "en", "Name": "Edit", "Description": "Permission to edit data" }
+    ]
+  },
+  {
+    "Name": "versioned_edit",
+    "Enabled": 1,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Izmjena sa verzioniranjem", "Description": "Dozvola za izmjenu podataka sa verzioniranjem" },
+      { "Locale": "en", "Name": "Versioned Edit", "Description": "Permission to edit data with versioning" }
+    ]
+  },
+  {
+    "Name": "delete",
+    "Enabled": 1,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Brisanje", "Description": "Dozvola za brisanje podataka" },
+      { "Locale": "en", "Name": "Delete", "Description": "Permission to delete data" }
+    ]
+  },
+  {
+    "Name": "export",
+    "Enabled": 1,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Izvoz", "Description": "Dozvola za izvoz podataka" },
+      { "Locale": "en", "Name": "Export", "Description": "Permission to export data" }
+    ]
+  },
+  {
+    "Name": "log",
+    "Enabled": 1,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Log", "Description": "Dozvola za pregled logova" },
+      { "Locale": "en", "Name": "Log", "Description": "Permission to view logs" }
+    ]
+  },
+  {
+    "Name": "conclude",
+    "Enabled": 1,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Zaključenje", "Description": "Dozvola za zaključenje procesa ili dokumenta" },
+      { "Locale": "en", "Name": "Conclude", "Description": "Permission to conclude a process or document" }
+    ]
+  }
+]

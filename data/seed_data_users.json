@@ -1,0 +1,18 @@
+[
+  {
+    "UserName": null,
+    "Email": "admin@example.com",
+    "EmailConfirmed": true,
+    "PasswordHash": "YOUR_PASSWORD_HASH",
+    "SecurityStamp": "YOUR_SECURITY_STAMP",
+    "ConcurrencyStamp": "YOUR_CONCURRENCY_STAMP",
+    "PhoneNumber": null,
+    "PhoneNumberConfirmed": false,
+    "TwoFactorEnabled": false,
+    "LockoutEnd": null,
+    "LockoutEnabled": true,
+    "AccessFailedCount": 0,
+    "Roles": ["admin"],
+    "Profile": {"FirstName": "Administrator"}
+  }
+]

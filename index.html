@@ -1,0 +1,1904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEBIMEL</title>
+    <style>
+        :root {
+            --bg-body: #020617;
+            --bg-gradient: radial-gradient(circle at top, #1f2937 0, #020617 40%, #020617 100%);
+            --bg-surface: #0b1120;
+            --bg-card: #020617;
+            --border-subtle: #1f2937;
+            --accent: #3b82f6;
+            --accent-soft: rgba(59, 130, 246, 0.08);
+            --accent-hover: #2563eb;
+            --accent-outline: rgba(59, 130, 246, 0.35);
+            --text-main: #e5e7eb;
+            --text-muted: #9ca3af;
+            --text-soft: #6b7280;
+            --danger: #f97373;
+            --radius-lg: 18px;
+            --radius-pill: 999px;
+            --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.65);
+            --shadow-header: 0 12px 40px rgba(15, 23, 42, 0.9);
+
+            --bg-json: #020617;
+            --border-json: rgba(31, 41, 55, 0.95);
+            --scroll-track: #020617;
+            --scroll-thumb: #1f2937;
+        }
+
+        :root[data-theme="light"] {
+            --bg-body: #f3f4f6;
+            --bg-gradient: none;
+            --bg-surface: #ffffff;
+            --bg-card: #ffffff;
+            --border-subtle: #e5e7eb;
+            --accent: #2563eb;
+            --accent-soft: rgba(37, 99, 235, 0.09);
+            --accent-hover: #1d4ed8;
+            --accent-outline: rgba(37, 99, 235, 0.35);
+            --text-main: #111827;
+            --text-muted: #4b5563;
+            --text-soft: #6b7280;
+
+            --bg-json: #f9fafb;
+            --border-json: #e5e7eb;
+            --scroll-track: #f3f4f6;
+            --scroll-thumb: #d1d5db;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                sans-serif;
+            line-height: 1.5;
+            background-color: var(--bg-body);
+            background-image: var(--bg-gradient);
+            color: var(--text-main);
+        }
+
+        /* HEADER */
+
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            cursor: pointer;
+            background: radial-gradient(circle at top left, #1d4ed8, #020617 60%);
+            box-shadow: var(--shadow-header);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.28);
+            backdrop-filter: blur(24px);
+        }
+
+        :root[data-theme="light"] .header {
+            background: linear-gradient(90deg, #ffffff, #e5edff);
+            border-bottom-color: #e5e7eb;
+        }
+
+        .header-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-circle {
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 20%, #eff6ff 0, #3b82f6 40%, #1d4ed8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 0 1px rgba(191, 219, 254, 0.45),
+                0 10px 25px rgba(15, 23, 42, 0.7);
+            font-size: 18px;
+            font-weight: 700;
+            color: #0b1120;
+        }
+
+        .header-title {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 650;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .header-subtitle {
+            margin: 0;
+            font-size: 12px;
+            color: var(--text-soft);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 12px;
+            color: var(--text-soft);
+        }
+
+        .pill-tag {
+            padding: 4px 10px;
+            border-radius: var(--radius-pill);
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            background: rgba(15, 23, 42, 0.6);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        :root[data-theme="light"] .pill-tag {
+            background: rgba(255, 255, 255, 0.8);
+            border-color: #e5e7eb;
+        }
+
+        .pill-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: #22c55e;
+            box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.18);
+        }
+
+        /* LAYOUT */
+
+        .page-shell {
+            padding-top: 82px;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 20px 16px 32px;
+        }
+
+        .page-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .page-title {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .page-description {
+            margin: 4px 0 0;
+            font-size: 13px;
+            color: var(--text-soft);
+            max-width: 540px;
+        }
+
+        .page-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: flex-end;
+        }
+
+        .badge-soft {
+            padding: 6px 10px;
+            border-radius: var(--radius-pill);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            color: var(--text-muted);
+            background: rgba(15, 23, 42, 0.7);
+        }
+
+        :root[data-theme="light"] .badge-soft {
+            background: #ffffff;
+            border-color: #e5e7eb;
+        }
+
+        .sections-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 14px;
+        }
+
+        @media (min-width: 900px) {
+            .sections-grid {
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            }
+        }
+
+        /* SECTION CARD */
+
+        .section {
+            position: relative;
+            background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.15), transparent 55%),
+                var(--bg-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(31, 41, 55, 0.9);
+            box-shadow: var(--shadow-soft);
+            padding: 14px 14px 12px;
+            overflow: hidden;
+            transition: transform 0.15s ease-out, box-shadow 0.15s ease-out,
+                border-color 0.15s ease-out, background 0.15s ease-out;
+        }
+
+        :root[data-theme="light"] .section {
+            border-color: #e5e7eb;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+        }
+
+        .section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            border-radius: inherit;
+            border: 1px solid transparent;
+            background: linear-gradient(135deg, rgba(248, 250, 252, 0.3), transparent);
+            mix-blend-mode: soft-light;
+            opacity: 0;
+            transition: opacity 0.15s ease-out;
+        }
+
+        .section:hover {
+            transform: translateY(-2px);
+            border-color: rgba(59, 130, 246, 0.6);
+            background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.24), transparent 65%),
+                var(--bg-card);
+            box-shadow: 0 22px 55px rgba(15, 23, 42, 0.8);
+        }
+
+        :root[data-theme="light"] .section:hover {
+            box-shadow: 0 18px 50px rgba(15, 23, 42, 0.18);
+        }
+
+        .section:hover::before {
+            opacity: 1;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .section-title-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .section h3 {
+            margin: 0;
+            font-size: 15px;
+            font-weight: 550;
+        }
+
+        .section-caption {
+            font-size: 11px;
+            color: var(--text-soft);
+        }
+
+        .section-controls {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        /* BUTTONS */
+
+        .btn {
+            cursor: pointer;
+            border-radius: var(--radius-pill);
+            border: 1px solid transparent;
+            font-size: 12px;
+            padding: 6px 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            line-height: 1.2;
+            background: rgba(15, 23, 42, 0.9);
+            color: var(--text-main);
+            transition: background 0.15s ease-out, border-color 0.15s ease-out,
+                box-shadow 0.15s ease-out, transform 0.08s ease-out, color 0.15s ease-out;
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.75);
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+            border-color: rgba(191, 219, 254, 0.9);
+            color: #0b1120;
+            box-shadow: 0 9px 22px rgba(59, 130, 246, 0.55);
+        }
+
+        .btn-outline {
+            background: rgba(15, 23, 42, 0.9);
+            border-color: rgba(148, 163, 184, 0.6);
+            color: var(--text-muted);
+        }
+
+        :root[data-theme="light"] .btn-outline {
+            background: #ffffff;
+            border-color: #d1d5db;
+            box-shadow: 0 4px 10px rgba(15, 23, 42, 0.06);
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--accent-hover), #1d4ed8);
+            box-shadow: 0 12px 28px rgba(59, 130, 246, 0.75);
+        }
+
+        .btn-outline:hover {
+            background: rgba(15, 23, 42, 1);
+            border-color: rgba(248, 250, 252, 0.8);
+            color: #e5e7eb;
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.9);
+        }
+
+        :root[data-theme="light"] .btn-outline:hover {
+            background: #f9fafb;
+            color: #111827;
+        }
+
+        .btn-icon {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* JSON CONTENT + SEARCH */
+
+        .json-container {
+            position: relative;
+            margin-top: 8px;
+        }
+
+        .json-search-wrap {
+            display: none;
+            margin-bottom: 6px;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .json-search-input {
+            flex: 1;
+            padding: 6px 10px;
+            font-size: 12px;
+            border-radius: var(--radius-pill);
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            background: var(--bg-surface);
+            color: var(--text-main);
+            outline: none;
+        }
+
+        .json-search-input::placeholder {
+            color: var(--text-soft);
+        }
+
+        .json-search-input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 1px var(--accent-outline);
+        }
+
+        .json-search-hint {
+            font-size: 10px;
+            color: var(--text-soft);
+            white-space: nowrap;
+        }
+
+        .json-content {
+            display: none;
+            background: var(--bg-json);
+            padding: 10px 12px 40px; /* extra bottom padding for copy button */
+            border-radius: 12px;
+            border: 1px solid var(--border-json);
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+                Consolas, "Liberation Mono", "Courier New", monospace;
+            font-size: 12px;
+            max-height: 320px;
+            overflow: auto;
+            color: #e5e7eb;
+            box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.95),
+                0 16px 36px rgba(15, 23, 42, 1);
+        }
+
+        :root[data-theme="light"] .json-content {
+            color: #111827;
+            box-shadow: inset 0 0 0 1px #e5e7eb, 0 10px 26px rgba(15, 23, 42, 0.06);
+        }
+
+        .json-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .json-content::-webkit-scrollbar-track {
+            background: var(--scroll-track);
+        }
+
+        .json-content::-webkit-scrollbar-thumb {
+            background: var(--scroll-thumb);
+            border-radius: 999px;
+        }
+
+        .json-content mark {
+            background: #facc15;
+            color: inherit;
+            padding: 0 1px;
+            border-radius: 2px;
+        }
+
+        .json-key {
+            color: #93c5fd;
+        }
+
+        .json-string {
+            color: #34d399;
+        }
+
+        .json-number {
+            color: #fbbf24;
+        }
+
+        .json-boolean {
+            color: #f97373;
+        }
+
+        .json-null {
+            color: #a5b4fc;
+            font-style: italic;
+        }
+
+        .json-brace {
+            color: #9ca3af;
+        }
+
+        :root[data-theme="light"] .json-key {
+            color: #1d4ed8;
+        }
+        :root[data-theme="light"] .json-string {
+            color: #16a34a;
+        }
+        :root[data-theme="light"] .json-number {
+            color: #b45309;
+        }
+        :root[data-theme="light"] .json-boolean {
+            color: #b91c1c;
+        }
+        :root[data-theme="light"] .json-null {
+            color: #4b5563;
+        }
+        :root[data-theme="light"] .json-brace {
+            color: #6b7280;
+        }
+
+        .copy-btn {
+            display: none;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            font-size: 11px;
+            border-radius: var(--radius-pill);
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            background: rgba(2, 6, 23, 0.92);
+            color: #e5e7eb;
+            cursor: pointer;
+            box-shadow: 0 10px 26px rgba(15, 23, 42, 0.95);
+        }
+
+        :root[data-theme="light"] .copy-btn {
+            background: #ffffff;
+            color: #111827;
+            box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+        }
+
+        .copy-btn:hover {
+            background: rgba(15, 23, 42, 1);
+            border-color: rgba(248, 250, 252, 0.75);
+        }
+
+        :root[data-theme="light"] .copy-btn:hover {
+            background: #f3f4f6;
+        }
+
+        /* PREVIEW MODAL */
+
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.75);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1200;
+        }
+
+        :root[data-theme="light"] .modal-backdrop {
+            background: rgba(15, 23, 42, 0.45);
+        }
+
+        .modal-card {
+            width: min(900px, 100% - 32px);
+            max-height: calc(100vh - 80px);
+            background: var(--bg-card);
+            border-radius: 18px;
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 0.9);
+            padding: 14px 16px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        :root[data-theme="light"] .modal-card {
+            box-shadow: 0 18px 50px rgba(15, 23, 42, 0.18);
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .modal-title {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .modal-subtitle {
+            margin: 2px 0 0;
+            font-size: 12px;
+            color: var(--text-soft);
+        }
+
+        .modal-close {
+            border: none;
+            background: transparent;
+            color: var(--text-soft);
+            cursor: pointer;
+            font-size: 16px;
+            padding: 4px;
+            border-radius: 999px;
+        }
+
+        .modal-close:hover {
+            background: rgba(15, 23, 42, 0.6);
+        }
+
+        :root[data-theme="light"] .modal-close:hover {
+            background: #e5e7eb;
+        }
+
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            min-height: 260px;
+        }
+
+        .preview-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .preview-controls-group--right {
+            margin-left: auto;
+        }
+        
+        .module-description {
+            font-size: 12px;
+            color: var(--text-soft);
+            flex-grow: 1;
+            padding: 10px 4px;
+        }
+
+        .preview-controls-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .preview-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-soft);
+        }
+
+        .preview-select {
+            min-width: 180px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            background: var(--bg-surface);
+            color: var(--text-main);
+            font-size: 12px;
+            outline: none;
+        }
+
+        .preview-select:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 1px var(--accent-outline);
+        }
+
+        .preview-langs {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .lang-pill {
+            padding: 5px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            background: rgba(15, 23, 42, 0.7);
+            font-size: 11px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        :root[data-theme="light"] .lang-pill {
+            background: #f9fafb;
+        }
+
+        .lang-pill input {
+            margin: 0;
+        }
+
+        .preview-tree-wrapper {
+            flex: 1;
+            min-height: 200px;
+            max-height: 420px;
+            border-radius: 12px;
+            border: 1px solid rgba(31, 41, 55, 0.9);
+            background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.15), transparent 55%),
+                var(--bg-json);
+            padding: 10px 12px;
+            overflow: auto;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                sans-serif;
+            font-size: 13px;
+        }
+
+        :root[data-theme="light"] .preview-tree-wrapper {
+            border-color: #e5e7eb;
+        }
+
+        .preview-empty {
+            font-size: 12px;
+            color: var(--text-soft);
+        }
+
+        .preview-tree {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .preview-tree ul {
+            list-style: none;
+            margin: 0;
+            padding-left: 16px;
+        }
+
+        .preview-node {
+            margin: 2px 0;
+        }
+
+        .preview-label-row {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 3px 6px;
+            border-radius: 999px;
+            cursor: default;
+            transition: background 0.12s ease-out, color 0.12s ease-out;
+        }
+
+        .preview-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            background: rgba(148, 163, 184, 0.8);
+        }
+
+        .preview-name {
+            font-size: 13px;
+        }
+
+        .preview-perms {
+            margin-left: 18px;
+            font-size: 11px;
+            color: var(--text-soft);
+        }
+
+        .preview-description {
+            margin-left: 18px;
+            font-size: 11px;
+            font-style: italic;
+            color: var(--text-soft);
+            padding-top: 2px;
+        }
+
+        .preview-label-row:hover {
+            background: rgba(15, 23, 42, 0.8);
+            color: #f9fafb;
+        }
+
+        :root[data-theme="light"] .preview-label-row:hover {
+            background: #e5e7eb;
+            color: #111827;
+        }
+
+        /* TOAST */
+
+        .toast {
+            visibility: hidden;
+            min-width: 260px;
+            background-color: rgba(15, 23, 42, 0.98);
+            color: #e5e7eb;
+            text-align: center;
+            border-radius: var(--radius-pill);
+            padding: 10px 16px;
+            position: fixed;
+            z-index: 1100;
+            left: 50%;
+            bottom: 26px;
+            transform: translateX(-50%);
+            font-size: 13px;
+            border: 1px solid rgba(148, 163, 184, 0.75);
+            box-shadow: 0 18px 46px rgba(15, 23, 42, 0.9);
+        }
+
+        :root[data-theme="light"] .toast {
+            background-color: #111827;
+            color: #f9fafb;
+            border-color: #1f2937;
+        }
+
+        .toast.show {
+            visibility: visible;
+            animation: fadein 0.35s ease-out, fadeout 0.45s ease-in 1.6s;
+        }
+
+        @keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+            to {
+                bottom: 26px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                bottom: 26px;
+                opacity: 1;
+            }
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header" onclick="goHome()">
+        <div class="header-inner">
+            <div class="logo-wrap">
+                <div class="logo-circle">W</div>
+                <div>
+                    <h1 class="header-title">WEBIMEL</h1>
+                    <p class="header-subtitle">Seed data viewer &amp; downloader</p>
+                </div>
+            </div>
+            <div class="header-right" onclick="event.stopPropagation()">
+                <span class="pill-tag">
+                    <span class="pill-dot"></span>
+                    JSON workspace
+                </span>
+                <button
+                    id="preview-open"
+                    type="button"
+                    class="btn btn-outline"
+                >
+                    👁️ Preview menija
+                </button>
+                <button
+                    id="theme-toggle"
+                    type="button"
+                    class="btn btn-outline"
+                >
+                    🌓 Tema
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-shell">
+        <div class="container">
+            <div class="page-header">
+                <div>
+                    <h2 class="page-title">Seed data kolekcije</h2>
+                    <p class="page-description">
+                        Pregledaj, pretraži, kopiraj ili preuzmi JSON seed fajlove za pojedine
+                        entitete. Klikom na “Prikaži JSON” otvaraš sadržaj i automatski
+                        se scrollaš do odgovarajuće sekcije.
+                    </p>
+                </div>
+                <div class="page-actions">
+                    <span class="badge-soft">JSON · readonly</span>
+                </div>
+            </div>
+
+            <div class="sections-grid">
+                <!-- Applications -->
+                <div id="applications" class="section">
+                    <div class="section-header">
+                        <div class="section-title-wrap">
+                            <h3>Applications</h3>
+                            <span class="section-caption">Definicije aplikacija i konfiguracija.</span>
+                        </div>
+                        <div class="section-controls">
+                            <button
+                                class="btn btn-primary"
+                                onclick="toggleJson('data/seed_data_applications.json', 'applications')"
+                            >
+                                <span class="btn-icon">📂</span> Prikaži JSON
+                            </button>
+                            <button
+                                class="btn btn-outline"
+                                onclick="downloadJson('data/seed_data_applications.json')"
+                            >
+                                <span class="btn-icon">⬇️</span> Preuzmi
+                            </button>
+                        </div>
+                    </div>
+                    <div class="json-container">
+                        <div class="json-search-wrap">
+                            <input
+                                type="text"
+                                class="json-search-input"
+                                placeholder="Pretraži JSON..."
+                                data-target="json9"
+                                oninput="handleJsonSearch(this)"
+                            />
+                            <span class="json-search-hint">Live pretraga &amp; highlight</span>
+                        </div>
+                        <pre id="json9" class="json-content"></pre>
+                        <button
+                            class="copy-btn"
+                            id="copy-btn-json9"
+                            onclick="copyJson('json9')"
+                        >
+                            Kopiraj JSON
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Companies -->
+                <div id="companies" class="section">
+                    <div class="section-header">
+                        <div class="section-title-wrap">
+                            <h3>Companies</h3>
+                            <span class="section-caption">Seed podaci za kompanije.</span>
+                        </div>
+                        <div class="section-controls">
+                            <button
+                                class="btn btn-primary"
+                                onclick="toggleJson('data/seed_data_companies.json', 'companies')"
+                            >
+                                <span class="btn-icon">📂</span> Prikaži JSON
+                            </button>
+                            <button
+                                class="btn btn-outline"
+                                onclick="downloadJson('data/seed_data_companies.json')"
+                            >
+                                <span class="btn-icon">⬇️</span> Preuzmi
+                            </button>
+                        </div>
+                    </div>
+                    <div class="json-container">
+                        <div class="json-search-wrap">
+                            <input
+                                type="text"
+                                class="json-search-input"
+                                placeholder="Pretraži JSON..."
+                                data-target="json1"
+                                oninput="handleJsonSearch(this)"
+                            />
+                            <span class="json-search-hint">Live pretraga &amp; highlight</span>
+                        </div>
+                        <pre id="json1" class="json-content"></pre>
+                        <button
+                            class="copy-btn"
+                            id="copy-btn-json1"
+                            onclick="copyJson('json1')"
+                        >
+                            Kopiraj JSON
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Modules -->
+                <div id="modules" class="section">
+                    <div class="section-header">
+                        <div class="section-title-wrap">
+                            <h3>Modules</h3>
+                            <span class="section-caption">Definicije modula sistema.</span>
+                        </div>
+                        <div class="section-controls">
+                            <button
+                                class="btn btn-primary"
+                                onclick="toggleJson('data/seed_data_modules.json', 'modules')"
+                            >
+                                <span class="btn-icon">📂</span> Prikaži JSON
+                            </button>
+                            <button
+                                class="btn btn-outline"
+                                onclick="downloadJson('data/seed_data_modules.json')"
+                            >
+                                <span class="btn-icon">⬇️</span> Preuzmi
+                            </button>
+                        </div>
+                    </div>
+                    <div class="json-container">
+                        <div class="json-search-wrap">
+                            <input
+                                type="text"
+                                class="json-search-input"
+                                placeholder="Pretraži JSON..."
+                                data-target="json2"
+                                oninput="handleJsonSearch(this)"
+                            />
+                            <span class="json-search-hint">Live pretraga &amp; highlight</span>
+                        </div>
+                        <pre id="json2" class="json-content"></pre>
+                        <button
+                            class="copy-btn"
+                            id="copy-btn-json2"
+                            onclick="copyJson('json2')"
+                        >
+                            Kopiraj JSON
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Roles -->
+                <div id="roles" class="section">
+                    <div class="section-header">
+                        <div class="section-title-wrap">
+                            <h3>Roles</h3>
+                            <span class="section-caption">Uloge korisnika i privilegije.</span>
+                        </div>
+                        <div class="section-controls">
+                            <button
+                                class="btn btn-primary"
+                                onclick="toggleJson('data/seed_data_roles.json', 'roles')"
+                            >
+                                <span class="btn-icon">📂</span> Prikaži JSON
+                            </button>
+                            <button
+                                class="btn btn-outline"
+                                onclick="downloadJson('data/seed_data_roles.json')"
+                            >
+                                <span class="btn-icon">⬇️</span> Preuzmi
+                            </button>
+                        </div>
+                    </div>
+                    <div class="json-container">
+                        <div class="json-search-wrap">
+                            <input
+                                type="text"
+                                class="json-search-input"
+                                placeholder="Pretraži JSON..."
+                                data-target="json3"
+                                oninput="handleJsonSearch(this)"
+                            />
+                            <span class="json-search-hint">Live pretraga &amp; highlight</span>
+                        </div>
+                        <pre id="json3" class="json-content"></pre>
+                        <button
+                            class="copy-btn"
+                            id="copy-btn-json3"
+                            onclick="copyJson('json3')"
+                        >
+                            Kopiraj JSON
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Permissions -->
+                <div id="permissions" class="section">
+                    <div class="section-header">
+                        <div class="section-title-wrap">
+                            <h3>Permissions</h3>
+                            <span class="section-caption">Detaljne permisije po entitetima.</span>
+                        </div>
+                        <div class="section-controls">
+                            <button
+                                class="btn btn-primary"
+                                onclick="toggleJson('data/seed_data_permissions.json', 'permissions')"
+                            >
+                                <span class="btn-icon">📂</span> Prikaži JSON
+                            </button>
+                            <button
+                                class="btn btn-outline"
+                                onclick="downloadJson('data/seed_data_permissions.json')"
+                            >
+                                <span class="btn-icon">⬇️</span> Preuzmi
+                            </button>
+                        </div>
+                    </div>
+                    <div class="json-container">
+                        <div class="json-search-wrap">
+                            <input
+                                type="text"
+                                class="json-search-input"
+                                placeholder="Pretraži JSON..."
+                                data-target="json4"
+                                oninput="handleJsonSearch(this)"
+                            />
+                            <span class="json-search-hint">Live pretraga &amp; highlight</span>
+                        </div>
+                        <pre id="json4" class="json-content"></pre>
+                        <button
+                            class="copy-btn"
+                            id="copy-btn-json4"
+                            onclick="copyJson('json4')"
+                        >
+                            Kopiraj JSON
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Menus -->
+                <div id="menus" class="section">
+                    <div class="section-header">
+                        <div class="section-title-wrap">
+                            <h3>Menus</h3>
+                            <span class="section-caption">Navigacioni meniji i struktura.</span>
+                        </div>
+                        <div class="section-controls">
+                            <button
+                                class="btn btn-primary"
+                                onclick="toggleJson('data/seed_data_menus.json', 'menus')"
+                            >
+                                <span class="btn-icon">📂</span> Prikaži JSON
+                            </button>
+                            <button
+                                class="btn btn-outline"
+                                onclick="downloadJson('data/seed_data_menus.json')"
+                            >
+                                <span class="btn-icon">⬇️</span> Preuzmi
+                            </button>
+                        </div>
+                    </div>
+                    <div class="json-container">
+                        <div class="json-search-wrap">
+                            <input
+                                type="text"
+                                class="json-search-input"
+                                placeholder="Pretraži JSON..."
+                                data-target="json5"
+                                oninput="handleJsonSearch(this)"
+                            />
+                            <span class="json-search-hint">Live pretraga &amp; highlight</span>
+                        </div>
+                        <pre id="json5" class="json-content"></pre>
+                        <button
+                            class="copy-btn"
+                            id="copy-btn-json5"
+                            onclick="copyJson('json5')"
+                        >
+                            Kopiraj JSON
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Modules-Menus -->
+                <div id="modulesmenus" class="section">
+                    <div class="section-header">
+                        <div class="section-title-wrap">
+                            <h3>Modules-Menus</h3>
+                            <span class="section-caption">Mapiranje modula na menije.</span>
+                        </div>
+                        <div class="section-controls">
+                            <button
+                                class="btn btn-primary"
+                                onclick="toggleJson('data/seed_data_modulesmenus.json', 'modulesmenus')"
+                            >
+                                <span class="btn-icon">📂</span> Prikaži JSON
+                            </button>
+                            <button
+                                class="btn btn-outline"
+                                onclick="downloadJson('data/seed_data_modulesmenus.json')"
+                            >
+                                <span class="btn-icon">⬇️</span> Preuzmi
+                            </button>
+                        </div>
+                    </div>
+                    <div class="json-container">
+                        <div class="json-search-wrap">
+                            <input
+                                type="text"
+                                class="json-search-input"
+                                placeholder="Pretraži JSON..."
+                                data-target="json6"
+                                oninput="handleJsonSearch(this)"
+                            />
+                            <span class="json-search-hint">Live pretraga &amp; highlight</span>
+                        </div>
+                        <pre id="json6" class="json-content"></pre>
+                        <button
+                            class="copy-btn"
+                            id="copy-btn-json6"
+                            onclick="copyJson('json6')"
+                        >
+                            Kopiraj JSON
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Modules-Menus-Permissions -->
+                <div id="modulesmenuspermissions" class="section">
+                    <div class="section-header">
+                        <div class="section-title-wrap">
+                            <h3>Modules-Menus-Permissions</h3>
+                            <span class="section-caption">Kombinacija modula, menija i prava.</span>
+                        </div>
+                        <div class="section-controls">
+                            <button
+                                class="btn btn-primary"
+                                onclick="toggleJson('data/seed_data_modulesmenuspermissions.json', 'modulesmenuspermissions')"
+                            >
+                                <span class="btn-icon">📂</span> Prikaži JSON
+                            </button>
+                            <button
+                                class="btn btn-outline"
+                                onclick="downloadJson('data/seed_data_modulesmenuspermissions.json')"
+                            >
+                                <span class="btn-icon">⬇️</span> Preuzmi
+                            </button>
+                        </div>
+                    </div>
+                    <div class="json-container">
+                        <div class="json-search-wrap">
+                            <input
+                                type="text"
+                                class="json-search-input"
+                                placeholder="Pretraži JSON..."
+                                data-target="json7"
+                                oninput="handleJsonSearch(this)"
+                            />
+                            <span class="json-search-hint">Live pretraga &amp; highlight</span>
+                        </div>
+                        <pre id="json7" class="json-content"></pre>
+                        <button
+                            class="copy-btn"
+                            id="copy-btn-json7"
+                            onclick="copyJson('json7')"
+                        >
+                            Kopiraj JSON
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Users -->
+                <div id="users" class="section">
+                    <div class="section-header">
+                        <div class="section-title-wrap">
+                            <h3>Users</h3>
+                            <span class="section-caption">Seed korisnici i login podaci.</span>
+                        </div>
+                        <div class="section-controls">
+                            <button
+                                class="btn btn-primary"
+                                onclick="toggleJson('data/seed_data_users.json', 'users')"
+                            >
+                                <span class="btn-icon">📂</span> Prikaži JSON
+                            </button>
+                            <button
+                                class="btn btn-outline"
+                                onclick="downloadJson('data/seed_data_users.json')"
+                            >
+                                <span class="btn-icon">⬇️</span> Preuzmi
+                            </button>
+                        </div>
+                    </div>
+                    <div class="json-container">
+                        <div class="json-search-wrap">
+                            <input
+                                type="text"
+                                class="json-search-input"
+                                placeholder="Pretraži JSON..."
+                                data-target="json8"
+                                oninput="handleJsonSearch(this)"
+                            />
+                            <span class="json-search-hint">Live pretraga &amp; highlight</span>
+                        </div>
+                        <pre id="json8" class="json-content"></pre>
+                        <button
+                            class="copy-btn"
+                            id="copy-btn-json8"
+                            onclick="copyJson('json8')"
+                        >
+                            Kopiraj JSON
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Work modalities -->
+                <div id="workmodalities" class="section">
+                    <div class="section-header">
+                        <div class="section-title-wrap">
+                            <h3>Work modalities</h3>
+                            <span class="section-caption">Tipovi angažmana i rada.</span>
+                        </div>
+                        <div class="section-controls">
+                            <button
+                                class="btn btn-primary"
+                                onclick="toggleJson('data/seed_data_workmodalities.json', 'workmodalities')"
+                            >
+                                <span class="btn-icon">📂</span> Prikaži JSON
+                            </button>
+                            <button
+                                class="btn btn-outline"
+                                onclick="downloadJson('data/seed_data_workmodalities.json')"
+                            >
+                                <span class="btn-icon">⬇️</span> Preuzmi
+                            </button>
+                        </div>
+                    </div>
+                    <div class="json-container">
+                        <div class="json-search-wrap">
+                            <input
+                                type="text"
+                                class="json-search-input"
+                                placeholder="Pretraži JSON..."
+                                data-target="json10"
+                                oninput="handleJsonSearch(this)"
+                            />
+                            <span class="json-search-hint">Live pretraga &amp; highlight</span>
+                        </div>
+                        <pre id="json10" class="json-content"></pre>
+                        <button
+                            class="copy-btn"
+                            id="copy-btn-json10"
+                            onclick="copyJson('json10')"
+                        >
+                            Kopiraj JSON
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preview modal -->
+    <div id="preview-modal" class="modal-backdrop">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div>
+                    <h3 class="modal-title">Preview menija po modulima</h3>
+                    <p class="modal-subtitle">
+                        Odaberi modul i jezik da vidiš hijerarhiju menija i permisija po stavci.
+                    </p>
+                </div>
+                <button id="preview-close" class="modal-close" type="button" aria-label="Zatvori">
+                    ✕
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="preview-controls">
+                    <div class="preview-controls-group">
+                        <span class="preview-label">Modul</span>
+                        <select id="preview-module" class="preview-select">
+                            <option value="">Učitavanje...</option>
+                        </select>
+                    </div>
+                    <div class="preview-controls-group preview-controls-group--right">
+                        <span class="preview-label">Jezik</span>
+                        <div class="preview-langs">
+                            <label class="lang-pill">
+                                <input type="radio" name="preview-lang" value="bs" checked />
+                                <span>BS</span>
+                            </label>
+                            <label class="lang-pill">
+                                <input type="radio" name="preview-lang" value="en" />
+                                <span>EN</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div id="preview-module-description" class="module-description"></div>
+                <div class="preview-tree-wrapper">
+                    <div id="preview-tree-container" class="preview-empty">
+                        Odaberi modul da prikažeš meni.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast poruka -->
+    <div id="toast" class="toast">JSON kopiran</div>
+
+    <script>
+        const THEME_KEY = "webimel-theme";
+
+        function updateThemeToggle(theme) {
+            const btn = document.getElementById("theme-toggle");
+            if (!btn) return;
+            btn.textContent = theme === "dark" ? "☀️ Light" : "🌙 Dark";
+        }
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute("data-theme", theme);
+            localStorage.setItem(THEME_KEY, theme);
+            updateThemeToggle(theme);
+        }
+
+        function initTheme() {
+            const stored = localStorage.getItem(THEME_KEY);
+            const prefersDark = window.matchMedia &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches;
+            const initial = stored || (prefersDark ? "dark" : "light");
+            setTheme(initial);
+        }
+
+        function toggleTheme() {
+            const current =
+                document.documentElement.getAttribute("data-theme") || "dark";
+            const next = current === "dark" ? "light" : "dark";
+            setTheme(next);
+        }
+
+        // Povratak na početnu
+        function goHome() {
+            history.pushState("", document.title, window.location.pathname + window.location.search);
+            window.location.reload();
+        }
+
+        // JSON syntax highlight (klasični viewer)
+        function syntaxHighlight(json) {
+            if (!json) return "";
+            let str = json
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;");
+
+            str = str.replace(
+                /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(?:\\s*:)?|\\b(true|false|null)\\b|-?\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d+)?)/g,
+                function (match) {
+                    let cls = "json-number";
+                    if (/^"/.test(match)) {
+                        if (/:$/.test(match)) {
+                            cls = "json-key";
+                            const key = match.slice(0, -1);
+                            return '<span class="' + cls + '">' + key + "</span>:";
+                        } else {
+                            cls = "json-string";
+                        }
+                    } else if (/true|false/.test(match)) {
+                        cls = "json-boolean";
+                    } else if (/null/.test(match)) {
+                        cls = "json-null";
+                    }
+                    return '<span class="' + cls + '">' + match + "</span>";
+                }
+            );
+
+            str = str.replace(
+                /([\\{\\}\\[\\]])/g,
+                '<span class="json-brace">$1</span>'
+            );
+
+            return str;
+        }
+
+        function escapeRegExp(string) {
+            return string.replace(/[.*+?^${}()|[\\]\\\\]/g, "\\\\$&");
+        }
+
+        // Live search unutar JSON-a + skrol na prvi pogodak
+        function handleJsonSearch(inputEl) {
+            const targetId = inputEl.getAttribute("data-target");
+            const pre = document.getElementById(targetId);
+            if (!pre) return;
+
+            const raw = pre.dataset.raw || pre.textContent || "";
+            if (!pre.dataset.raw) {
+                pre.dataset.raw = raw;
+            }
+
+            const query = inputEl.value.trim();
+            let html = syntaxHighlight(pre.dataset.raw);
+
+            if (query) {
+                const safe = escapeRegExp(query);
+                const re = new RegExp(safe, "gi");
+                html = html.replace(/<\/?mark>/g, "");
+                html = html.replace(re, function (m) {
+                    return "<mark>" + m + "</mark>";
+                });
+            }
+
+            pre.innerHTML = html;
+
+            if (query) {
+                const firstMark = pre.querySelector("mark");
+                if (firstMark) {
+                    firstMark.scrollIntoView({ block: "center" });
+                }
+            }
+        }
+
+        // Učitavanje JSON-a iz fajla
+        function loadJson(fileName, elementId) {
+            fetch(fileName)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Greška pri učitavanju fajla");
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    const jsonElement = document.getElementById(elementId);
+                    const pretty = JSON.stringify(data, null, 2);
+                    jsonElement.dataset.raw = pretty;
+                    jsonElement.innerHTML = syntaxHighlight(pretty);
+
+                    const searchInput = document.querySelector(
+                        '.json-search-input[data-target="' + elementId + '"]'
+                    );
+                    if (searchInput && searchInput.value.trim()) {
+                        handleJsonSearch(searchInput);
+                    }
+                })
+                .catch((error) => {
+                    alert("Došlo je do greške: " + error.message);
+                });
+        }
+
+        // Prikaz/skrivanje JSON sadržaja
+        function toggleJson(fileName, sectionId) {
+            const section = document.getElementById(sectionId);
+            const jsonElement = section.querySelector("pre");
+            const copyBtn = section.querySelector(".copy-btn");
+            const searchWrap = section.querySelector(".json-search-wrap");
+            const searchInput = section.querySelector(".json-search-input");
+            const isVisible = jsonElement.style.display === "block";
+
+            document.querySelectorAll(".json-content").forEach((el) => {
+                el.style.display = "none";
+            });
+            document.querySelectorAll(".copy-btn").forEach((btn) => {
+                btn.style.display = "none";
+            });
+            document.querySelectorAll(".json-search-wrap").forEach((wrap) => {
+                wrap.style.display = "none";
+            });
+
+            if (!isVisible) {
+                loadJson(fileName, jsonElement.id);
+                jsonElement.style.display = "block";
+                copyBtn.style.display = "inline-flex";
+                if (searchWrap) {
+                    searchWrap.style.display = "flex";
+                    if (searchInput) {
+                        searchInput.value = "";
+                    }
+                }
+                window.location.hash = sectionId;
+                setTimeout(() => {
+                    window.scrollTo(
+                        0,
+                        section.offsetTop - document.querySelector(".header").offsetHeight - 12
+                    );
+                }, 100);
+            } else {
+                jsonElement.style.display = "none";
+                copyBtn.style.display = "none";
+                history.pushState(
+                    "",
+                    document.title,
+                    window.location.pathname + window.location.search
+                );
+            }
+        }
+
+        // Kopiranje JSON sadržaja (čist JSON, bez HTML markupa)
+        function copyJson(elementId) {
+            const jsonElement = document.getElementById(elementId);
+            const raw = jsonElement.dataset.raw || jsonElement.textContent;
+            navigator.clipboard
+                .writeText(raw)
+                .then(() => showToast("JSON kopiran"))
+                .catch((err) => alert("Greška pri kopiranju: " + err));
+        }
+
+        // Preuzimanje JSON fajla
+        function downloadJson(fileName) {
+            const link = document.createElement("a");
+            link.href = fileName;
+            link.download = fileName.split("/").pop();
+            link.click();
+        }
+
+        // Toast poruka
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            toast.textContent = message;
+            toast.className = "toast show";
+            setTimeout(() => {
+                toast.className = toast.className.replace("show", "");
+            }, 2000);
+        }
+
+        // Provjera hash-a i automatsko otvaranje sekcije
+        function checkHash() {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                const section = document.getElementById(hash);
+                if (section) {
+                    const jsonElement = section.querySelector("pre");
+                    const copyBtn = section.querySelector(".copy-btn");
+                    const searchWrap = section.querySelector(".json-search-wrap");
+                    const searchInput = section.querySelector(".json-search-input");
+
+                    const fileName = section
+                        .querySelector("button")
+                        .getAttribute("onclick")
+                        .split("'")[1];
+                    const elementId = jsonElement.id;
+
+                    loadJson(fileName, elementId);
+                    jsonElement.style.display = "block";
+                    copyBtn.style.display = "inline-flex";
+                    if (searchWrap) {
+                        searchWrap.style.display = "flex";
+                        if (searchInput) {
+                            searchInput.value = "";
+                        }
+                    }
+                    setTimeout(() => {
+                        window.scrollTo(
+                            0,
+                            section.offsetTop - document.querySelector(".header").offsetHeight - 12
+                        );
+                    }, 100);
+                }
+            }
+        }
+
+        // PREVIEW DATA
+
+        let previewModules = null;
+        let previewMenus = null;
+        let previewModulesMenus = null;
+        let previewMmp = null;
+        let previewPermissions = null;
+        let previewDataLoaded = false;
+
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#39;");
+        }
+
+        async function ensurePreviewData() {
+            if (previewDataLoaded) return;
+            const [
+                modulesRes,
+                menusRes,
+                modulesMenusRes,
+                mmpRes,
+                permsRes
+            ] = await Promise.all([
+                fetch("data/seed_data_modules.json"),
+                fetch("data/seed_data_menus.json"),
+                fetch("data/seed_data_modulesmenus.json"),
+                fetch("data/seed_data_modulesmenuspermissions.json"),
+                fetch("data/seed_data_permissions.json")
+            ]);
+            if (!modulesRes.ok || !menusRes.ok || !modulesMenusRes.ok || !mmpRes.ok || !permsRes.ok) {
+                throw new Error("Greška pri učitavanju preview podataka");
+            }
+            previewModules = (await modulesRes.json()).filter(m => m.Deleted !== 1);
+            previewMenus = (await menusRes.json()).filter(m => m.Deleted !== 1);
+            previewModulesMenus = await modulesMenusRes.json();
+            previewMmp = await mmpRes.json();
+            previewPermissions = (await permsRes.json()).filter(p => p.Deleted !== 1);
+            previewDataLoaded = true;
+        }
+
+        function getSelectedPreviewLocale() {
+            const radio = document.querySelector('input[name="preview-lang"]:checked');
+            return radio ? radio.value : "bs";
+        }
+
+        function localizeModuleName(moduleName, locale) {
+            const m = previewModules.find((x) => x.Name === moduleName);
+            if (!m || !m.languages) return moduleName;
+            const lang = m.languages.find((l) => l.Locale === locale) || m.languages[0];
+            return lang && lang.Name ? lang.Name : moduleName;
+        }
+
+        function localizeModuleDescription(moduleName, locale) {
+            const m = previewModules.find((x) => x.Name === moduleName);
+            if (!m || !m.languages) return "";
+            const lang = m.languages.find((l) => l.Locale === locale) || m.languages[0];
+            return lang ? lang.Description || "" : "";
+        }
+
+        function localizeMenuTitle(menuId, locale) {
+            const m = previewMenus.find((x) => x.Id === menuId);
+            if (!m) return "(Menu not found)";
+            if (!m.languages) return "Menu " + menuId;
+            const lang = m.languages.find((l) => l.Locale === locale) || m.languages[0];
+            return lang && lang.Name ? lang.Name : "Menu " + menuId;
+        }
+
+        function localizeMenuDescription(menuId, locale) {
+            const m = previewMenus.find((x) => x.Id === menuId);
+            if (!m) return "";
+            if (!m.languages) return "";
+            const lang = m.languages.find((l) => l.Locale === locale) || m.languages[0];
+            return lang ? lang.Description || "" : "";
+        }
+
+        function buildPermissionsMapForModule(moduleName) {
+            const map = {};
+            const activePermissionNames = new Set(previewPermissions.map(p => p.Name));
+
+            previewMmp
+                .filter((x) => x.ModuleName === moduleName)
+                .forEach((item) => {
+                    const existing = map[item.MenuId] || [];
+                    const validPermissions = (item.Permissions || []).filter(p => activePermissionNames.has(p));
+                    const merged = Array.from(new Set([...existing, ...validPermissions]));
+                    map[item.MenuId] = merged;
+                });
+            return map;
+        }
+
+        function localizePermissions(permissionKeys, locale) {
+            if (!permissionKeys || !permissionKeys.length) return [];
+            return permissionKeys.reduce((acc, key) => {
+                const p = previewPermissions.find((x) => x.Name === key);
+                if (p) {
+                    const lang = (p.languages || []).find((l) => l.Locale === locale) || p.languages[0];
+                    const name = lang && lang.Name ? lang.Name : key;
+                    acc.push(name);
+                }
+                return acc;
+            }, []);
+        }
+
+        function buildMenuTreeForModule(moduleName, locale) {
+            const menuIdsInModule = new Set(
+                previewModulesMenus
+                    .filter((x) => x.ModuleName === moduleName && x.Status === 1 && x.ApiOnly === 0)
+                    .map(x => x.MenuId)
+            );
+
+            const items = previewMenus
+                .filter(m => menuIdsInModule.has(m.Id))
+                .map(m => {
+                    const mm = previewModulesMenus.find(x => x.MenuId === m.Id && x.ModuleName === moduleName);
+                    return {
+                        ...m,
+                        ParentMenuId: mm ? mm.ParentMenuId : null,
+                        SortNumber: mm ? mm.SortNumber : 0,
+                    };
+                })
+                .sort((a, b) => a.SortNumber - b.SortNumber);
+
+            if (!items.length) return "";
+
+            const byParent = {};
+            items.forEach((item) => {
+                const parentKey = item.ParentMenuId == null ? "root" : String(item.ParentMenuId);
+                if (!byParent[parentKey]) {
+                    byParent[parentKey] = [];
+                }
+                byParent[parentKey].push(item);
+            });
+
+            const permsMap = buildPermissionsMapForModule(moduleName);
+
+            function renderNodes(parentKey, depth) {
+                const children = byParent[parentKey] || [];
+                if (!children.length) return "";
+                let html = "<ul>";
+                children.forEach((ch) => {
+                    const title = localizeMenuTitle(ch.Id, locale);
+                    const description = localizeMenuDescription(ch.Id, locale);
+                    const permKeys = permsMap[ch.Id] || [];
+                    const permLabels = localizePermissions(permKeys, locale);
+                    const permText = permLabels.length
+                        ? permLabels.join(", ")
+                        : (locale === "bs" ? "Nema posebnih permisija" : "No specific permissions");
+                    html += `
+<li class="preview-node" data-menu-id="${ch.Id}">
+    <div class="preview-label-row" title="${escapeHtml(permText)}">
+        <span class="preview-dot"></span>
+        <span class="preview-name">${escapeHtml(title)}</span>
+    </div>
+    <div class="preview-description">${escapeHtml(description)}</div>
+    <div class="preview-perms">${escapeHtml(permText)}</div>
+    ${renderNodes(String(ch.Id), depth + 1)}
+</li>`;
+                });
+                html += "</ul>";
+                return html;
+            }
+
+            return `<ul class="preview-tree">${renderNodes("root", 0)}</ul>`;
+        }
+
+        function initPreviewModuleSelect() {
+            const select = document.getElementById("preview-module");
+            const locale = getSelectedPreviewLocale();
+            const current = select.value;
+            const modules = (previewModules || [])
+                .filter((m) => m.Status === 1 && m.Enabled === 1)
+                .sort((a, b) => a.SortNumber - b.SortNumber);
+            if (!modules.length) {
+                select.innerHTML = '<option value="">Nema dostupnih modula</option>';
+                return;
+            }
+            select.innerHTML = modules
+                .map((m) => {
+                    const label = localizeModuleName(m.Name, locale);
+                    return `<option value="${m.Name}">${escapeHtml(label)}</option>`;
+                })
+                .join("");
+            if (current && modules.some((m) => m.Name === current)) {
+                select.value = current;
+            }
+        }
+
+        function renderPreviewTree() {
+            const container = document.getElementById("preview-tree-container");
+            const select = document.getElementById("preview-module");
+            const moduleName = select.value;
+            const locale = getSelectedPreviewLocale();
+            const descriptionContainer = document.getElementById("preview-module-description");
+
+            if (!moduleName) {
+                container.className = "preview-empty";
+                container.textContent = "Odaberi modul da prikažeš meni.";
+                descriptionContainer.textContent = "";
+                return;
+            }
+
+            const description = localizeModuleDescription(moduleName, locale);
+            descriptionContainer.textContent = description;
+
+            const html = buildMenuTreeForModule(moduleName, locale);
+            if (!html) {
+                container.className = "preview-empty";
+                container.textContent = "Nema menija za odabrani modul.";
+            } else {
+                container.className = "";
+                container.innerHTML = html;
+            }
+        }
+
+        async function openPreviewModal() {
+            const modal = document.getElementById("preview-modal");
+            modal.style.display = "flex";
+            try {
+                await ensurePreviewData();
+                initPreviewModuleSelect();
+                renderPreviewTree();
+            } catch (e) {
+                showToast("Greška pri učitavanju preview podataka");
+            }
+        }
+
+        function closePreviewModal() {
+            const modal = document.getElementById("preview-modal");
+            modal.style.display = "none";
+        }
+
+        window.onhashchange = checkHash;
+
+        document.addEventListener("DOMContentLoaded", function () {
+            initTheme();
+            checkHash();
+
+            const themeToggle = document.getElementById("theme-toggle");
+            if (themeToggle) {
+                themeToggle.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    toggleTheme();
+                });
+            }
+
+            const previewOpen = document.getElementById("preview-open");
+            const previewClose = document.getElementById("preview-close");
+            const previewModal = document.getElementById("preview-modal");
+
+            if (previewOpen) {
+                previewOpen.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    openPreviewModal();
+                });
+            }
+            if (previewClose) {
+                previewClose.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    closePreviewModal();
+                });
+            }
+            if (previewModal) {
+                previewModal.addEventListener("click", function (e) {
+                    if (e.target === previewModal) {
+                        closePreviewModal();
+                    }
+                });
+            }
+
+            const langRadios = document.querySelectorAll('input[name="preview-lang"]');
+            langRadios.forEach((r) => {
+                r.addEventListener("change", () => {
+                    if (!previewDataLoaded) return;
+                    initPreviewModuleSelect();
+                    renderPreviewTree();
+                });
+            });
+
+            const moduleSelect = document.getElementById("preview-module");
+            moduleSelect.addEventListener("change", () => {
+                if (!previewDataLoaded) return;
+                renderPreviewTree();
+            });
+        });
+    </script>
+</body>
+</html>

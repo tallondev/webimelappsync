@@ -1,0 +1,1442 @@
+[
+  {
+    "ModuleName": "LINE_POS",
+    "MenuName": "Obrade",
+    "MenuId": 3,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },  
+  {
+    "ModuleName": "LINE_POS",
+    "MenuName": "Računi",
+    "MenuId": 21,
+    "Level": 1,
+    "ParentMenuId": 3,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "LINE_POS",
+    "MenuName": "Narudžbe za ugostiteljstvo",
+    "MenuId": 28,
+    "Level": 1,
+    "ParentMenuId": 3,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "LINE_POS",
+    "MenuName": "Zaključenje pazara radne stanice",
+    "MenuId": 29,
+    "Level": 1,
+    "ParentMenuId": 3,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "LINE_POS",
+    "MenuName": "Izvještaji",
+    "MenuId": 4,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "LINE_POS",
+    "MenuName": "Dnevni pazari i računi",
+    "MenuId": 26,
+    "Level": 1,
+    "ParentMenuId": 4,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "LINE_POS",
+    "MenuName": "Pregled zaliha",
+    "MenuId": 31,
+    "Level": 1,
+    "ParentMenuId": 4,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Registri",
+    "MenuId": 1, 
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Regionalna šema",
+    "MenuId": 11,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Organizaciona šema",
+    "MenuId": 12,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Struktura artikala",
+    "MenuId": 13,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Grupe i podgrupe",
+    "MenuId": 14,
+    "Level": 2,
+    "ParentMenuId": 13,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Jedinice mjera",
+    "MenuId": 15,
+    "Level": 2,
+    "ParentMenuId": 13,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Poreske tarife",
+    "MenuId": 2,
+    "Level": 2,
+    "ParentMenuId": 13,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Atributi artikala",
+    "MenuId": 27,
+    "Level": 2,
+    "ParentMenuId": 13,
+    "SortNumber": 4,
+    "Status": 1,
+    "ApiOnly": 0
+  },  
+  {
+    "ModuleName": "POS",
+    "MenuName": "Artikli i usluge",
+    "MenuId": 19,
+    "Level": 2,
+    "ParentMenuId": 13,
+    "SortNumber": 5,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Vrste promjena",
+    "MenuId": 32,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 4,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Skladišta",
+    "MenuId": 16,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 5,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Vrste cjenovnika",
+    "MenuId": 17,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 6,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Načini plaćanja",
+    "MenuId": 18,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 7,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Poslovni partneri",
+    "MenuId": 20,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 8,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Obrade",
+    "MenuId": 3,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Cjenovnici",
+    "MenuId": 22,
+    "Level": 1,
+    "ParentMenuId": 3,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Odložena plaćanja",
+    "MenuId": 25,
+    "Level": 1,
+    "ParentMenuId": 3,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Zaključenje pazara prodajnog objekta",
+    "MenuId": 30,
+    "Level": 1,
+    "ParentMenuId": 3,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Robno",
+    "MenuId": 33,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Kalkulacije",
+    "MenuId": 34,
+    "Level": 1,
+    "ParentMenuId": 33,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Nivelacije",
+    "MenuId": 35,
+    "Level": 1,
+    "ParentMenuId": 33,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Zapisnici ulaza",
+    "MenuId": 36,
+    "Level": 1,
+    "ParentMenuId": 33,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Zapisnici izlaza",
+    "MenuId": 37,
+    "Level": 1,
+    "ParentMenuId": 33,
+    "SortNumber": 4,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Prelokacije",
+    "MenuId": 38,
+    "Level": 1,
+    "ParentMenuId": 33,
+    "SortNumber": 5,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Povrat dobavljaču",
+    "MenuId": 39,
+    "Level": 1,
+    "ParentMenuId": 33,
+    "SortNumber": 6,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Popis",
+    "MenuId": 40,
+    "Level": 1,
+    "ParentMenuId": 33,
+    "SortNumber": 7,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Izvještaji",
+    "MenuId": 4,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 4,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Dnevni pazari i računi",
+    "MenuId": 26,
+    "Level": 1,
+    "ParentMenuId": 4,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Pregled zaliha",
+    "MenuId": 31,
+    "Level": 1,
+    "ParentMenuId": 4,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Podešenja",
+    "MenuId": 5,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 5,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Prodajni objekti",
+    "MenuId": 23,
+    "Level": 1,
+    "ParentMenuId": 5,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "POS",
+    "MenuName": "Radne stanice",
+    "MenuId": 24,
+    "Level": 1,
+    "ParentMenuId": 5,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "PALS",
+    "MenuName": "Regionalna šema",
+    "MenuId": 11,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "PALS",
+    "MenuName": "Organizaciona šema",
+    "MenuId": 12,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "PALS",
+    "MenuName": "Grupe i podgrupe",
+    "MenuId": 14,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "PALS",
+    "MenuName": "Jedinice mjera",
+    "MenuId": 15,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 4,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "PALS",
+    "MenuName": "Poreske tarife",
+    "MenuId": 2,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 5,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "PALS",
+    "MenuName": "Artikli i usluge",
+    "MenuId": 19,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 6,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "PALS",
+    "MenuName": "Vrste promjena",
+    "MenuId": 32,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 7,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "PALS",
+    "MenuName": "Poslovni partneri",
+    "MenuId": 20,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 8,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "PALS",
+    "MenuName": "Skladišta",
+    "MenuId": 16,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 9,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "PALS",
+    "MenuName": "Skladišne lokacije",
+    "MenuId": 41,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 10,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "PALS",
+    "MenuName": "Fakturni centri",
+    "MenuId": 42,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 11,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "PALS",
+    "MenuName": "Paletne etikete",
+    "MenuId": 43,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 12,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "PALS",
+    "MenuName": "Nalozi za isporuku",
+    "MenuId": 44,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 13,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "PALS",
+    "MenuName": "Prodajni objekti",
+    "MenuId": 23,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 14,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "PALS",
+    "MenuName": "Radne stanice",
+    "MenuId": 24,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 15,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "PALS",
+    "MenuName": "Radne stanice paleta",
+    "MenuId": 45,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 16,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "PALS",
+    "MenuName": "Promet paleta",
+    "MenuId": 46,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 17,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Regionalna šema",
+    "MenuId": 11,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Organizaciona šema",
+    "MenuId": 12,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Grupe i podgrupe",
+    "MenuId": 14,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Jedinice mjera",
+    "MenuId": 15,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 4,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Poreske tarife",
+    "MenuId": 2,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 5,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Artikli i usluge",
+    "MenuId": 19,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 6,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Vrste promjena",
+    "MenuId": 32,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 7,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Poslovni partneri",
+    "MenuId": 20,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 8,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Skladišta",
+    "MenuId": 16,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 9,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Skladišne lokacije",
+    "MenuId": 41,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 10,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Fakturni centri",
+    "MenuId": 42,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 11,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Vrste narudžbi za nabavku",
+    "MenuId": 51,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 12,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Nalozi za isporuku",
+    "MenuId": 44,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 13,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Prodajni objekti",
+    "MenuId": 23,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 14,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Radne stanice",
+    "MenuId": 24,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 15,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Mobilno skladište",
+    "MenuId": 48,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 16,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Narudžbe za nabavku",
+    "MenuId": 47,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 17,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Prijem robe u skladište",
+    "MenuId": 49,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 18,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Izlaz robe iz skladišta",
+    "MenuId": 50,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 19,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Povrat dobavljaču",
+    "MenuId": 39,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 20,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Vrste trebovanja",
+    "MenuId": 52,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 21,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Vrste troškova",
+    "MenuId": 81,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 22,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Trebovanja",
+    "MenuId": 53,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 23,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Skladišne prelokacije",
+    "MenuId": 54,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 24,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Popisne liste",
+    "MenuId": 55,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 25,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Faze proizvodnje",
+    "MenuId": 56,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 26,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Proizvodni centri",
+    "MenuId": 57,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 27,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Nalozi proizvodnje",
+    "MenuId": 58,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 28,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Realizacija proizvodnje",
+    "MenuId": 59,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 29,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "MOWS",
+    "MenuName": "Vrste naloga za isporuku",
+    "MenuId": 82,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 30,
+    "Status": 1,
+    "ApiOnly": 1
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Registri",
+    "MenuId": 1, 
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Vrste rada",
+    "MenuId": 66,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Knjige rada",
+    "MenuId": 68,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Smjene",
+    "MenuId": 67,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Šeme smjena",
+    "MenuId": 69,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 4,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Obrade",
+    "MenuId": 3,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Kalendar rada",
+    "MenuId": 62,
+    "Level": 1,
+    "ParentMenuId": 3,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Fond sati",
+    "MenuId": 63,
+    "Level": 1,
+    "ParentMenuId": 3,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Izvještaji",
+    "MenuId": 4,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Podešenja",
+    "MenuId": 60,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 4,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "HR",
+    "MenuName": "Registri",
+    "MenuId": 1, 
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "HR",
+    "MenuName": "Regionalna šema",
+    "MenuId": 11,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "HR",
+    "MenuName": "Organizaciona šema",
+    "MenuId": 12,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "HR",
+    "MenuName": "Radna mjesta",
+    "MenuId": 64,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "HR",
+    "MenuName": "Zaposlenici",
+    "MenuId": 65,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 4,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "HR",
+    "MenuName": "Obrade",
+    "MenuId": 3,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "HR",
+    "MenuName": "Izvještaji",
+    "MenuId": 4,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "HR",
+    "MenuName": "Podešenja",
+    "MenuId": 61,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 4,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "ADMINISTRATION",
+    "MenuName": "Kompanije",
+    "MenuId": 10,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "ADMINISTRATION",
+    "MenuName": "Uloge",
+    "MenuId": 6,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "ADMINISTRATION",
+    "MenuName": "Korisnici",
+    "MenuId": 7,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "ADMINISTRATION",
+    "MenuName": "Opšta podešenja",
+    "MenuId": 8,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 4,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "ADMINISTRATION",
+    "MenuName": "Izvještaj o promjenama",
+    "MenuId": 9,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 5,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Registri",
+    "MenuId": 1, 
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Regionalna šema",
+    "MenuId": 11,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Organizaciona šema",
+    "MenuId": 12,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Struktura artikala",
+    "MenuId": 13,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Grupe i podgrupe",
+    "MenuId": 14,
+    "Level": 2,
+    "ParentMenuId": 13,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Jedinice mjera",
+    "MenuId": 15,
+    "Level": 2,
+    "ParentMenuId": 13,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Poreske tarife",
+    "MenuId": 2,
+    "Level": 2,
+    "ParentMenuId": 13,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Atributi artikala",
+    "MenuId": 27,
+    "Level": 2,
+    "ParentMenuId": 13,
+    "SortNumber": 4,
+    "Status": 1,
+    "ApiOnly": 0
+  },  
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Artikli i usluge",
+    "MenuId": 19,
+    "Level": 2,
+    "ParentMenuId": 13,
+    "SortNumber": 5,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Vrste promjena",
+    "MenuId": 32,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 4,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Skladišta",
+    "MenuId": 16,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 5,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Poslovni partneri",
+    "MenuId": 20,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 6,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Vrste trebovanja",
+    "MenuId": 52,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 7,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Vrste narudžbi za nabavku",
+    "MenuId": 51,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 8,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Vrste troškova",
+    "MenuId": 81,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 9,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Vrste naloga za isporuku",
+    "MenuId": 82,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 10,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Obrade",
+    "MenuId": 3,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Promet skladišta",
+    "MenuId": 70,
+    "Level": 1,
+    "ParentMenuId": 3,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Prijem robe u skladište",
+    "MenuId": 49,
+    "Level": 2,
+    "ParentMenuId": 70,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Izlaz materijala",
+    "MenuId": 71,
+    "Level": 2,
+    "ParentMenuId": 70,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Trošak",
+    "MenuId": 72,
+    "Level": 3,
+    "ParentMenuId": 71,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Proizvodnja",
+    "MenuId": 73,
+    "Level": 3,
+    "ParentMenuId": 71,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Prodaja",
+    "MenuId": 74,
+    "Level": 3,
+    "ParentMenuId": 71,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Stalna sredstva",
+    "MenuId": 75,
+    "Level": 3,
+    "ParentMenuId": 71,
+    "SortNumber": 4,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Sitan inventar",
+    "MenuId": 76,
+    "Level": 3,
+    "ParentMenuId": 71,
+    "SortNumber": 5,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Skladišne prelokacije",
+    "MenuId": 54,
+    "Level": 2,
+    "ParentMenuId": 70,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Popis",
+    "MenuId": 77,
+    "Level": 1,
+    "ParentMenuId": 3,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Popisne liste",
+    "MenuId": 55,
+    "Level": 2,
+    "ParentMenuId": 77,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Komercijala",
+    "MenuId": 78,
+    "Level": 1,
+    "ParentMenuId": 3,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Trebovanja",
+    "MenuId": 53,
+    "Level": 2,
+    "ParentMenuId": 78,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Narudžbe za nabavku",
+    "MenuId": 47,
+    "Level": 2,
+    "ParentMenuId": 78,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Nalozi za isporuku",
+    "MenuId": 44,
+    "Level": 2,
+    "ParentMenuId": 78,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Izvještaji",
+    "MenuId": 4,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Pregled zaliha",
+    "MenuId": 79,
+    "Level": 1,
+    "ParentMenuId": 4,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Podešenja",
+    "MenuId": 80,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 4,
+    "Status": 1,
+    "ApiOnly": 0
+  }
+]
