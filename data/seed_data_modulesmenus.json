@@ -390,6 +390,16 @@
     "ApiOnly": 0
   },
   {
+    "ModuleName": "POS",
+    "MenuName": "Upravljanje šablonima",
+    "MenuId": 84,
+    "Level": 1,
+    "ParentMenuId": 5,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
     "ModuleName": "PALS",
     "MenuName": "Regionalna šema",
     "MenuId": 11,

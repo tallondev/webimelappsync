@@ -186,6 +186,12 @@
     "Permissions": ["view", "add", "edit", "delete", "export", "log"]
   },
   {
+    "ModuleName": "POS",
+    "MenuName": "Upravljanje šablonima",
+    "MenuId": 84,
+    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
+  },
+  {
     "ModuleName": "PALS",
     "MenuName": "Regionalna šema",
     "MenuId": 11,
