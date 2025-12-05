@@ -1201,11 +1201,21 @@
   },
   {
     "ModuleName": "WMS",
+    "MenuName": "Skladišne lokacije",
+    "MenuId": 41,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 6,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
     "MenuName": "Poslovni partneri",
     "MenuId": 20,
     "Level": 1,
     "ParentMenuId": 1,
-    "SortNumber": 6,
+    "SortNumber": 7,
     "Status": 1,
     "ApiOnly": 0
   },
@@ -1215,7 +1225,7 @@
     "MenuId": 52,
     "Level": 1,
     "ParentMenuId": 1,
-    "SortNumber": 7,
+    "SortNumber": 8,
     "Status": 1,
     "ApiOnly": 0
   },
@@ -1225,7 +1235,7 @@
     "MenuId": 81,
     "Level": 1,
     "ParentMenuId": 1,
-    "SortNumber": 8,
+    "SortNumber": 9,
     "Status": 1,
     "ApiOnly": 0
   },
@@ -1235,7 +1245,7 @@
     "MenuId": 83,
     "Level": 1,
     "ParentMenuId": 1,
-    "SortNumber": 9,
+    "SortNumber": 10,
     "Status": 1,
     "ApiOnly": 0
   },

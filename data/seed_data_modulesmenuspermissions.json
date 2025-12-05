@@ -625,6 +625,12 @@
   },
   {
     "ModuleName": "WMS",
+    "MenuName": "Skladišne lokacije",
+    "MenuId": 41,
+    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
+  },
+  {
+    "ModuleName": "WMS",
     "MenuName": "Poslovni partneri",
     "MenuId": 20,
     "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
