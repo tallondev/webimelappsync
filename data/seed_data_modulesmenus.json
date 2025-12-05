@@ -1092,7 +1092,7 @@
   {
     "ModuleName": "WMS",
     "MenuName": "Registri",
-    "MenuId": 1, 
+    "MenuId": 1,
     "Level": 0,
     "ParentMenuId": null,
     "SortNumber": 1,
@@ -1168,7 +1168,7 @@
     "SortNumber": 4,
     "Status": 1,
     "ApiOnly": 0
-  },  
+  },
   {
     "ModuleName": "WMS",
     "MenuName": "Artikli i usluge",
@@ -1221,8 +1221,8 @@
   },
   {
     "ModuleName": "WMS",
-    "MenuName": "Vrste narudžbi za nabavku",
-    "MenuId": 51,
+    "MenuName": "Vrste troškova",
+    "MenuId": 81,
     "Level": 1,
     "ParentMenuId": 1,
     "SortNumber": 8,
@@ -1231,8 +1231,8 @@
   },
   {
     "ModuleName": "WMS",
-    "MenuName": "Vrste troškova",
-    "MenuId": 81,
+    "MenuName": "Komercijala",
+    "MenuId": 83,
     "Level": 1,
     "ParentMenuId": 1,
     "SortNumber": 9,
@@ -1241,14 +1241,34 @@
   },
   {
     "ModuleName": "WMS",
-    "MenuName": "Vrste naloga za isporuku",
-    "MenuId": 82,
-    "Level": 1,
-    "ParentMenuId": 1,
-    "SortNumber": 10,
+    "MenuName": "Vrste narudžbi za nabavku",
+    "MenuId": 51,
+    "Level": 2,
+    "ParentMenuId": 83,
+    "SortNumber": 1,
     "Status": 1,
     "ApiOnly": 0
   },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Vrste naloga za isporuku",
+    "MenuId": 82,
+    "Level": 2,
+    "ParentMenuId": 83,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Fakturni centri",
+    "MenuId": 42,
+    "Level": 2,
+    "ParentMenuId": 83,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 0
+  } ,
   {
     "ModuleName": "WMS",
     "MenuName": "Obrade",

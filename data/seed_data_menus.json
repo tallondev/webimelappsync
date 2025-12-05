@@ -901,6 +901,17 @@
       { "Locale": "bs", "Name": "Vrste naloga za isporuku", "Description": "Pregled i upravljanje vrstama naloga za isporuku" },
       { "Locale": "en", "Name": "Sales Order Types", "Description": "View and manage types of customer sales orders" }
     ]
+  },
+  {
+    "Id": 83,
+    "Icon": "icon-commercial",
+    "IsObject": 0,
+    "TableName": null,
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Komercijala", "Description": "Komercijalni registri" },
+      { "Locale": "en", "Name": "Commercial", "Description": "Commercial registers" }
+    ]
   }
 
 ]
