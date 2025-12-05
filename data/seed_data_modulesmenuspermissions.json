@@ -742,5 +742,11 @@
     "MenuName": "Podešenja",
     "MenuId": 80,
     "Permissions": ["view", "edit", "log"]
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Upravljanje šablonima",
+    "MenuId": 84,
+    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
   }
 ]

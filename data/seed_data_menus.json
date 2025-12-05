@@ -994,6 +994,18 @@
       { "Locale": "bs", "Name": "Komercijala", "Description": "Komercijalni registri" },
       { "Locale": "en", "Name": "Commercial", "Description": "Commercial registers" }
     ]
+  },
+  {
+    "Id": 84,
+    "Icon": "icon-report-design",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "RegReportTemplates",
+    "Deleted": 0,
+    "languages": [
+      { "Locale": "bs", "Name": "Upravljanje šablonima", "Description": "Pregled i upravljanje šablonima izvještaja" },
+      { "Locale": "en", "Name": "Report Templates", "Description": "View and manage report templates" }
+    ]
   }
 
 ]

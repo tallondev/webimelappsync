@@ -1468,5 +1468,15 @@
     "SortNumber": 4,
     "Status": 1,
     "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Upravljanje šablonima",
+    "MenuId": 84,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 5,
+    "Status": 1,
+    "ApiOnly": 0
   }
 ]
