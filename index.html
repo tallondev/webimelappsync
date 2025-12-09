@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -418,7 +419,8 @@
         .json-content {
             display: none;
             background: var(--bg-json);
-            padding: 10px 12px 40px; /* extra bottom padding for copy button */
+            padding: 10px 12px 40px;
+            /* extra bottom padding for copy button */
             border-radius: 12px;
             border: 1px solid var(--border-json);
             white-space: pre-wrap;
@@ -486,18 +488,23 @@
         :root[data-theme="light"] .json-key {
             color: #1d4ed8;
         }
+
         :root[data-theme="light"] .json-string {
             color: #16a34a;
         }
+
         :root[data-theme="light"] .json-number {
             color: #b45309;
         }
+
         :root[data-theme="light"] .json-boolean {
             color: #b91c1c;
         }
+
         :root[data-theme="light"] .json-null {
             color: #4b5563;
         }
+
         :root[data-theme="light"] .json-brace {
             color: #6b7280;
         }
@@ -619,7 +626,7 @@
         .preview-controls-group--right {
             margin-left: auto;
         }
-        
+
         .module-description {
             font-size: 12px;
             color: var(--text-soft);
@@ -796,6 +803,13 @@
             color: #111827;
         }
 
+        .report-template-icon {
+            font-size: 12px;
+            margin-left: 6px;
+            opacity: 0.8;
+            cursor: help;
+        }
+
         /* TOAST */
 
         .toast {
@@ -832,6 +846,7 @@
                 bottom: 0;
                 opacity: 0;
             }
+
             to {
                 bottom: 26px;
                 opacity: 1;
@@ -843,6 +858,7 @@
                 bottom: 26px;
                 opacity: 1;
             }
+
             to {
                 bottom: 0;
                 opacity: 0;
@@ -850,6 +866,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="header" onclick="goHome()">
         <div class="header-inner">
@@ -865,18 +882,10 @@
                     <span class="pill-dot"></span>
                     JSON workspace
                 </span>
-                <button
-                    id="preview-open"
-                    type="button"
-                    class="btn btn-outline"
-                >
+                <button id="preview-open" type="button" class="btn btn-outline">
                     👁️ Preview menija
                 </button>
-                <button
-                    id="theme-toggle"
-                    type="button"
-                    class="btn btn-outline"
-                >
+                <button id="theme-toggle" type="button" class="btn btn-outline">
                     🌓 Tema
                 </button>
             </div>
@@ -908,37 +917,23 @@
                             <span class="section-caption">Definicije aplikacija i konfiguracija.</span>
                         </div>
                         <div class="section-controls">
-                            <button
-                                class="btn btn-primary"
-                                onclick="toggleJson('data/seed_data_applications.json', 'applications')"
-                            >
+                            <button class="btn btn-primary"
+                                onclick="toggleJson('data/seed_data_applications.json', 'applications')">
                                 <span class="btn-icon">📂</span> Prikaži JSON
                             </button>
-                            <button
-                                class="btn btn-outline"
-                                onclick="downloadJson('data/seed_data_applications.json')"
-                            >
+                            <button class="btn btn-outline" onclick="downloadJson('data/seed_data_applications.json')">
                                 <span class="btn-icon">⬇️</span> Preuzmi
                             </button>
                         </div>
                     </div>
                     <div class="json-container">
                         <div class="json-search-wrap">
-                            <input
-                                type="text"
-                                class="json-search-input"
-                                placeholder="Pretraži JSON..."
-                                data-target="json9"
-                                oninput="handleJsonSearch(this)"
-                            />
+                            <input type="text" class="json-search-input" placeholder="Pretraži JSON..."
+                                data-target="json9" oninput="handleJsonSearch(this)" />
                             <span class="json-search-hint">Live pretraga &amp; highlight</span>
                         </div>
                         <pre id="json9" class="json-content"></pre>
-                        <button
-                            class="copy-btn"
-                            id="copy-btn-json9"
-                            onclick="copyJson('json9')"
-                        >
+                        <button class="copy-btn" id="copy-btn-json9" onclick="copyJson('json9')">
                             Kopiraj JSON
                         </button>
                     </div>
@@ -952,37 +947,23 @@
                             <span class="section-caption">Seed podaci za kompanije.</span>
                         </div>
                         <div class="section-controls">
-                            <button
-                                class="btn btn-primary"
-                                onclick="toggleJson('data/seed_data_companies.json', 'companies')"
-                            >
+                            <button class="btn btn-primary"
+                                onclick="toggleJson('data/seed_data_companies.json', 'companies')">
                                 <span class="btn-icon">📂</span> Prikaži JSON
                             </button>
-                            <button
-                                class="btn btn-outline"
-                                onclick="downloadJson('data/seed_data_companies.json')"
-                            >
+                            <button class="btn btn-outline" onclick="downloadJson('data/seed_data_companies.json')">
                                 <span class="btn-icon">⬇️</span> Preuzmi
                             </button>
                         </div>
                     </div>
                     <div class="json-container">
                         <div class="json-search-wrap">
-                            <input
-                                type="text"
-                                class="json-search-input"
-                                placeholder="Pretraži JSON..."
-                                data-target="json1"
-                                oninput="handleJsonSearch(this)"
-                            />
+                            <input type="text" class="json-search-input" placeholder="Pretraži JSON..."
+                                data-target="json1" oninput="handleJsonSearch(this)" />
                             <span class="json-search-hint">Live pretraga &amp; highlight</span>
                         </div>
                         <pre id="json1" class="json-content"></pre>
-                        <button
-                            class="copy-btn"
-                            id="copy-btn-json1"
-                            onclick="copyJson('json1')"
-                        >
+                        <button class="copy-btn" id="copy-btn-json1" onclick="copyJson('json1')">
                             Kopiraj JSON
                         </button>
                     </div>
@@ -996,37 +977,23 @@
                             <span class="section-caption">Definicije modula sistema.</span>
                         </div>
                         <div class="section-controls">
-                            <button
-                                class="btn btn-primary"
-                                onclick="toggleJson('data/seed_data_modules.json', 'modules')"
-                            >
+                            <button class="btn btn-primary"
+                                onclick="toggleJson('data/seed_data_modules.json', 'modules')">
                                 <span class="btn-icon">📂</span> Prikaži JSON
                             </button>
-                            <button
-                                class="btn btn-outline"
-                                onclick="downloadJson('data/seed_data_modules.json')"
-                            >
+                            <button class="btn btn-outline" onclick="downloadJson('data/seed_data_modules.json')">
                                 <span class="btn-icon">⬇️</span> Preuzmi
                             </button>
                         </div>
                     </div>
                     <div class="json-container">
                         <div class="json-search-wrap">
-                            <input
-                                type="text"
-                                class="json-search-input"
-                                placeholder="Pretraži JSON..."
-                                data-target="json2"
-                                oninput="handleJsonSearch(this)"
-                            />
+                            <input type="text" class="json-search-input" placeholder="Pretraži JSON..."
+                                data-target="json2" oninput="handleJsonSearch(this)" />
                             <span class="json-search-hint">Live pretraga &amp; highlight</span>
                         </div>
                         <pre id="json2" class="json-content"></pre>
-                        <button
-                            class="copy-btn"
-                            id="copy-btn-json2"
-                            onclick="copyJson('json2')"
-                        >
+                        <button class="copy-btn" id="copy-btn-json2" onclick="copyJson('json2')">
                             Kopiraj JSON
                         </button>
                     </div>
@@ -1040,37 +1007,22 @@
                             <span class="section-caption">Uloge korisnika i privilegije.</span>
                         </div>
                         <div class="section-controls">
-                            <button
-                                class="btn btn-primary"
-                                onclick="toggleJson('data/seed_data_roles.json', 'roles')"
-                            >
+                            <button class="btn btn-primary" onclick="toggleJson('data/seed_data_roles.json', 'roles')">
                                 <span class="btn-icon">📂</span> Prikaži JSON
                             </button>
-                            <button
-                                class="btn btn-outline"
-                                onclick="downloadJson('data/seed_data_roles.json')"
-                            >
+                            <button class="btn btn-outline" onclick="downloadJson('data/seed_data_roles.json')">
                                 <span class="btn-icon">⬇️</span> Preuzmi
                             </button>
                         </div>
                     </div>
                     <div class="json-container">
                         <div class="json-search-wrap">
-                            <input
-                                type="text"
-                                class="json-search-input"
-                                placeholder="Pretraži JSON..."
-                                data-target="json3"
-                                oninput="handleJsonSearch(this)"
-                            />
+                            <input type="text" class="json-search-input" placeholder="Pretraži JSON..."
+                                data-target="json3" oninput="handleJsonSearch(this)" />
                             <span class="json-search-hint">Live pretraga &amp; highlight</span>
                         </div>
                         <pre id="json3" class="json-content"></pre>
-                        <button
-                            class="copy-btn"
-                            id="copy-btn-json3"
-                            onclick="copyJson('json3')"
-                        >
+                        <button class="copy-btn" id="copy-btn-json3" onclick="copyJson('json3')">
                             Kopiraj JSON
                         </button>
                     </div>
@@ -1084,37 +1036,23 @@
                             <span class="section-caption">Detaljne permisije po entitetima.</span>
                         </div>
                         <div class="section-controls">
-                            <button
-                                class="btn btn-primary"
-                                onclick="toggleJson('data/seed_data_permissions.json', 'permissions')"
-                            >
+                            <button class="btn btn-primary"
+                                onclick="toggleJson('data/seed_data_permissions.json', 'permissions')">
                                 <span class="btn-icon">📂</span> Prikaži JSON
                             </button>
-                            <button
-                                class="btn btn-outline"
-                                onclick="downloadJson('data/seed_data_permissions.json')"
-                            >
+                            <button class="btn btn-outline" onclick="downloadJson('data/seed_data_permissions.json')">
                                 <span class="btn-icon">⬇️</span> Preuzmi
                             </button>
                         </div>
                     </div>
                     <div class="json-container">
                         <div class="json-search-wrap">
-                            <input
-                                type="text"
-                                class="json-search-input"
-                                placeholder="Pretraži JSON..."
-                                data-target="json4"
-                                oninput="handleJsonSearch(this)"
-                            />
+                            <input type="text" class="json-search-input" placeholder="Pretraži JSON..."
+                                data-target="json4" oninput="handleJsonSearch(this)" />
                             <span class="json-search-hint">Live pretraga &amp; highlight</span>
                         </div>
                         <pre id="json4" class="json-content"></pre>
-                        <button
-                            class="copy-btn"
-                            id="copy-btn-json4"
-                            onclick="copyJson('json4')"
-                        >
+                        <button class="copy-btn" id="copy-btn-json4" onclick="copyJson('json4')">
                             Kopiraj JSON
                         </button>
                     </div>
@@ -1128,37 +1066,22 @@
                             <span class="section-caption">Navigacioni meniji i struktura.</span>
                         </div>
                         <div class="section-controls">
-                            <button
-                                class="btn btn-primary"
-                                onclick="toggleJson('data/seed_data_menus.json', 'menus')"
-                            >
+                            <button class="btn btn-primary" onclick="toggleJson('data/seed_data_menus.json', 'menus')">
                                 <span class="btn-icon">📂</span> Prikaži JSON
                             </button>
-                            <button
-                                class="btn btn-outline"
-                                onclick="downloadJson('data/seed_data_menus.json')"
-                            >
+                            <button class="btn btn-outline" onclick="downloadJson('data/seed_data_menus.json')">
                                 <span class="btn-icon">⬇️</span> Preuzmi
                             </button>
                         </div>
                     </div>
                     <div class="json-container">
                         <div class="json-search-wrap">
-                            <input
-                                type="text"
-                                class="json-search-input"
-                                placeholder="Pretraži JSON..."
-                                data-target="json5"
-                                oninput="handleJsonSearch(this)"
-                            />
+                            <input type="text" class="json-search-input" placeholder="Pretraži JSON..."
+                                data-target="json5" oninput="handleJsonSearch(this)" />
                             <span class="json-search-hint">Live pretraga &amp; highlight</span>
                         </div>
                         <pre id="json5" class="json-content"></pre>
-                        <button
-                            class="copy-btn"
-                            id="copy-btn-json5"
-                            onclick="copyJson('json5')"
-                        >
+                        <button class="copy-btn" id="copy-btn-json5" onclick="copyJson('json5')">
                             Kopiraj JSON
                         </button>
                     </div>
@@ -1172,37 +1095,23 @@
                             <span class="section-caption">Mapiranje modula na menije.</span>
                         </div>
                         <div class="section-controls">
-                            <button
-                                class="btn btn-primary"
-                                onclick="toggleJson('data/seed_data_modulesmenus.json', 'modulesmenus')"
-                            >
+                            <button class="btn btn-primary"
+                                onclick="toggleJson('data/seed_data_modulesmenus.json', 'modulesmenus')">
                                 <span class="btn-icon">📂</span> Prikaži JSON
                             </button>
-                            <button
-                                class="btn btn-outline"
-                                onclick="downloadJson('data/seed_data_modulesmenus.json')"
-                            >
+                            <button class="btn btn-outline" onclick="downloadJson('data/seed_data_modulesmenus.json')">
                                 <span class="btn-icon">⬇️</span> Preuzmi
                             </button>
                         </div>
                     </div>
                     <div class="json-container">
                         <div class="json-search-wrap">
-                            <input
-                                type="text"
-                                class="json-search-input"
-                                placeholder="Pretraži JSON..."
-                                data-target="json6"
-                                oninput="handleJsonSearch(this)"
-                            />
+                            <input type="text" class="json-search-input" placeholder="Pretraži JSON..."
+                                data-target="json6" oninput="handleJsonSearch(this)" />
                             <span class="json-search-hint">Live pretraga &amp; highlight</span>
                         </div>
                         <pre id="json6" class="json-content"></pre>
-                        <button
-                            class="copy-btn"
-                            id="copy-btn-json6"
-                            onclick="copyJson('json6')"
-                        >
+                        <button class="copy-btn" id="copy-btn-json6" onclick="copyJson('json6')">
                             Kopiraj JSON
                         </button>
                     </div>
@@ -1216,37 +1125,24 @@
                             <span class="section-caption">Kombinacija modula, menija i prava.</span>
                         </div>
                         <div class="section-controls">
-                            <button
-                                class="btn btn-primary"
-                                onclick="toggleJson('data/seed_data_modulesmenuspermissions.json', 'modulesmenuspermissions')"
-                            >
+                            <button class="btn btn-primary"
+                                onclick="toggleJson('data/seed_data_modulesmenuspermissions.json', 'modulesmenuspermissions')">
                                 <span class="btn-icon">📂</span> Prikaži JSON
                             </button>
-                            <button
-                                class="btn btn-outline"
-                                onclick="downloadJson('data/seed_data_modulesmenuspermissions.json')"
-                            >
+                            <button class="btn btn-outline"
+                                onclick="downloadJson('data/seed_data_modulesmenuspermissions.json')">
                                 <span class="btn-icon">⬇️</span> Preuzmi
                             </button>
                         </div>
                     </div>
                     <div class="json-container">
                         <div class="json-search-wrap">
-                            <input
-                                type="text"
-                                class="json-search-input"
-                                placeholder="Pretraži JSON..."
-                                data-target="json7"
-                                oninput="handleJsonSearch(this)"
-                            />
+                            <input type="text" class="json-search-input" placeholder="Pretraži JSON..."
+                                data-target="json7" oninput="handleJsonSearch(this)" />
                             <span class="json-search-hint">Live pretraga &amp; highlight</span>
                         </div>
                         <pre id="json7" class="json-content"></pre>
-                        <button
-                            class="copy-btn"
-                            id="copy-btn-json7"
-                            onclick="copyJson('json7')"
-                        >
+                        <button class="copy-btn" id="copy-btn-json7" onclick="copyJson('json7')">
                             Kopiraj JSON
                         </button>
                     </div>
@@ -1260,37 +1156,22 @@
                             <span class="section-caption">Seed korisnici i login podaci.</span>
                         </div>
                         <div class="section-controls">
-                            <button
-                                class="btn btn-primary"
-                                onclick="toggleJson('data/seed_data_users.json', 'users')"
-                            >
+                            <button class="btn btn-primary" onclick="toggleJson('data/seed_data_users.json', 'users')">
                                 <span class="btn-icon">📂</span> Prikaži JSON
                             </button>
-                            <button
-                                class="btn btn-outline"
-                                onclick="downloadJson('data/seed_data_users.json')"
-                            >
+                            <button class="btn btn-outline" onclick="downloadJson('data/seed_data_users.json')">
                                 <span class="btn-icon">⬇️</span> Preuzmi
                             </button>
                         </div>
                     </div>
                     <div class="json-container">
                         <div class="json-search-wrap">
-                            <input
-                                type="text"
-                                class="json-search-input"
-                                placeholder="Pretraži JSON..."
-                                data-target="json8"
-                                oninput="handleJsonSearch(this)"
-                            />
+                            <input type="text" class="json-search-input" placeholder="Pretraži JSON..."
+                                data-target="json8" oninput="handleJsonSearch(this)" />
                             <span class="json-search-hint">Live pretraga &amp; highlight</span>
                         </div>
                         <pre id="json8" class="json-content"></pre>
-                        <button
-                            class="copy-btn"
-                            id="copy-btn-json8"
-                            onclick="copyJson('json8')"
-                        >
+                        <button class="copy-btn" id="copy-btn-json8" onclick="copyJson('json8')">
                             Kopiraj JSON
                         </button>
                     </div>
@@ -1304,37 +1185,24 @@
                             <span class="section-caption">Tipovi angažmana i rada.</span>
                         </div>
                         <div class="section-controls">
-                            <button
-                                class="btn btn-primary"
-                                onclick="toggleJson('data/seed_data_workmodalities.json', 'workmodalities')"
-                            >
+                            <button class="btn btn-primary"
+                                onclick="toggleJson('data/seed_data_workmodalities.json', 'workmodalities')">
                                 <span class="btn-icon">📂</span> Prikaži JSON
                             </button>
-                            <button
-                                class="btn btn-outline"
-                                onclick="downloadJson('data/seed_data_workmodalities.json')"
-                            >
+                            <button class="btn btn-outline"
+                                onclick="downloadJson('data/seed_data_workmodalities.json')">
                                 <span class="btn-icon">⬇️</span> Preuzmi
                             </button>
                         </div>
                     </div>
                     <div class="json-container">
                         <div class="json-search-wrap">
-                            <input
-                                type="text"
-                                class="json-search-input"
-                                placeholder="Pretraži JSON..."
-                                data-target="json10"
-                                oninput="handleJsonSearch(this)"
-                            />
+                            <input type="text" class="json-search-input" placeholder="Pretraži JSON..."
+                                data-target="json10" oninput="handleJsonSearch(this)" />
                             <span class="json-search-hint">Live pretraga &amp; highlight</span>
                         </div>
                         <pre id="json10" class="json-content"></pre>
-                        <button
-                            class="copy-btn"
-                            id="copy-btn-json10"
-                            onclick="copyJson('json10')"
-                        >
+                        <button class="copy-btn" id="copy-btn-json10" onclick="copyJson('json10')">
                             Kopiraj JSON
                         </button>
                     </div>
@@ -1819,11 +1687,15 @@
 
                     const apiOnlyLabel = ch.ApiOnly === 1 ? '<span class="api-label">API</span>' : '';
 
+                    const reportTemplateTooltip = locale === 'en' ? 'Template management enabled' : 'Omogućeno upravljanje šablonima';
+                    const reportTemplateLabel = ch.HasReportTemplate === 1 ? `<span class="report-template-icon" title="${escapeHtml(reportTemplateTooltip)}">📄</span>` : '';
+
                     html += `
 <li class="preview-node" data-menu-id="${ch.Id}">
     <div class="preview-label-row">
         <span class="preview-dot"></span>
         <span class="preview-name">${escapeHtml(title)}</span>
+        ${reportTemplateLabel}
         ${apiOnlyLabel}
         <div class="perm-labels-container">${permLabelsHtml}</div>
     </div>
@@ -1965,4 +1837,5 @@
         });
     </script>
 </body>
+
 </html>

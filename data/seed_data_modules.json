@@ -7,8 +7,16 @@
     "Enabled": 1,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Line POS", "Description": "Predstavlja linijsku kasu za izdavanje računa na prodajnom mjestu. Omogućava brz unos stavki, podršku za fiskalizaciju, te izdavanje maloprodajnih računa." },
-      { "Locale": "en", "Name": "Line POS", "Description": "Represents a line-based POS system for issuing receipts at the point of sale. Enables fast item entry, fiscalization support, and retail invoice generation." }
+      {
+        "Locale": "bs",
+        "Name": "Line POS",
+        "Description": "Predstavlja linijsku kasu za izdavanje računa na prodajnom mjestu. Omogućava brz unos stavki, podršku za fiskalizaciju, te izdavanje maloprodajnih računa."
+      },
+      {
+        "Locale": "en",
+        "Name": "Line POS",
+        "Description": "Represents a line-based POS system for issuing receipts at the point of sale. Enables fast item entry, fiscalization support, and retail invoice generation."
+      }
     ]
   },
   {
@@ -19,8 +27,16 @@
     "Enabled": 1,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "POS", "Description": "Upravljanje prodajom efikasno uz unos i obradu transakcija, fiskalizaciju, praćenje zaliha, podršku za različite metode plaćanja i generisanje izvještaja. Povećanje efikasnosti i zadovoljstva kupaca brzim i pouzdanim uslugama" },
-      { "Locale": "en", "Name": "POS", "Description": "Efficient management of sales through transaction entry and processing, fiscalization, inventory tracking, support for various payment methods, and report generation. Enhancing efficiency and customer satisfaction with fast and reliable services." }
+      {
+        "Locale": "bs",
+        "Name": "POS",
+        "Description": "Upravljanje prodajom efikasno uz unos i obradu transakcija, fiskalizaciju, praćenje zaliha, podršku za različite metode plaćanja i generisanje izvještaja. Povećanje efikasnosti i zadovoljstva kupaca brzim i pouzdanim uslugama"
+      },
+      {
+        "Locale": "en",
+        "Name": "POS",
+        "Description": "Efficient management of sales through transaction entry and processing, fiscalization, inventory tracking, support for various payment methods, and report generation. Enhancing efficiency and customer satisfaction with fast and reliable services."
+      }
     ]
   },
   {
@@ -31,8 +47,16 @@
     "Enabled": 1,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "WMS", "Description": "Modul za upravljanje skladištem. Omogućava praćenje zaliha, prijem i otpremu robe, kontrolu lokacija, praćenje serijskih brojeva, blokade zaliha, planiranje inventura i integraciju sa mobilnim uređajima i ERP sistemom."},
-      { "Locale": "en", "Name": "WMS", "Description": "Warehouse Management System module. Enables stock tracking, goods receipt and dispatch, location control, serial number tracking, stock blocking, inventory planning, and integration with mobile devices and ERP system."}
+      {
+        "Locale": "bs",
+        "Name": "WMS",
+        "Description": "Modul za upravljanje skladištem. Omogućava praćenje zaliha, prijem i otpremu robe, kontrolu lokacija, praćenje serijskih brojeva, blokade zaliha, planiranje inventura i integraciju sa mobilnim uređajima i ERP sistemom."
+      },
+      {
+        "Locale": "en",
+        "Name": "WMS",
+        "Description": "Warehouse Management System module. Enables stock tracking, goods receipt and dispatch, location control, serial number tracking, stock blocking, inventory planning, and integration with mobile devices and ERP system."
+      }
     ]
   },
   {
@@ -43,8 +67,16 @@
     "Enabled": 1,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "HR", "Description": "Modul za upravljanje ljudskim resursima. Omogućava evidenciju zaposlenika, ugovora, pozicija, odsustava, beneficija i drugih podataka vezanih za kadrovsku administraciju." },
-      { "Locale": "en", "Name": "HR", "Description": "Human Resources Management module. Provides management of employees, contracts, positions, absences, benefits, and other HR-related administration." }
+      {
+        "Locale": "bs",
+        "Name": "HR",
+        "Description": "Modul za upravljanje ljudskim resursima. Omogućava evidenciju zaposlenika, ugovora, pozicija, odsustava, beneficija i drugih podataka vezanih za kadrovsku administraciju."
+      },
+      {
+        "Locale": "en",
+        "Name": "HR",
+        "Description": "Human Resources Management module. Provides management of employees, contracts, positions, absences, benefits, and other HR-related administration."
+      }
     ]
   },
   {
@@ -55,11 +87,18 @@
     "Enabled": 1,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "ERV", "Description": "Modul za evidenciju radnog vremena. Omogućava planiranje radnog kalendara, praćenje prisustva i odsustva zaposlenika, evidentiranje prekovremenog rada te automatski obračun sihtarice i radnih sati." },
-      { "Locale": "en", "Name": "WFM", "Description": "Workforce Management module. Enables planning of work calendars, tracking of attendance and absences, overtime logging, and automated timesheet and working hours calculation." }
+      {
+        "Locale": "bs",
+        "Name": "ERV",
+        "Description": "Modul za evidenciju radnog vremena. Omogućava planiranje radnog kalendara, praćenje prisustva i odsustva zaposlenika, evidentiranje prekovremenog rada te automatski obračun sihtarice i radnih sati."
+      },
+      {
+        "Locale": "en",
+        "Name": "WFM",
+        "Description": "Workforce Management module. Enables planning of work calendars, tracking of attendance and absences, overtime logging, and automated timesheet and working hours calculation."
+      }
     ]
   },
-
   {
     "Name": "PALS",
     "Logo": "/images/pals.png",
@@ -68,8 +107,16 @@
     "Enabled": 1,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "PALS", "Description": "Modul za evidenciju, praćenje i upravljanje prometom paleta. Omogućava optimizirano vođenje evidencije o stanju i kretanju paleta u skladištima i transportu." },
-      { "Locale": "en", "Name": "PALS", "Description": "Module for recording, tracking, and managing pallet transactions. Enables optimized record keeping of pallet status and movement in warehouses and transportation." }
+      {
+        "Locale": "bs",
+        "Name": "PALS",
+        "Description": "Modul za evidenciju, praćenje i upravljanje prometom paleta. Omogućava optimizirano vođenje evidencije o stanju i kretanju paleta u skladištima i transportu."
+      },
+      {
+        "Locale": "en",
+        "Name": "PALS",
+        "Description": "Module for recording, tracking, and managing pallet transactions. Enables optimized record keeping of pallet status and movement in warehouses and transportation."
+      }
     ]
   },
   {
@@ -80,20 +127,36 @@
     "Enabled": 1,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "MOWS", "Description": "Modul za mobilno upravljanje skladištem. Omogućava prijem i otpremu robe, povrate, prelokacije, raspored po lokacijama, sinhronizaciju i konfiguraciju putem mobilnih skenera." },
-      { "Locale": "en", "Name": "MOWS", "Description": "Mobile Warehousing System. Enables goods receipt and dispatch, returns, relocations, location mapping, synchronization and configuration via mobile scanners." }
+      {
+        "Locale": "bs",
+        "Name": "MOWS",
+        "Description": "Modul za mobilno upravljanje skladištem. Omogućava prijem i otpremu robe, povrate, prelokacije, raspored po lokacijama, sinhronizaciju i konfiguraciju putem mobilnih skenera."
+      },
+      {
+        "Locale": "en",
+        "Name": "MOWS",
+        "Description": "Mobile Warehousing System. Enables goods receipt and dispatch, returns, relocations, location mapping, synchronization and configuration via mobile scanners."
+      }
     ]
   },
   {
-  "Name": "ADMINISTRATION",
-  "Logo": "/images/administration.png",
-  "SortNumber": 8,
+    "Name": "ADMINISTRATION",
+    "Logo": "/images/administration.png",
+    "SortNumber": 8,
     "Status": 1,
     "Enabled": 1,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Administracija", "Description": "Upravljanje administrativnim zadacima, uključujući kompanije, korisničke uloge, dozvole, korisnike i konfiguracije sistema. Omogućava efikasno upravljanje resursima i postavkama sistema." },
-      { "Locale": "en", "Name": "Administration", "Description": "Management of administrative tasks, including companies, user roles, permissions, users and system configurations. Enables efficient management of resources and system settings." }
+      {
+        "Locale": "bs",
+        "Name": "Administracija",
+        "Description": "Upravljanje administrativnim zadacima, uključujući kompanije, korisničke uloge, dozvole, korisnike i konfiguracije sistema. Omogućava efikasno upravljanje resursima i postavkama sistema."
+      },
+      {
+        "Locale": "en",
+        "Name": "Administration",
+        "Description": "Management of administrative tasks, including companies, user roles, permissions, users and system configurations. Enables efficient management of resources and system settings."
+      }
     ]
   }
 ]

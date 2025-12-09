@@ -7,8 +7,16 @@
     "TableName": null,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Registri", "Description": "Registri podataka" },
-      { "Locale": "en", "Name": "Registers", "Description": "Data registers" }
+      {
+        "Locale": "bs",
+        "Name": "Registri",
+        "Description": "Registri podataka"
+      },
+      {
+        "Locale": "en",
+        "Name": "Registers",
+        "Description": "Data registers"
+      }
     ]
   },
   {
@@ -19,8 +27,16 @@
     "TableName": "RegTaxes,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Poreske tarife", "Description": "Pregled poreskih tarifa" },
-      { "Locale": "en", "Name": "Tax Rates", "Description": "View tax rates" }
+      {
+        "Locale": "bs",
+        "Name": "Poreske tarife",
+        "Description": "Pregled poreskih tarifa"
+      },
+      {
+        "Locale": "en",
+        "Name": "Tax Rates",
+        "Description": "View tax rates"
+      }
     ]
   },
   {
@@ -31,8 +47,16 @@
     "TableName": null,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Obrade", "Description": "Obrada podataka" },
-      { "Locale": "en", "Name": "Processing", "Description": "Data processing" }
+      {
+        "Locale": "bs",
+        "Name": "Obrade",
+        "Description": "Obrada podataka"
+      },
+      {
+        "Locale": "en",
+        "Name": "Processing",
+        "Description": "Data processing"
+      }
     ]
   },
   {
@@ -43,8 +67,16 @@
     "TableName": null,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Izvještaji", "Description": "Izvještaji" },
-      { "Locale": "en", "Name": "Reports", "Description": "Reports" }
+      {
+        "Locale": "bs",
+        "Name": "Izvještaji",
+        "Description": "Izvještaji"
+      },
+      {
+        "Locale": "en",
+        "Name": "Reports",
+        "Description": "Reports"
+      }
     ]
   },
   {
@@ -55,8 +87,16 @@
     "TableName": null,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Podešenja", "Description": "Podešenja" },
-      { "Locale": "en", "Name": "Settings", "Description": "Settings" }
+      {
+        "Locale": "bs",
+        "Name": "Podešenja",
+        "Description": "Podešenja"
+      },
+      {
+        "Locale": "en",
+        "Name": "Settings",
+        "Description": "Settings"
+      }
     ]
   },
   {
@@ -67,8 +107,16 @@
     "TableName": "CoreRoles,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Uloge", "Description": "Upravljanje ulogama" },
-      { "Locale": "en", "Name": "Roles", "Description": "Role management" }
+      {
+        "Locale": "bs",
+        "Name": "Uloge",
+        "Description": "Upravljanje ulogama"
+      },
+      {
+        "Locale": "en",
+        "Name": "Roles",
+        "Description": "Role management"
+      }
     ]
   },
   {
@@ -79,8 +127,16 @@
     "TableName": "CoreUsers,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Korisnici", "Description": "Upravljanje korisnicima" },
-      { "Locale": "en", "Name": "Users", "Description": "User management" }
+      {
+        "Locale": "bs",
+        "Name": "Korisnici",
+        "Description": "Upravljanje korisnicima"
+      },
+      {
+        "Locale": "en",
+        "Name": "Users",
+        "Description": "User management"
+      }
     ]
   },
   {
@@ -91,8 +147,16 @@
     "TableName": "CoreCompaniesSetup,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Opšta podešenja", "Description": "Opšta podešenja" },
-      { "Locale": "en", "Name": "General settings", "Description": "General settings" }
+      {
+        "Locale": "bs",
+        "Name": "Opšta podešenja",
+        "Description": "Opšta podešenja"
+      },
+      {
+        "Locale": "en",
+        "Name": "General settings",
+        "Description": "General settings"
+      }
     ]
   },
   {
@@ -103,8 +167,16 @@
     "TableName": "AuditLogs,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Izvještaj o promjenama", "Description": "Pregled promjena sistema" },
-      { "Locale": "en", "Name": "Change Report", "Description": "Overview of system changes" }
+      {
+        "Locale": "bs",
+        "Name": "Izvještaj o promjenama",
+        "Description": "Pregled promjena sistema"
+      },
+      {
+        "Locale": "en",
+        "Name": "Change Report",
+        "Description": "Overview of system changes"
+      }
     ]
   },
   {
@@ -114,9 +186,17 @@
     "HasReportTemplate": 0,
     "TableName": "CoreCompanies,",
     "Deleted": 0,
-    "languages": [ 
-      { "Locale": "bs", "Name": "Kompanije", "Description": "Pregled kompanija" }, 
-      { "Locale": "en", "Name": "Companies", "Description": "View companies" } 
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Kompanije",
+        "Description": "Pregled kompanija"
+      },
+      {
+        "Locale": "en",
+        "Name": "Companies",
+        "Description": "View companies"
+      }
     ]
   },
   {
@@ -127,8 +207,16 @@
     "TableName": "RegCountries,RegRegions,RegCities,RegPlaces,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Regionalna šema", "Description": "Pregled regionalne šeme" },
-      { "Locale": "en", "Name": "Regional Scheme", "Description": "View regional scheme" }
+      {
+        "Locale": "bs",
+        "Name": "Regionalna šema",
+        "Description": "Pregled regionalne šeme"
+      },
+      {
+        "Locale": "en",
+        "Name": "Regional Scheme",
+        "Description": "View regional scheme"
+      }
     ]
   },
   {
@@ -139,8 +227,16 @@
     "TableName": "RegOrganizationalStructures,RegBranchOffices,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Organizaciona šema", "Description": "Pregled organizacione šeme" },
-      { "Locale": "en", "Name": "Organizational Scheme", "Description": "View organizational scheme" }
+      {
+        "Locale": "bs",
+        "Name": "Organizaciona šema",
+        "Description": "Pregled organizacione šeme"
+      },
+      {
+        "Locale": "en",
+        "Name": "Organizational Scheme",
+        "Description": "View organizational scheme"
+      }
     ]
   },
   {
@@ -151,8 +247,16 @@
     "TableName": null,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Struktura artikala", "Description": "Pregled strukture artikala" },
-      { "Locale": "en", "Name": "Item Structure", "Description": "View item structure" }
+      {
+        "Locale": "bs",
+        "Name": "Struktura artikala",
+        "Description": "Pregled strukture artikala"
+      },
+      {
+        "Locale": "en",
+        "Name": "Item Structure",
+        "Description": "View item structure"
+      }
     ]
   },
   {
@@ -163,8 +267,16 @@
     "TableName": "RegGroupsOfProducts,RegSubgroupsOfProducts,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Grupe i podgrupe", "Description": "Pregled grupa i podgrupa" },
-      { "Locale": "en", "Name": "Groups and Subgroups", "Description": "View groups and subgroups" }
+      {
+        "Locale": "bs",
+        "Name": "Grupe i podgrupe",
+        "Description": "Pregled grupa i podgrupa"
+      },
+      {
+        "Locale": "en",
+        "Name": "Groups and Subgroups",
+        "Description": "View groups and subgroups"
+      }
     ]
   },
   {
@@ -175,8 +287,16 @@
     "TableName": "RegUnitsOfMeasure,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Jedinice mjera", "Description": "Pregled jedinica mjera" }, 
-      { "Locale": "en", "Name": "Measurement Units", "Description": "View measurement units" }
+      {
+        "Locale": "bs",
+        "Name": "Jedinice mjera",
+        "Description": "Pregled jedinica mjera"
+      },
+      {
+        "Locale": "en",
+        "Name": "Measurement Units",
+        "Description": "View measurement units"
+      }
     ]
   },
   {
@@ -187,8 +307,16 @@
     "TableName": "RegWarehouses,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Skladišta", "Description": "Pregled skladišta" }, 
-      { "Locale": "en", "Name": "Warehouses", "Description": "View warehouses" }
+      {
+        "Locale": "bs",
+        "Name": "Skladišta",
+        "Description": "Pregled skladišta"
+      },
+      {
+        "Locale": "en",
+        "Name": "Warehouses",
+        "Description": "View warehouses"
+      }
     ]
   },
   {
@@ -199,8 +327,16 @@
     "TableName": "RegPriceListTypes,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Vrste cjenovnika", "Description": "Pregled vrsta cjenovnika" },
-      { "Locale": "en", "Name": "Price List Types", "Description": "View price list types" }
+      {
+        "Locale": "bs",
+        "Name": "Vrste cjenovnika",
+        "Description": "Pregled vrsta cjenovnika"
+      },
+      {
+        "Locale": "en",
+        "Name": "Price List Types",
+        "Description": "View price list types"
+      }
     ]
   },
   {
@@ -211,8 +347,16 @@
     "TableName": "RegPaymentMethods,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Načini plaćanja", "Description": "Pregled načina plaćanja" },
-      { "Locale": "en", "Name": "Payment Methods", "Description": "View payment methods" }
+      {
+        "Locale": "bs",
+        "Name": "Načini plaćanja",
+        "Description": "Pregled načina plaćanja"
+      },
+      {
+        "Locale": "en",
+        "Name": "Payment Methods",
+        "Description": "View payment methods"
+      }
     ]
   },
   {
@@ -223,8 +367,16 @@
     "TableName": "RegProducts,RegProductBarCodes,RegProductProductAttributes,RegProductBatches,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Artikli i usluge", "Description": "Pregled artikala i usluga" }, 
-      { "Locale": "en", "Name": "Products and services", "Description": "View items and services" }
+      {
+        "Locale": "bs",
+        "Name": "Artikli i usluge",
+        "Description": "Pregled artikala i usluga"
+      },
+      {
+        "Locale": "en",
+        "Name": "Products and services",
+        "Description": "View items and services"
+      }
     ]
   },
   {
@@ -235,8 +387,16 @@
     "TableName": "RegBusinessPartners,RegBusinessPartnerVehicles,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Poslovni partneri", "Description": "Pregled poslovnih partnera" }, 
-      { "Locale": "en", "Name": "Business Partners", "Description": "View business partners" }
+      {
+        "Locale": "bs",
+        "Name": "Poslovni partneri",
+        "Description": "Pregled poslovnih partnera"
+      },
+      {
+        "Locale": "en",
+        "Name": "Business Partners",
+        "Description": "View business partners"
+      }
     ]
   },
   {
@@ -247,8 +407,16 @@
     "TableName": "PosRetailInvoices,PosRetailInvoiceItems,PosRetailInvoiceCustomers,PosRetailInvoicePaymentMethods,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Računi", "Description": "Pregled i izdavanje maloprodajnih računa" },
-      { "Locale": "en", "Name": "Receipts", "Description": "View and issue retail invoices" }
+      {
+        "Locale": "bs",
+        "Name": "Računi",
+        "Description": "Pregled i izdavanje maloprodajnih računa"
+      },
+      {
+        "Locale": "en",
+        "Name": "Receipts",
+        "Description": "View and issue retail invoices"
+      }
     ]
   },
   {
@@ -259,8 +427,16 @@
     "TableName": "SharedPriceLists,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Cjenovnici", "Description": "Omogućava kreiranje, uređivanje i pregled cjenovnika sa definisanim cijenama za različite artikle." },
-      { "Locale": "en", "Name": "Price Lists", "Description": "Allows creation, editing, and viewing of price lists with defined prices for various items." }
+      {
+        "Locale": "bs",
+        "Name": "Cjenovnici",
+        "Description": "Omogućava kreiranje, uređivanje i pregled cjenovnika sa definisanim cijenama za različite artikle."
+      },
+      {
+        "Locale": "en",
+        "Name": "Price Lists",
+        "Description": "Allows creation, editing, and viewing of price lists with defined prices for various items."
+      }
     ]
   },
   {
@@ -271,8 +447,16 @@
     "TableName": "RegSalesOutlets,RegSalesOutletWarehouses,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Prodajni objekti", "Description": "Evidencija prodajnih objekata koji su fizička mjesta prodaje u sistemu." },
-      { "Locale": "en", "Name": "Sales Outlets", "Description": "Registry of sales outlets that represent physical points of sale in the system." }
+      {
+        "Locale": "bs",
+        "Name": "Prodajni objekti",
+        "Description": "Evidencija prodajnih objekata koji su fizička mjesta prodaje u sistemu."
+      },
+      {
+        "Locale": "en",
+        "Name": "Sales Outlets",
+        "Description": "Registry of sales outlets that represent physical points of sale in the system."
+      }
     ]
   },
   {
@@ -283,8 +467,16 @@
     "TableName": "RegPointsOfSale,RegPointsOfSaleAreas,PalsPointOfSale,MowsPointOfSale,RegPointOfSaleInvoiceCenters,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Radne stanice", "Description": "Konfiguracija radnih stanica koje se koriste u okviru prodajnih objekata." },
-      { "Locale": "en", "Name": "Points of Sale", "Description": "Configuration of workstations used within sales outlets." }
+      {
+        "Locale": "bs",
+        "Name": "Radne stanice",
+        "Description": "Konfiguracija radnih stanica koje se koriste u okviru prodajnih objekata."
+      },
+      {
+        "Locale": "en",
+        "Name": "Points of Sale",
+        "Description": "Configuration of workstations used within sales outlets."
+      }
     ]
   },
   {
@@ -295,8 +487,16 @@
     "TableName": "PosDeferredPayments,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Odložena plaćanja", "Description": "Pregled i obrada kredita poslovnih partnera" },
-      { "Locale": "en", "Name": "Deferred Payments", "Description": "View and process business partner credits" }
+      {
+        "Locale": "bs",
+        "Name": "Odložena plaćanja",
+        "Description": "Pregled i obrada kredita poslovnih partnera"
+      },
+      {
+        "Locale": "en",
+        "Name": "Deferred Payments",
+        "Description": "View and process business partner credits"
+      }
     ]
   },
   {
@@ -307,8 +507,16 @@
     "TableName": "PosDailySalesByOutlet,PosDailySalesByPointOfSale,PosRetailInvoices,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Dnevni pazari i računi", "Description": "Pregled dnevnih pazara i računa" },
-      { "Locale": "en", "Name": "Daily sales and receipts", "Description": "View daily sales and receipts" }
+      {
+        "Locale": "bs",
+        "Name": "Dnevni pazari i računi",
+        "Description": "Pregled dnevnih pazara i računa"
+      },
+      {
+        "Locale": "en",
+        "Name": "Daily sales and receipts",
+        "Description": "View daily sales and receipts"
+      }
     ]
   },
   {
@@ -319,8 +527,16 @@
     "TableName": "RegProductAttributeGroups,RegProductAttributes,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Atributi artikala", "Description": "Evidencija atributa vezanih za artikle" },
-      { "Locale": "en", "Name": "Product Attributes", "Description": "Registry of attributes related to products" }
+      {
+        "Locale": "bs",
+        "Name": "Atributi artikala",
+        "Description": "Evidencija atributa vezanih za artikle"
+      },
+      {
+        "Locale": "en",
+        "Name": "Product Attributes",
+        "Description": "Registry of attributes related to products"
+      }
     ]
   },
   {
@@ -331,8 +547,16 @@
     "TableName": "PosHospitalityOrders,PosHospitalityOrderItems,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Narudžbe za ugostiteljstvo", "Description": "Obrada narudžbi u ugostiteljskim objektima" },
-      { "Locale": "en", "Name": "Hospitality Orders", "Description": "Processing hospitality orders" }
+      {
+        "Locale": "bs",
+        "Name": "Narudžbe za ugostiteljstvo",
+        "Description": "Obrada narudžbi u ugostiteljskim objektima"
+      },
+      {
+        "Locale": "en",
+        "Name": "Hospitality Orders",
+        "Description": "Processing hospitality orders"
+      }
     ]
   },
   {
@@ -343,8 +567,16 @@
     "TableName": "PosDailySalesByPointOfSale,PosRetailInvoices,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Zaključenje pazara radne stanice", "Description": "Završni obračun za pojedinačnu radnu stanicu" },
-      { "Locale": "en", "Name": "Workstation Closure", "Description": "Closing shift for a workstation" }
+      {
+        "Locale": "bs",
+        "Name": "Zaključenje pazara radne stanice",
+        "Description": "Završni obračun za pojedinačnu radnu stanicu"
+      },
+      {
+        "Locale": "en",
+        "Name": "Workstation Closure",
+        "Description": "Closing shift for a workstation"
+      }
     ]
   },
   {
@@ -355,8 +587,16 @@
     "TableName": "PosDailySalesByOutlet,PosDailySalesByPointOfSale,PosRetailInvoices,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Zaključenje pazara prodajnog objekta", "Description": "Završni obračun za cijeli prodajni objekat" },
-      { "Locale": "en", "Name": "Outlet Closure", "Description": "Closing shift for a sales outlet" }
+      {
+        "Locale": "bs",
+        "Name": "Zaključenje pazara prodajnog objekta",
+        "Description": "Završni obračun za cijeli prodajni objekat"
+      },
+      {
+        "Locale": "en",
+        "Name": "Outlet Closure",
+        "Description": "Closing shift for a sales outlet"
+      }
     ]
   },
   {
@@ -367,8 +607,16 @@
     "TableName": "SharedStockLists,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Pregled zaliha", "Description": "Pregled stanja zaliha na prodajnim mjestima" },
-      { "Locale": "en", "Name": "Stock Overview", "Description": "View of stock status at points of sale" }
+      {
+        "Locale": "bs",
+        "Name": "Pregled zaliha",
+        "Description": "Pregled stanja zaliha na prodajnim mjestima"
+      },
+      {
+        "Locale": "en",
+        "Name": "Stock Overview",
+        "Description": "View of stock status at points of sale"
+      }
     ]
   },
   {
@@ -380,11 +628,18 @@
     "Deleted": 0,
     "languages": [
       {
-        "Locale": "bs", "Name": "Vrste promjena", "Description": "Pregled vrsta promjena u sistemu" },
-      { "Locale": "en", "Name": "Change Types", "Description": "View of change types in the system"}
+        "Locale": "bs",
+        "Name": "Vrste promjena",
+        "Description": "Pregled vrsta promjena u sistemu"
+      },
+      {
+        "Locale": "en",
+        "Name": "Change Types",
+        "Description": "View of change types in the system"
+      }
     ]
   },
-{
+  {
     "Id": 33,
     "Icon": "icon-warehouse-operations",
     "IsObject": 0,
@@ -392,8 +647,16 @@
     "TableName": null,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Robno", "Description": "Robno poslovanje" },
-      { "Locale": "en", "Name": "Warehouse operations", "Description": "Warehouse operations" }
+      {
+        "Locale": "bs",
+        "Name": "Robno",
+        "Description": "Robno poslovanje"
+      },
+      {
+        "Locale": "en",
+        "Name": "Warehouse operations",
+        "Description": "Warehouse operations"
+      }
     ]
   },
   {
@@ -404,8 +667,16 @@
     "TableName": "SharedCalculations, SharedCalculationItems,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Kalkulacije", "Description": "Pregled robnih kalkulacija" },
-      { "Locale": "en", "Name": "Calculations", "Description": "View of goods calculations" }
+      {
+        "Locale": "bs",
+        "Name": "Kalkulacije",
+        "Description": "Pregled robnih kalkulacija"
+      },
+      {
+        "Locale": "en",
+        "Name": "Calculations",
+        "Description": "View of goods calculations"
+      }
     ]
   },
   {
@@ -416,8 +687,16 @@
     "TableName": "SharedRevaluations,SharedRevaluationItems,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Nivelacije", "Description": "Pregled robnih nivelacija" },
-      { "Locale": "en", "Name": "Revaluations", "Description": "View of goods revaluations" }
+      {
+        "Locale": "bs",
+        "Name": "Nivelacije",
+        "Description": "Pregled robnih nivelacija"
+      },
+      {
+        "Locale": "en",
+        "Name": "Revaluations",
+        "Description": "View of goods revaluations"
+      }
     ]
   },
   {
@@ -428,8 +707,16 @@
     "TableName": "SharedGoodsInbounds,SharedGoodsInboundItems,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Zapisnici ulaza", "Description": "Pregled robnih zapisnika ulaza" },
-      { "Locale": "en", "Name": "Goods Inbounds", "Description": "View of goods inbound records" }
+      {
+        "Locale": "bs",
+        "Name": "Zapisnici ulaza",
+        "Description": "Pregled robnih zapisnika ulaza"
+      },
+      {
+        "Locale": "en",
+        "Name": "Goods Inbounds",
+        "Description": "View of goods inbound records"
+      }
     ]
   },
   {
@@ -440,8 +727,16 @@
     "TableName": "SharedGoodsOutbounds,SharedGoodsOutboundItems,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Zapisnici izlaza", "Description": "Pregled robnih zapisnika izlaza" },
-      { "Locale": "en", "Name": "Goods Outbounds", "Description": "View of goods outbound records" }
+      {
+        "Locale": "bs",
+        "Name": "Zapisnici izlaza",
+        "Description": "Pregled robnih zapisnika izlaza"
+      },
+      {
+        "Locale": "en",
+        "Name": "Goods Outbounds",
+        "Description": "View of goods outbound records"
+      }
     ]
   },
   {
@@ -452,8 +747,16 @@
     "TableName": "SharedRelocations,SharedRelocationItems,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Prelokacije", "Description": "Pregled robnih prelokacija" },
-      { "Locale": "en", "Name": "Relocations", "Description": "View of goods relocations" }
+      {
+        "Locale": "bs",
+        "Name": "Prelokacije",
+        "Description": "Pregled robnih prelokacija"
+      },
+      {
+        "Locale": "en",
+        "Name": "Relocations",
+        "Description": "View of goods relocations"
+      }
     ]
   },
   {
@@ -464,8 +767,16 @@
     "TableName": "SharedRetailSupplierReturns,SharedRetailSupplierReturnItems,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Povrat dobavljaču", "Description": "Pregled povrata robe dobavljaču" },
-      { "Locale": "en", "Name": "Supplier Return", "Description": "View of retail goods returns to supplier" }
+      {
+        "Locale": "bs",
+        "Name": "Povrat dobavljaču",
+        "Description": "Pregled povrata robe dobavljaču"
+      },
+      {
+        "Locale": "en",
+        "Name": "Supplier Return",
+        "Description": "View of retail goods returns to supplier"
+      }
     ]
   },
   {
@@ -476,8 +787,16 @@
     "TableName": "SharedInventories,SharedInventoryItems,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Popis", "Description": "Pregled i unos dokumenata popisa zaliha" },
-      { "Locale": "en", "Name": "Inventory", "Description": "Review and entry of inventory stock documents" }
+      {
+        "Locale": "bs",
+        "Name": "Popis",
+        "Description": "Pregled i unos dokumenata popisa zaliha"
+      },
+      {
+        "Locale": "en",
+        "Name": "Inventory",
+        "Description": "Review and entry of inventory stock documents"
+      }
     ]
   },
   {
@@ -488,8 +807,16 @@
     "TableName": "RegWarehouseLocations,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Skladišne lokacije", "Description": "Pregled i upravljanje skladišnim lokacijama" },
-      { "Locale": "en", "Name": "Warehouse Locations", "Description": "View and manage warehouse locations" }
+      {
+        "Locale": "bs",
+        "Name": "Skladišne lokacije",
+        "Description": "Pregled i upravljanje skladišnim lokacijama"
+      },
+      {
+        "Locale": "en",
+        "Name": "Warehouse Locations",
+        "Description": "View and manage warehouse locations"
+      }
     ]
   },
   {
@@ -500,8 +827,16 @@
     "TableName": "RegInvoiceCenters,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Fakturni centri", "Description": "Pregled i upravljanje fakturnim centrima" },
-      { "Locale": "en", "Name": "Invoice Centers", "Description": "View and manage invoice centers" }
+      {
+        "Locale": "bs",
+        "Name": "Fakturni centri",
+        "Description": "Pregled i upravljanje fakturnim centrima"
+      },
+      {
+        "Locale": "en",
+        "Name": "Invoice Centers",
+        "Description": "View and manage invoice centers"
+      }
     ]
   },
   {
@@ -512,8 +847,16 @@
     "TableName": "PalsLabels,PalsLabelItems,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Paletne etikete", "Description": "Pregled i upravljanje etiketama za palete" },
-      { "Locale": "en", "Name": "Pallet Labels", "Description": "View and manage pallet labels" }
+      {
+        "Locale": "bs",
+        "Name": "Paletne etikete",
+        "Description": "Pregled i upravljanje etiketama za palete"
+      },
+      {
+        "Locale": "en",
+        "Name": "Pallet Labels",
+        "Description": "View and manage pallet labels"
+      }
     ]
   },
   {
@@ -524,8 +867,16 @@
     "TableName": "SharedSalesOrders,SharedSalesOrdersItems,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Nalozi za isporuku", "Description": "Pregled i upravljanje nalozima za isporuku" },
-      { "Locale": "en", "Name": "Delivery Orders", "Description": "View and manage delivery orders" }
+      {
+        "Locale": "bs",
+        "Name": "Nalozi za isporuku",
+        "Description": "Pregled i upravljanje nalozima za isporuku"
+      },
+      {
+        "Locale": "en",
+        "Name": "Delivery Orders",
+        "Description": "View and manage delivery orders"
+      }
     ]
   },
   {
@@ -536,8 +887,16 @@
     "TableName": "PalsPointOfSale,RegPointsOfSale,RegPointsOfSaleAreas,",
     "Deleted": 1,
     "languages": [
-      { "Locale": "bs", "Name": "Radne stanice paleta", "Description": "Pregled i upravljanje radnim stanicama za obradu paleta" },
-      { "Locale": "en", "Name": "Pallet Workstations", "Description": "View and manage pallet processing workstations" }
+      {
+        "Locale": "bs",
+        "Name": "Radne stanice paleta",
+        "Description": "Pregled i upravljanje radnim stanicama za obradu paleta"
+      },
+      {
+        "Locale": "en",
+        "Name": "Pallet Workstations",
+        "Description": "View and manage pallet processing workstations"
+      }
     ]
   },
   {
@@ -548,8 +907,16 @@
     "TableName": "PalsInbounds,PalsOutbounds,PalsTransactions,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Promet paleta", "Description": "Pregled i upravljanje prometom paleta" },
-      { "Locale": "en", "Name": "Pallet Transactions", "Description": "View and manage pallet transactions" }
+      {
+        "Locale": "bs",
+        "Name": "Promet paleta",
+        "Description": "Pregled i upravljanje prometom paleta"
+      },
+      {
+        "Locale": "en",
+        "Name": "Pallet Transactions",
+        "Description": "View and manage pallet transactions"
+      }
     ]
   },
   {
@@ -560,8 +927,16 @@
     "TableName": "SharedPurchaseOrders,SharedPurchaseOrderItems,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Narudžbe za nabavku", "Description": "Pregled i upravljanje narudžbama za nabavku" },
-      { "Locale": "en", "Name": "Purchase Orders", "Description": "View and manage purchase orders" }
+      {
+        "Locale": "bs",
+        "Name": "Narudžbe za nabavku",
+        "Description": "Pregled i upravljanje narudžbama za nabavku"
+      },
+      {
+        "Locale": "en",
+        "Name": "Purchase Orders",
+        "Description": "View and manage purchase orders"
+      }
     ]
   },
   {
@@ -571,8 +946,16 @@
     "TableName": "MowsInbounds,MowsOutbounds,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Mobilno skladište", "Description": "Pregled i upravljanje skladištima putem mobilnih skenera" },
-      { "Locale": "en", "Name": "Mobile Warehouse", "Description": "View and manage warehouses via mobile scanners" }
+      {
+        "Locale": "bs",
+        "Name": "Mobilno skladište",
+        "Description": "Pregled i upravljanje skladištima putem mobilnih skenera"
+      },
+      {
+        "Locale": "en",
+        "Name": "Mobile Warehouse",
+        "Description": "View and manage warehouses via mobile scanners"
+      }
     ]
   },
   {
@@ -583,8 +966,16 @@
     "TableName": "SharedWarehouseReceipts,SharedWarehouseReceiptItems,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Prijem robe u skladište", "Description": "Evidencija i praćenje prijema robe u skladište" },
-      { "Locale": "en", "Name": "Warehouse Receipts", "Description": "Record and track goods receipts into warehouse" }
+      {
+        "Locale": "bs",
+        "Name": "Prijem robe u skladište",
+        "Description": "Evidencija i praćenje prijema robe u skladište"
+      },
+      {
+        "Locale": "en",
+        "Name": "Warehouse Receipts",
+        "Description": "Record and track goods receipts into warehouse"
+      }
     ]
   },
   {
@@ -595,8 +986,16 @@
     "TableName": "SharedWarehouseIssues,SharedWarehouseIssueItems,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Izlaz robe iz skladišta", "Description": "Evidencija i praćenje izlaza robe iz skladišta" },
-      { "Locale": "en", "Name": "Warehouse Issues", "Description": "Record and track goods issues from warehouse" }
+      {
+        "Locale": "bs",
+        "Name": "Izlaz robe iz skladišta",
+        "Description": "Evidencija i praćenje izlaza robe iz skladišta"
+      },
+      {
+        "Locale": "en",
+        "Name": "Warehouse Issues",
+        "Description": "Record and track goods issues from warehouse"
+      }
     ]
   },
   {
@@ -607,8 +1006,16 @@
     "TableName": "RegPurchaseOrderTypes,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Vrste narudžbi za nabavku", "Description": "Pregled i upravljanje vrstama narudžbi za nabavku" },
-      { "Locale": "en", "Name": "Procurement Order Types", "Description": "View and manage types of procurement orders" }
+      {
+        "Locale": "bs",
+        "Name": "Vrste narudžbi za nabavku",
+        "Description": "Pregled i upravljanje vrstama narudžbi za nabavku"
+      },
+      {
+        "Locale": "en",
+        "Name": "Procurement Order Types",
+        "Description": "View and manage types of procurement orders"
+      }
     ]
   },
   {
@@ -619,8 +1026,16 @@
     "TableName": "RegRequisitionTypes",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Vrste trebovanja", "Description": "Pregled i upravljanje vrstama trebovanja" },
-      { "Locale": "en", "Name": "Requisition Types", "Description": "View and manage requisition types" }
+      {
+        "Locale": "bs",
+        "Name": "Vrste trebovanja",
+        "Description": "Pregled i upravljanje vrstama trebovanja"
+      },
+      {
+        "Locale": "en",
+        "Name": "Requisition Types",
+        "Description": "View and manage requisition types"
+      }
     ]
   },
   {
@@ -631,8 +1046,16 @@
     "TableName": "SharedRequisitions,SharedRequisitionItems",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Trebovanja", "Description": "Pregled i upravljanje trebovanjima" },
-      { "Locale": "en", "Name": "Requisitions", "Description": "View and manage requisitions" }
+      {
+        "Locale": "bs",
+        "Name": "Trebovanja",
+        "Description": "Pregled i upravljanje trebovanjima"
+      },
+      {
+        "Locale": "en",
+        "Name": "Requisitions",
+        "Description": "View and manage requisitions"
+      }
     ]
   },
   {
@@ -643,8 +1066,16 @@
     "TableName": "SharedWarehouseRelocations,SharedWarehouseRelocationItems",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Skladišne prelokacije", "Description": "Pregled i upravljanje skladišnim prelokacijama" },
-      { "Locale": "en", "Name": "Warehouse Relocations", "Description": "View and manage warehouse relocations" }
+      {
+        "Locale": "bs",
+        "Name": "Skladišne prelokacije",
+        "Description": "Pregled i upravljanje skladišnim prelokacijama"
+      },
+      {
+        "Locale": "en",
+        "Name": "Warehouse Relocations",
+        "Description": "View and manage warehouse relocations"
+      }
     ]
   },
   {
@@ -655,8 +1086,16 @@
     "TableName": "SharedStocktakingLists,SharedStocktakingListItems,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Popisne liste", "Description": "Pregled i unos dokumenata popisnih listi" },
-      { "Locale": "en", "Name": "Stocktaking Lists", "Description": "View and entry of stocktaking list documents" }
+      {
+        "Locale": "bs",
+        "Name": "Popisne liste",
+        "Description": "Pregled i unos dokumenata popisnih listi"
+      },
+      {
+        "Locale": "en",
+        "Name": "Stocktaking Lists",
+        "Description": "View and entry of stocktaking list documents"
+      }
     ]
   },
   {
@@ -667,8 +1106,16 @@
     "TableName": "RegProductionPhases,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Faze proizvodnje", "Description": "Pregled i upravljanje fazama proizvodnje" },
-      { "Locale": "en", "Name": "Production Phases", "Description": "View and manage production phases" }
+      {
+        "Locale": "bs",
+        "Name": "Faze proizvodnje",
+        "Description": "Pregled i upravljanje fazama proizvodnje"
+      },
+      {
+        "Locale": "en",
+        "Name": "Production Phases",
+        "Description": "View and manage production phases"
+      }
     ]
   },
   {
@@ -679,8 +1126,16 @@
     "TableName": "RegProductionCenters,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Proizvodni centri", "Description": "Pregled i upravljanje proizvodnim centrima" },
-      { "Locale": "en", "Name": "Production Centers", "Description": "View and manage production centers" }
+      {
+        "Locale": "bs",
+        "Name": "Proizvodni centri",
+        "Description": "Pregled i upravljanje proizvodnim centrima"
+      },
+      {
+        "Locale": "en",
+        "Name": "Production Centers",
+        "Description": "View and manage production centers"
+      }
     ]
   },
   {
@@ -691,8 +1146,16 @@
     "TableName": "SharedProductionOrders,SharedProductionOrderItems,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Nalozi proizvodnje", "Description": "Pregled, unos i zaključivanje naloga proizvodnje" },
-      { "Locale": "en", "Name": "Production Orders", "Description": "View, entry and conclude production orders" }
+      {
+        "Locale": "bs",
+        "Name": "Nalozi proizvodnje",
+        "Description": "Pregled, unos i zaključivanje naloga proizvodnje"
+      },
+      {
+        "Locale": "en",
+        "Name": "Production Orders",
+        "Description": "View, entry and conclude production orders"
+      }
     ]
   },
   {
@@ -703,8 +1166,16 @@
     "TableName": "SharedProductionRealizations,SharedProductionRealizationItems,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Realizacija proizvodnje", "Description": "Pregled, unos i zaključivanje realizacije proizvodnje" },
-      { "Locale": "en", "Name": "Production Realization", "Description": "View, entry and conclude production realization" }
+      {
+        "Locale": "bs",
+        "Name": "Realizacija proizvodnje",
+        "Description": "Pregled, unos i zaključivanje realizacije proizvodnje"
+      },
+      {
+        "Locale": "en",
+        "Name": "Production Realization",
+        "Description": "View, entry and conclude production realization"
+      }
     ]
   },
   {
@@ -715,8 +1186,16 @@
     "TableName": "WfmCompaniesSetup,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Podešenja", "Description": "Podešenja" },
-      { "Locale": "en", "Name": "Settings", "Description": "Settings" }
+      {
+        "Locale": "bs",
+        "Name": "Podešenja",
+        "Description": "Podešenja"
+      },
+      {
+        "Locale": "en",
+        "Name": "Settings",
+        "Description": "Settings"
+      }
     ]
   },
   {
@@ -727,8 +1206,16 @@
     "TableName": "HrCompaniesSetup,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Podešenja", "Description": "Podešenja" },
-      { "Locale": "en", "Name": "Settings", "Description": "Settings" }
+      {
+        "Locale": "bs",
+        "Name": "Podešenja",
+        "Description": "Podešenja"
+      },
+      {
+        "Locale": "en",
+        "Name": "Settings",
+        "Description": "Settings"
+      }
     ]
   },
   {
@@ -739,8 +1226,16 @@
     "TableName": "WfmCalendarExceptions,WfmCalendarExceptionItems,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Kalendar rada", "Description": "Definisanje i pregled kalendara rada i neradnih dana" },
-      { "Locale": "en", "Name": "Work Calendar",  "Description": "Define and view work calendars and non-working days" }
+      {
+        "Locale": "bs",
+        "Name": "Kalendar rada",
+        "Description": "Definisanje i pregled kalendara rada i neradnih dana"
+      },
+      {
+        "Locale": "en",
+        "Name": "Work Calendar",
+        "Description": "Define and view work calendars and non-working days"
+      }
     ]
   },
   {
@@ -751,8 +1246,16 @@
     "TableName": "WfmHoursFunds,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Fond sati", "Description": "Evidencija fonda sati po periodima" },
-      { "Locale": "en", "Name": "Hours Funds", "Description": "Record of working hours funds by periods" }
+      {
+        "Locale": "bs",
+        "Name": "Fond sati",
+        "Description": "Evidencija fonda sati po periodima"
+      },
+      {
+        "Locale": "en",
+        "Name": "Hours Funds",
+        "Description": "Record of working hours funds by periods"
+      }
     ]
   },
   {
@@ -763,8 +1266,16 @@
     "TableName": "HrWorkplaces,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Radna mjesta", "Description": "Evidencija radnih mjesta" },
-      { "Locale": "en", "Name": "Workplaces", "Description": "Registry of workplaces" }
+      {
+        "Locale": "bs",
+        "Name": "Radna mjesta",
+        "Description": "Evidencija radnih mjesta"
+      },
+      {
+        "Locale": "en",
+        "Name": "Workplaces",
+        "Description": "Registry of workplaces"
+      }
     ]
   },
   {
@@ -775,8 +1286,16 @@
     "TableName": "HrEmployees,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Zaposlenici", "Description": "Evidencija zaposlenika" },
-      { "Locale": "en", "Name": "Employees", "Description": "Registry of employees" }
+      {
+        "Locale": "bs",
+        "Name": "Zaposlenici",
+        "Description": "Evidencija zaposlenika"
+      },
+      {
+        "Locale": "en",
+        "Name": "Employees",
+        "Description": "Registry of employees"
+      }
     ]
   },
   {
@@ -787,8 +1306,16 @@
     "TableName": "WfmWorkTypes,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Vrste rada", "Description": "Evidencija i kategorizacija različitih vrsta rada zaposlenih" },
-      { "Locale": "en", "Name": "Work Types", "Description": "Registry for categorizing different types of employee work" }
+      {
+        "Locale": "bs",
+        "Name": "Vrste rada",
+        "Description": "Evidencija i kategorizacija različitih vrsta rada zaposlenih"
+      },
+      {
+        "Locale": "en",
+        "Name": "Work Types",
+        "Description": "Registry for categorizing different types of employee work"
+      }
     ]
   },
   {
@@ -799,8 +1326,16 @@
     "TableName": "WfmShifts,WfmShiftTimes,WfmShiftRestrictions,WfmShiftWorkTypes,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Smjene", "Description": "Upravljanje definicijama, vremenima i ograničenjima radnih smjena" },
-      { "Locale": "en", "Name": "Shifts", "Description": "Management of shift definitions, times, and restrictions" }
+      {
+        "Locale": "bs",
+        "Name": "Smjene",
+        "Description": "Upravljanje definicijama, vremenima i ograničenjima radnih smjena"
+      },
+      {
+        "Locale": "en",
+        "Name": "Shifts",
+        "Description": "Management of shift definitions, times, and restrictions"
+      }
     ]
   },
   {
@@ -811,8 +1346,16 @@
     "TableName": "WfmWorkBooks,WfmWorkBookResponsiblePersons,WfmWorkBookEmployees,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Knjige rada", "Description": "Grupisanje zaposlenika u jedinstvene knjige rada s odgovornim osobama." },
-      { "Locale": "en", "Name": "Work Books", "Description": "Grouping employees into unified work books with responsible persons." }
+      {
+        "Locale": "bs",
+        "Name": "Knjige rada",
+        "Description": "Grupisanje zaposlenika u jedinstvene knjige rada s odgovornim osobama."
+      },
+      {
+        "Locale": "en",
+        "Name": "Work Books",
+        "Description": "Grouping employees into unified work books with responsible persons."
+      }
     ]
   },
   {
@@ -823,11 +1366,19 @@
     "TableName": "WfmSchemes,WfmSchemeShifts,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Šeme smjena", "Description": "Predlošci smjena s redoslijedom i trajanjem po danima." },
-      { "Locale": "en", "Name": "Shift Schemes", "Description": "Shift templates with order and duration in days." }
+      {
+        "Locale": "bs",
+        "Name": "Šeme smjena",
+        "Description": "Predlošci smjena s redoslijedom i trajanjem po danima."
+      },
+      {
+        "Locale": "en",
+        "Name": "Shift Schemes",
+        "Description": "Shift templates with order and duration in days."
+      }
     ]
   },
- {
+  {
     "Id": 70,
     "Icon": "icon-warehouse-operations",
     "IsObject": 0,
@@ -835,20 +1386,36 @@
     "TableName": null,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Promet skladišta", "Description": "Evidencija i obrada prometa u skladištima." },
-      { "Locale": "en", "Name": "Warehouse Transactions", "Description": "Recording and processing of warehouse transactions." }
+      {
+        "Locale": "bs",
+        "Name": "Promet skladišta",
+        "Description": "Evidencija i obrada prometa u skladištima."
+      },
+      {
+        "Locale": "en",
+        "Name": "Warehouse Transactions",
+        "Description": "Recording and processing of warehouse transactions."
+      }
     ]
   },
   {
     "Id": 71,
     "Icon": "icon-goods-outbounds",
     "IsObject": 0,
-    "HasReportTemplate": 1,
+    "HasReportTemplate": 0,
     "TableName": null,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Izlaz materijala", "Description": "Evidencija izlaza materijala iz skladišta." },
-      { "Locale": "en", "Name": "Material Outbound", "Description": "Recording of material outbound transactions." }
+      {
+        "Locale": "bs",
+        "Name": "Izlaz materijala",
+        "Description": "Evidencija izlaza materijala iz skladišta."
+      },
+      {
+        "Locale": "en",
+        "Name": "Material Outbound",
+        "Description": "Recording of material outbound transactions."
+      }
     ]
   },
   {
@@ -859,8 +1426,16 @@
     "TableName": "SharedWarehouseReceipts,SharedWarehouseIssueItems,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Trošak", "Description": "Evidencija izlaza materijala po osnovu troška." },
-      { "Locale": "en", "Name": "Cost", "Description": "Material outbound based on cost." }
+      {
+        "Locale": "bs",
+        "Name": "Trošak",
+        "Description": "Evidencija izlaza materijala po osnovu troška."
+      },
+      {
+        "Locale": "en",
+        "Name": "Cost",
+        "Description": "Material outbound based on cost."
+      }
     ]
   },
   {
@@ -871,8 +1446,16 @@
     "TableName": "SharedWarehouseReceipts,SharedWarehouseIssueItems",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Proizvodnja", "Description": "Izlaz materijala po osnovu proizvodnje." },
-      { "Locale": "en", "Name": "Production", "Description": "Material outbound for production purposes." }
+      {
+        "Locale": "bs",
+        "Name": "Proizvodnja",
+        "Description": "Izlaz materijala po osnovu proizvodnje."
+      },
+      {
+        "Locale": "en",
+        "Name": "Production",
+        "Description": "Material outbound for production purposes."
+      }
     ]
   },
   {
@@ -883,8 +1466,16 @@
     "TableName": "SharedWarehouseReceipts,SharedWarehouseIssueItems",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Prodaja", "Description": "Izlaz materijala po osnovu prodaje." },
-      { "Locale": "en", "Name": "Sales", "Description": "Material outbound based on sales transactions." }
+      {
+        "Locale": "bs",
+        "Name": "Prodaja",
+        "Description": "Izlaz materijala po osnovu prodaje."
+      },
+      {
+        "Locale": "en",
+        "Name": "Sales",
+        "Description": "Material outbound based on sales transactions."
+      }
     ]
   },
   {
@@ -895,8 +1486,16 @@
     "TableName": "SharedWarehouseReceipts,SharedWarehouseIssueItems",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Stalna sredstva", "Description": "Izlaz materijala za stalna sredstva." },
-      { "Locale": "en", "Name": "Fixed Assets", "Description": "Material outbound for fixed assets." }
+      {
+        "Locale": "bs",
+        "Name": "Stalna sredstva",
+        "Description": "Izlaz materijala za stalna sredstva."
+      },
+      {
+        "Locale": "en",
+        "Name": "Fixed Assets",
+        "Description": "Material outbound for fixed assets."
+      }
     ]
   },
   {
@@ -907,8 +1506,16 @@
     "TableName": "SharedWarehouseReceipts,SharedWarehouseIssueItems",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Sitan inventar", "Description": "Izlaz materijala za sitan inventar." },
-      { "Locale": "en", "Name": "Small Inventory", "Description": "Material outbound for small inventory items." }
+      {
+        "Locale": "bs",
+        "Name": "Sitan inventar",
+        "Description": "Izlaz materijala za sitan inventar."
+      },
+      {
+        "Locale": "en",
+        "Name": "Small Inventory",
+        "Description": "Material outbound for small inventory items."
+      }
     ]
   },
   {
@@ -919,8 +1526,16 @@
     "TableName": null,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Popis", "Description": "Popis zaliha i usklađivanje stvarnog stanja." },
-      { "Locale": "en", "Name": "Inventory", "Description": "Stocktaking and reconciliation of actual stock." }
+      {
+        "Locale": "bs",
+        "Name": "Popis",
+        "Description": "Popis zaliha i usklađivanje stvarnog stanja."
+      },
+      {
+        "Locale": "en",
+        "Name": "Inventory",
+        "Description": "Stocktaking and reconciliation of actual stock."
+      }
     ]
   },
   {
@@ -931,8 +1546,16 @@
     "TableName": null,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Komercijala", "Description": "Komercijalne funkcije i evidencije vezane za skladišno poslovanje." },
-      { "Locale": "en", "Name": "Commercial", "Description": "Commercial functions and records related to warehouse operations." }
+      {
+        "Locale": "bs",
+        "Name": "Komercijala",
+        "Description": "Komercijalne funkcije i evidencije vezane za skladišno poslovanje."
+      },
+      {
+        "Locale": "en",
+        "Name": "Commercial",
+        "Description": "Commercial functions and records related to warehouse operations."
+      }
     ]
   },
   {
@@ -943,8 +1566,16 @@
     "TableName": "WmsTraffic,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Pregled zaliha", "Description": "Pregled trenutnog stanja zaliha u skladištima." },
-      { "Locale": "en", "Name": "Stock Overview", "Description": "Overview of current warehouse stock levels." }
+      {
+        "Locale": "bs",
+        "Name": "Pregled zaliha",
+        "Description": "Pregled trenutnog stanja zaliha u skladištima."
+      },
+      {
+        "Locale": "en",
+        "Name": "Stock Overview",
+        "Description": "Overview of current warehouse stock levels."
+      }
     ]
   },
   {
@@ -955,8 +1586,16 @@
     "TableName": "WmsCompaniesSetup,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Podešenja", "Description": "Postavke i konfiguracija modula skladišnog poslovanja." },
-      { "Locale": "en", "Name": "Settings", "Description": "Module configuration and settings for warehouse operations." }
+      {
+        "Locale": "bs",
+        "Name": "Podešenja",
+        "Description": "Postavke i konfiguracija modula skladišnog poslovanja."
+      },
+      {
+        "Locale": "en",
+        "Name": "Settings",
+        "Description": "Module configuration and settings for warehouse operations."
+      }
     ]
   },
   {
@@ -967,8 +1606,16 @@
     "TableName": "RegCostTypes,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Vrste troškova", "Description": "Pregled i konfiguracija vrsta troškova za izdavanja i trebovanja." },
-      { "Locale": "en", "Name": "Cost Types", "Description": "Overview and configuration of cost types for material issues and requisitions." }
+      {
+        "Locale": "bs",
+        "Name": "Vrste troškova",
+        "Description": "Pregled i konfiguracija vrsta troškova za izdavanja i trebovanja."
+      },
+      {
+        "Locale": "en",
+        "Name": "Cost Types",
+        "Description": "Overview and configuration of cost types for material issues and requisitions."
+      }
     ]
   },
   {
@@ -979,8 +1626,16 @@
     "TableName": "RegSalesOrderTypes,",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Vrste naloga za isporuku", "Description": "Pregled i upravljanje vrstama naloga za isporuku" },
-      { "Locale": "en", "Name": "Sales Order Types", "Description": "View and manage types of customer sales orders" }
+      {
+        "Locale": "bs",
+        "Name": "Vrste naloga za isporuku",
+        "Description": "Pregled i upravljanje vrstama naloga za isporuku"
+      },
+      {
+        "Locale": "en",
+        "Name": "Sales Order Types",
+        "Description": "View and manage types of customer sales orders"
+      }
     ]
   },
   {
@@ -991,8 +1646,16 @@
     "TableName": null,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Komercijala", "Description": "Komercijalni registri" },
-      { "Locale": "en", "Name": "Commercial", "Description": "Commercial registers" }
+      {
+        "Locale": "bs",
+        "Name": "Komercijala",
+        "Description": "Komercijalni registri"
+      },
+      {
+        "Locale": "en",
+        "Name": "Commercial",
+        "Description": "Commercial registers"
+      }
     ]
   },
   {
@@ -1003,21 +1666,36 @@
     "TableName": "RegReportTemplates",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Upravljanje šablonima", "Description": "Pregled i upravljanje šablonima izvještaja" },
-      { "Locale": "en", "Name": "Report Templates", "Description": "View and manage report templates" }
+      {
+        "Locale": "bs",
+        "Name": "Upravljanje šablonima",
+        "Description": "Pregled i upravljanje šablonima izvještaja"
+      },
+      {
+        "Locale": "en",
+        "Name": "Report Templates",
+        "Description": "View and manage report templates"
+      }
     ]
   },
   {
-      "Id": 85,
-      "Icon": "icon-authorized-persons",
-      "IsObject": 1,
-      "HasReportTemplate": 0,
-      "TableName": "RegAuthorizedPersons, RegAuthorizedPersonBrancheOffices,",
-      "Deleted": 0,
-      "languages": [
-        { "Locale": "bs", "Name": "Ovlaštene osobe", "Description": "Registar ovlaštenih osoba" },
-        { "Locale": "en", "Name": "Authorized Persons", "Description": "Registry of authorized persons" }
-      ]
-    }
+    "Id": 85,
+    "Icon": "icon-authorized-persons",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "RegAuthorizedPersons, RegAuthorizedPersonBrancheOffices,",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Ovlaštene osobe",
+        "Description": "Registar ovlaštenih osoba"
+      },
+      {
+        "Locale": "en",
+        "Name": "Authorized Persons",
+        "Description": "Registry of authorized persons"
+      }
+    ]
+  }
 ]
-

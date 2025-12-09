@@ -3,232 +3,406 @@
     "Label": "P0301",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Izlazni računi" },
-      { "Locale": "en", "Name": "Outgoing Invoices" }
+      {
+        "Locale": "bs",
+        "Name": "Izlazni računi"
+      },
+      {
+        "Locale": "en",
+        "Name": "Outgoing Invoices"
+      }
     ]
   },
   {
     "Label": "P0701",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Maloprodajna kalkulacija" },
-      { "Locale": "en", "Name": "Retail Price Calculation" }
+      {
+        "Locale": "bs",
+        "Name": "Maloprodajna kalkulacija"
+      },
+      {
+        "Locale": "en",
+        "Name": "Retail Price Calculation"
+      }
     ]
   },
   {
     "Label": "P0702",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Nivelacija u maloprodaji" }, 
-      { "Locale": "en", "Name": "Retail Revaluation" }
+      {
+        "Locale": "bs",
+        "Name": "Nivelacija u maloprodaji"
+      },
+      {
+        "Locale": "en",
+        "Name": "Retail Revaluation"
+      }
     ]
   },
   {
     "Label": "P0703",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Prelokacije iz maloprodaje" }, 
-      { "Locale": "en", "Name": "Relocations from Retail" }
+      {
+        "Locale": "bs",
+        "Name": "Prelokacije iz maloprodaje"
+      },
+      {
+        "Locale": "en",
+        "Name": "Relocations from Retail"
+      }
     ]
   },
   {
     "Label": "P0704",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Povrat dobavljaču iz maloprodaje" }, 
-      { "Locale": "en", "Name": "Retail Supplier Return" }
+      {
+        "Locale": "bs",
+        "Name": "Povrat dobavljaču iz maloprodaje"
+      },
+      {
+        "Locale": "en",
+        "Name": "Retail Supplier Return"
+      }
     ]
   },
   {
     "Label": "P0705",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Zapisnici ulaza u maloprodaji" }, 
-      { "Locale": "en", "Name": "Retail Goods Inbound Documents" }
+      {
+        "Locale": "bs",
+        "Name": "Zapisnici ulaza u maloprodaji"
+      },
+      {
+        "Locale": "en",
+        "Name": "Retail Goods Inbound Documents"
+      }
     ]
   },
   {
     "Label": "P0706",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Zapisnici izlaza u maloprodaji" }, 
-      { "Locale": "en", "Name": "Retail Goods Outbound Documents" }
+      {
+        "Locale": "bs",
+        "Name": "Zapisnici izlaza u maloprodaji"
+      },
+      {
+        "Locale": "en",
+        "Name": "Retail Goods Outbound Documents"
+      }
     ]
   },
   {
     "Label": "P0707",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Polog pazara" },
-      { "Locale": "en", "Name": "Retail Cash Deposit" }
+      {
+        "Locale": "bs",
+        "Name": "Polog pazara"
+      },
+      {
+        "Locale": "en",
+        "Name": "Retail Cash Deposit"
+      }
     ]
   },
   {
     "Label": "P0901",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Skladište - Ulaz materijala" },
-      { "Locale": "en", "Name": "Warehouse - Material Inbound" }
+      {
+        "Locale": "bs",
+        "Name": "Skladište - Ulaz materijala"
+      },
+      {
+        "Locale": "en",
+        "Name": "Warehouse - Material Inbound"
+      }
     ]
   },
   {
     "Label": "P0902",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Skladište - Izlaz materijala" },
-      { "Locale": "en", "Name": "Warehouse - Material Outbound" }
+      {
+        "Locale": "bs",
+        "Name": "Skladište - Izlaz materijala"
+      },
+      {
+        "Locale": "en",
+        "Name": "Warehouse - Material Outbound"
+      }
     ]
   },
   {
     "Label": "P0903",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Skladište - Prelokacije" },
-      { "Locale": "en", "Name": "Warehouse - Relocations" }
+      {
+        "Locale": "bs",
+        "Name": "Skladište - Prelokacije"
+      },
+      {
+        "Locale": "en",
+        "Name": "Warehouse - Relocations"
+      }
     ]
   },
   {
     "Label": "P1001",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Nalog proizvodnje" },
-      { "Locale": "en", "Name": "Production Order" }
+      {
+        "Locale": "bs",
+        "Name": "Nalog proizvodnje"
+      },
+      {
+        "Locale": "en",
+        "Name": "Production Order"
+      }
     ]
   },
   {
     "Label": "P1002",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Realizacija proizvodnje" },
-      { "Locale": "en", "Name": "Production Realization" }
+      {
+        "Locale": "bs",
+        "Name": "Realizacija proizvodnje"
+      },
+      {
+        "Locale": "en",
+        "Name": "Production Realization"
+      }
     ]
   },
   {
     "Label": "P0302",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Povrat robe" },
-      { "Locale": "en", "Name": "Goods Return" }
+      {
+        "Locale": "bs",
+        "Name": "Povrat robe"
+      },
+      {
+        "Locale": "en",
+        "Name": "Goods Return"
+      }
     ]
   },
   {
     "Label": "P0601",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Obračun nabavke u veleprodaji" },
-      { "Locale": "en", "Name": "Wholesale Purchase Calculation" }
+      {
+        "Locale": "bs",
+        "Name": "Obračun nabavke u veleprodaji"
+      },
+      {
+        "Locale": "en",
+        "Name": "Wholesale Purchase Calculation"
+      }
     ]
   },
   {
     "Label": "P0602",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Nivelacije u veleprodaji" },
-      { "Locale": "en", "Name": "Wholesale Revaluations" }
+      {
+        "Locale": "bs",
+        "Name": "Nivelacije u veleprodaji"
+      },
+      {
+        "Locale": "en",
+        "Name": "Wholesale Revaluations"
+      }
     ]
   },
   {
     "Label": "P0603",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Prelokacije u veleprodaji" },
-      { "Locale": "en", "Name": "Wholesale Relocations" }
+      {
+        "Locale": "bs",
+        "Name": "Prelokacije u veleprodaji"
+      },
+      {
+        "Locale": "en",
+        "Name": "Wholesale Relocations"
+      }
     ]
   },
   {
     "Label": "P0604",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Povrat dobavljaču u veleprodaji" },
-      { "Locale": "en", "Name": "Wholesale Supplier Return" }
+      {
+        "Locale": "bs",
+        "Name": "Povrat dobavljaču u veleprodaji"
+      },
+      {
+        "Locale": "en",
+        "Name": "Wholesale Supplier Return"
+      }
     ]
   },
   {
     "Label": "P0605",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Zapisnici ulaza u veleprodaji" },
-      { "Locale": "en", "Name": "Wholesale Goods Inbound Records" }
+      {
+        "Locale": "bs",
+        "Name": "Zapisnici ulaza u veleprodaji"
+      },
+      {
+        "Locale": "en",
+        "Name": "Wholesale Goods Inbound Records"
+      }
     ]
   },
   {
     "Label": "P0606",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Zapisnici izlaza u veleprodaji" },
-      { "Locale": "en", "Name": "Wholesale Goods Outbound Records" }
+      {
+        "Locale": "bs",
+        "Name": "Zapisnici izlaza u veleprodaji"
+      },
+      {
+        "Locale": "en",
+        "Name": "Wholesale Goods Outbound Records"
+      }
     ]
   },
   {
     "Label": "P0607",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Veleprodaja" },
-      { "Locale": "en", "Name": "Wholesale" }
+      {
+        "Locale": "bs",
+        "Name": "Veleprodaja"
+      },
+      {
+        "Locale": "en",
+        "Name": "Wholesale"
+      }
     ]
   },
   {
     "Label": "P0608",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Veleprodaja" },
-      { "Locale": "en", "Name": "Wholesale" }
+      {
+        "Locale": "bs",
+        "Name": "Veleprodaja"
+      },
+      {
+        "Locale": "en",
+        "Name": "Wholesale"
+      }
     ]
   },
   {
     "Label": "P0801",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Obračun nabavke za materijal" },
-      { "Locale": "en", "Name": "Material Purchase Calculation" }
+      {
+        "Locale": "bs",
+        "Name": "Obračun nabavke za materijal"
+      },
+      {
+        "Locale": "en",
+        "Name": "Material Purchase Calculation"
+      }
     ]
   },
   {
     "Label": "P0802",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Nivelacija cijene materijala" },
-      { "Locale": "en", "Name": "Material Price Revaluation" }
+      {
+        "Locale": "bs",
+        "Name": "Nivelacija cijene materijala"
+      },
+      {
+        "Locale": "en",
+        "Name": "Material Price Revaluation"
+      }
     ]
   },
   {
     "Label": "P0803",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Prelokacije materijala" },
-      { "Locale": "en", "Name": "Material Relocations" }
+      {
+        "Locale": "bs",
+        "Name": "Prelokacije materijala"
+      },
+      {
+        "Locale": "en",
+        "Name": "Material Relocations"
+      }
     ]
   },
   {
     "Label": "P0804",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Povrat materijala dobavljaču" },
-      { "Locale": "en", "Name": "Material Supplier Return" }
+      {
+        "Locale": "bs",
+        "Name": "Povrat materijala dobavljaču"
+      },
+      {
+        "Locale": "en",
+        "Name": "Material Supplier Return"
+      }
     ]
   },
   {
     "Label": "P0805",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Zapisnici ulaza materijala" },
-      { "Locale": "en", "Name": "Material Inbound Records" }
+      {
+        "Locale": "bs",
+        "Name": "Zapisnici ulaza materijala"
+      },
+      {
+        "Locale": "en",
+        "Name": "Material Inbound Records"
+      }
     ]
   },
   {
     "Label": "P0806",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Zapisnici izlaza materijala" },
-      { "Locale": "en", "Name": "Material Outbound Records" }
+      {
+        "Locale": "bs",
+        "Name": "Zapisnici izlaza materijala"
+      },
+      {
+        "Locale": "en",
+        "Name": "Material Outbound Records"
+      }
     ]
   },
   {
     "Label": "P0807",
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Izdatnice materijala" },
-      { "Locale": "en", "Name": "Material Issue Notes" }
+      {
+        "Locale": "bs",
+        "Name": "Izdatnice materijala"
+      },
+      {
+        "Locale": "en",
+        "Name": "Material Issue Notes"
+      }
     ]
   }
 ]

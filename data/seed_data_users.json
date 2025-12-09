@@ -12,7 +12,11 @@
     "LockoutEnd": null,
     "LockoutEnabled": true,
     "AccessFailedCount": 0,
-    "Roles": ["admin"],
-    "Profile": {"FirstName": "Administrator"}
+    "Roles": [
+      "admin"
+    ],
+    "Profile": {
+      "FirstName": "Administrator"
+    }
   }
 ]

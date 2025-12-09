@@ -4,8 +4,16 @@
     "Enabled": 1,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Pregled", "Description": "Dozvola za pregled podataka" },
-      { "Locale": "en", "Name": "View", "Description": "Permission to view data" }
+      {
+        "Locale": "bs",
+        "Name": "Pregled",
+        "Description": "Dozvola za pregled podataka"
+      },
+      {
+        "Locale": "en",
+        "Name": "View",
+        "Description": "Permission to view data"
+      }
     ]
   },
   {
@@ -13,8 +21,16 @@
     "Enabled": 1,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Dodavanje", "Description": "Dozvola za dodavanje podataka" },
-      { "Locale": "en", "Name": "Add", "Description": "Permission to add data" }
+      {
+        "Locale": "bs",
+        "Name": "Dodavanje",
+        "Description": "Dozvola za dodavanje podataka"
+      },
+      {
+        "Locale": "en",
+        "Name": "Add",
+        "Description": "Permission to add data"
+      }
     ]
   },
   {
@@ -22,8 +38,16 @@
     "Enabled": 1,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Ispravka", "Description": "Dozvola za ispravku podataka" },
-      { "Locale": "en", "Name": "Edit", "Description": "Permission to edit data" }
+      {
+        "Locale": "bs",
+        "Name": "Ispravka",
+        "Description": "Dozvola za ispravku podataka"
+      },
+      {
+        "Locale": "en",
+        "Name": "Edit",
+        "Description": "Permission to edit data"
+      }
     ]
   },
   {
@@ -31,8 +55,16 @@
     "Enabled": 1,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Izmjena sa verzioniranjem", "Description": "Dozvola za izmjenu podataka sa verzioniranjem" },
-      { "Locale": "en", "Name": "Versioned Edit", "Description": "Permission to edit data with versioning" }
+      {
+        "Locale": "bs",
+        "Name": "Izmjena sa verzioniranjem",
+        "Description": "Dozvola za izmjenu podataka sa verzioniranjem"
+      },
+      {
+        "Locale": "en",
+        "Name": "Versioned Edit",
+        "Description": "Permission to edit data with versioning"
+      }
     ]
   },
   {
@@ -40,8 +72,16 @@
     "Enabled": 1,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Brisanje", "Description": "Dozvola za brisanje podataka" },
-      { "Locale": "en", "Name": "Delete", "Description": "Permission to delete data" }
+      {
+        "Locale": "bs",
+        "Name": "Brisanje",
+        "Description": "Dozvola za brisanje podataka"
+      },
+      {
+        "Locale": "en",
+        "Name": "Delete",
+        "Description": "Permission to delete data"
+      }
     ]
   },
   {
@@ -49,8 +89,16 @@
     "Enabled": 1,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Izvoz", "Description": "Dozvola za izvoz podataka" },
-      { "Locale": "en", "Name": "Export", "Description": "Permission to export data" }
+      {
+        "Locale": "bs",
+        "Name": "Izvoz",
+        "Description": "Dozvola za izvoz podataka"
+      },
+      {
+        "Locale": "en",
+        "Name": "Export",
+        "Description": "Permission to export data"
+      }
     ]
   },
   {
@@ -58,8 +106,16 @@
     "Enabled": 1,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Log", "Description": "Dozvola za pregled logova" },
-      { "Locale": "en", "Name": "Log", "Description": "Permission to view logs" }
+      {
+        "Locale": "bs",
+        "Name": "Log",
+        "Description": "Dozvola za pregled logova"
+      },
+      {
+        "Locale": "en",
+        "Name": "Log",
+        "Description": "Permission to view logs"
+      }
     ]
   },
   {
@@ -67,8 +123,16 @@
     "Enabled": 1,
     "Deleted": 0,
     "languages": [
-      { "Locale": "bs", "Name": "Zaključenje", "Description": "Dozvola za zaključenje procesa ili dokumenta" },
-      { "Locale": "en", "Name": "Conclude", "Description": "Permission to conclude a process or document" }
+      {
+        "Locale": "bs",
+        "Name": "Zaključenje",
+        "Description": "Dozvola za zaključenje procesa ili dokumenta"
+      },
+      {
+        "Locale": "en",
+        "Name": "Conclude",
+        "Description": "Permission to conclude a process or document"
+      }
     ]
   }
 ]

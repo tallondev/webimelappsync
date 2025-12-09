@@ -3,762 +3,1701 @@
     "ModuleName": "LINE_POS",
     "MenuName": "Računi",
     "MenuId": 21,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "LINE_POS",
     "MenuName": "Narudžbe za ugostiteljstvo",
     "MenuId": 28,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "LINE_POS",
     "MenuName": "Zaključenje pazara radne stanice",
     "MenuId": 29,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "LINE_POS",
     "MenuName": "Dnevni pazari i računi",
     "MenuId": 26,
-    "Permissions": ["view", "export"]
+    "Permissions": [
+      "view",
+      "export"
+    ]
   },
   {
     "ModuleName": "LINE_POS",
     "MenuName": "Pregled zaliha",
     "MenuId": 31,
-    "Permissions": ["view", "export"]
+    "Permissions": [
+      "view",
+      "export"
+    ]
   },
   {
     "ModuleName": "POS",
     "MenuName": "Regionalna šema",
     "MenuId": 11,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "POS",
     "MenuId": 12,
     "MenuName": "Organizaciona šema",
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "POS",
     "MenuName": "Grupe i podgrupe",
     "MenuId": 14,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "POS",
     "MenuName": "Jedinice mjera",
     "MenuId": 15,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "POS",
     "MenuName": "Poreske tarife",
     "MenuId": 2,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "POS",
     "MenuName": "Atributi artikala",
     "MenuId": 27,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
-  },  
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
+  },
   {
     "ModuleName": "POS",
     "MenuName": "Artikli i usluge",
     "MenuId": 19,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "POS",
     "MenuName": "Vrste promjena",
     "MenuId": 32,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "POS",
     "MenuName": "Skladišta",
     "MenuId": 16,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "POS",
     "MenuName": "Vrste cjenovnika",
     "MenuId": 17,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "POS",
     "MenuName": "Načini plaćanja",
     "MenuId": 18,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "POS",
     "MenuName": "Poslovni partneri",
     "MenuId": 20,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
-  },    
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
+  },
   {
     "ModuleName": "POS",
     "MenuName": "Cjenovnici",
     "MenuId": 22,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "POS",
     "MenuName": "Odložena plaćanja",
     "MenuId": 25,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "POS",
     "MenuName": "Zaključenje pazara prodajnog objekta",
     "MenuId": 30,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "POS",
     "MenuName": "Kalkulacije",
     "MenuId": 34,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "POS",
     "MenuName": "Nivelacije",
     "MenuId": 35,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "POS",
     "MenuName": "Zapisnici ulaza",
     "MenuId": 36,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "POS",
     "MenuName": "Zapisnici izlaza",
     "MenuId": 37,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "POS",
     "MenuName": "Prelokacije",
     "MenuId": 38,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "POS",
     "MenuName": "Povrat dobavljaču",
     "MenuId": 39,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "POS",
     "MenuName": "Popis",
     "MenuId": 40,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "POS",
     "MenuName": "Dnevni pazari i računi",
     "MenuId": 26,
-    "Permissions": ["view", "export"]
+    "Permissions": [
+      "view",
+      "export"
+    ]
   },
   {
     "ModuleName": "POS",
     "MenuName": "Pregled zaliha",
     "MenuId": 31,
-    "Permissions": ["view", "export"]
+    "Permissions": [
+      "view",
+      "export"
+    ]
   },
   {
     "ModuleName": "POS",
     "MenuName": "Prodajni objekti",
     "MenuId": 23,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
-  },  
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
+  },
   {
     "ModuleName": "POS",
     "MenuName": "Radne stanice",
     "MenuId": 24,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "POS",
     "MenuName": "Upravljanje šablonima",
     "MenuId": 84,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "PALS",
     "MenuName": "Regionalna šema",
     "MenuId": 11,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "PALS",
     "MenuId": 12,
     "MenuName": "Organizaciona šema",
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "PALS",
     "MenuName": "Grupe i podgrupe",
     "MenuId": 14,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "PALS",
     "MenuName": "Jedinice mjera",
     "MenuId": 15,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "PALS",
     "MenuName": "Poreske tarife",
     "MenuId": 2,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "PALS",
     "MenuName": "Artikli i usluge",
     "MenuId": 19,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "PALS",
     "MenuName": "Vrste promjena",
     "MenuId": 32,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "PALS",
     "MenuName": "Poslovni partneri",
     "MenuId": 20,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
-  },    
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
+  },
   {
     "ModuleName": "PALS",
     "MenuName": "Skladišta",
     "MenuId": 16,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "PALS",
     "MenuName": "Skladišne lokacije",
     "MenuId": 41,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "PALS",
     "MenuName": "Fakturni centri",
     "MenuId": 42,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "PALS",
     "MenuName": "Paletne etikete",
     "MenuId": 43,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "PALS",
     "MenuName": "Nalozi za isporuku",
     "MenuId": 44,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "PALS",
     "MenuName": "Prodajni objekti",
     "MenuId": 23,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
-  },  
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
+  },
   {
     "ModuleName": "PALS",
     "MenuName": "Radne stanice",
     "MenuId": 24,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "PALS",
     "MenuName": "Radne stanice paleta",
     "MenuId": 45,
-    "Permissions": ["view", "edit", "export", "log"]
+    "Permissions": [
+      "view",
+      "edit",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "PALS",
     "MenuName": "Promet paleta",
     "MenuId": 46,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Regionalna šema",
     "MenuId": 11,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuId": 12,
     "MenuName": "Organizaciona šema",
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Grupe i podgrupe",
     "MenuId": 14,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Jedinice mjera",
     "MenuId": 15,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Poreske tarife",
     "MenuId": 2,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Artikli i usluge",
     "MenuId": 19,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Vrste promjena",
     "MenuId": 32,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Poslovni partneri",
     "MenuId": 20,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
-  },    
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
+  },
   {
     "ModuleName": "MOWS",
     "MenuName": "Skladišta",
     "MenuId": 16,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Skladišne lokacije",
     "MenuId": 41,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Fakturni centri",
     "MenuId": 42,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Vrste narudžbi za nabavku",
     "MenuId": 51,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Nalozi za isporuku",
     "MenuId": 44,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Prodajni objekti",
     "MenuId": 23,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
-  },  
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
+  },
   {
     "ModuleName": "MOWS",
     "MenuName": "Radne stanice",
     "MenuId": 24,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Mobilno skladište",
     "MenuId": 48,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Narudžbe za nabavku",
     "MenuId": 47,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Prijem robe u skladište",
     "MenuId": 49,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Izlaz robe iz skladišta",
     "MenuId": 50,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Povrat dobavljaču",
     "MenuId": 39,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Vrste trebovanja",
     "MenuId": 52,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Vrste troškova",
     "MenuId": 81,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Trebovanja",
     "MenuId": 53,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Skladišne prelokacije",
     "MenuId": 54,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Popisne liste",
     "MenuId": 55,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Faze proizvodnje",
     "MenuId": 56,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Proizvodni centri",
     "MenuId": 57,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Nalozi proizvodnje",
     "MenuId": 58,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Realizacija proizvodnje",
     "MenuId": 59,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "MOWS",
     "MenuName": "Vrste naloga za isporuku",
     "MenuId": 82,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "WFM",
     "MenuName": "Vrste rada",
     "MenuId": 66,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "WFM",
     "MenuName": "Knjige rada",
     "MenuId": 68,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "WFM",
     "MenuName": "Smjene",
     "MenuId": 67,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "WFM",
     "MenuName": "Šeme smjena",
     "MenuId": 69,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "WFM",
     "MenuName": "Kalendar rada",
     "MenuId": 62,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "WFM",
     "MenuName": "Fond sati",
     "MenuId": 63,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "WFM",
     "MenuName": "Podešenja",
     "MenuId": 60,
-    "Permissions": ["view", "edit", "log"]
+    "Permissions": [
+      "view",
+      "edit",
+      "log"
+    ]
   },
   {
     "ModuleName": "HR",
     "MenuName": "Regionalna šema",
     "MenuId": 11,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "HR",
     "MenuId": 12,
     "MenuName": "Organizaciona šema",
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "HR",
     "MenuId": 64,
     "MenuName": "Radna mjesta",
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "HR",
     "MenuId": 65,
     "MenuName": "Zaposlenici",
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "HR",
     "MenuName": "Podešenja",
     "MenuId": 61,
-    "Permissions": ["view", "edit", "log"]
+    "Permissions": [
+      "view",
+      "edit",
+      "log"
+    ]
   },
   {
     "ModuleName": "ADMINISTRATION",
     "MenuName": "Kompanije",
     "MenuId": 10,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "ADMINISTRATION",
     "MenuName": "Uloge",
     "MenuId": 6,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "ADMINISTRATION",
     "MenuName": "Korisnici",
     "MenuId": 7,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "ADMINISTRATION",
     "MenuName": "Opšta podešenja",
     "MenuId": 8,
-    "Permissions": ["view", "edit", "log"]
+    "Permissions": [
+      "view",
+      "edit",
+      "log"
+    ]
   },
   {
     "ModuleName": "ADMINISTRATION",
     "MenuName": "Izvještaj o promjenama",
     "MenuId": 9,
-    "Permissions": ["view", "export"]
+    "Permissions": [
+      "view",
+      "export"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Regionalna šema",
     "MenuId": 11,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Organizaciona šema",
     "MenuId": 12,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Grupe i podgrupe",
     "MenuId": 14,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Jedinice mjera",
     "MenuId": 15,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Poreske tarife",
     "MenuId": 2,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Atributi artikala",
     "MenuId": 27,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
-  },  
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
+  },
   {
     "ModuleName": "WMS",
     "MenuName": "Artikli i usluge",
     "MenuId": 19,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Vrste promjena",
     "MenuId": 32,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Skladišta",
     "MenuId": 16,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Skladišne lokacije",
     "MenuId": 41,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Poslovni partneri",
     "MenuId": 20,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Vrste trebovanja",
     "MenuId": 52,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Vrste narudžbi za nabavku",
     "MenuId": 51,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Vrste troškova",
     "MenuId": 81,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Vrste naloga za isporuku",
     "MenuId": 82,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Fakturni centri",
     "MenuId": 42,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Ovlaštene osobe",
     "MenuId": 85,
-    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Prijem robe u skladište",
     "MenuId": 49,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Trošak",
     "MenuId": 72,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Proizvodnja",
     "MenuId": 73,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Prodaja",
     "MenuId": 74,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Stalna sredstva",
     "MenuId": 75,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Sitan inventar",
     "MenuId": 76,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Skladišne prelokacije",
     "MenuId": 54,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Popisne liste",
     "MenuId": 55,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Trebovanja",
     "MenuId": 53,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Narudžbe za nabavku",
     "MenuId": 47,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Nalozi za isporuku",
     "MenuId": 44,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Pregled zaliha",
     "MenuId": 79,
-    "Permissions": ["view", "export"]
+    "Permissions": [
+      "view",
+      "export"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Podešenja",
     "MenuId": 80,
-    "Permissions": ["view", "edit", "log"]
+    "Permissions": [
+      "view",
+      "edit",
+      "log"
+    ]
   },
   {
     "ModuleName": "WMS",
     "MenuName": "Upravljanje šablonima",
     "MenuId": 84,
-    "Permissions": ["view", "add", "edit", "delete", "export", "log"]
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   }
 ]

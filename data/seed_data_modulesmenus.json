@@ -8,7 +8,7 @@
     "SortNumber": 1,
     "Status": 1,
     "ApiOnly": 0
-  },  
+  },
   {
     "ModuleName": "LINE_POS",
     "MenuName": "Računi",
@@ -72,7 +72,7 @@
   {
     "ModuleName": "POS",
     "MenuName": "Registri",
-    "MenuId": 1, 
+    "MenuId": 1,
     "Level": 0,
     "ParentMenuId": null,
     "SortNumber": 1,
@@ -148,7 +148,7 @@
     "SortNumber": 4,
     "Status": 1,
     "ApiOnly": 0
-  },  
+  },
   {
     "ModuleName": "POS",
     "MenuName": "Artikli i usluge",
@@ -872,7 +872,7 @@
   {
     "ModuleName": "WFM",
     "MenuName": "Registri",
-    "MenuId": 1, 
+    "MenuId": 1,
     "Level": 0,
     "ParentMenuId": null,
     "SortNumber": 1,
@@ -972,7 +972,7 @@
   {
     "ModuleName": "HR",
     "MenuName": "Registri",
-    "MenuId": 1, 
+    "MenuId": 1,
     "Level": 0,
     "ParentMenuId": null,
     "SortNumber": 1,
@@ -1288,7 +1288,7 @@
     "SortNumber": 3,
     "Status": 1,
     "ApiOnly": 0
-  } ,
+  },
   {
     "ModuleName": "WMS",
     "MenuName": "Ovlaštene osobe",
