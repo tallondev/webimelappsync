@@ -1006,6 +1006,18 @@
       { "Locale": "bs", "Name": "Upravljanje šablonima", "Description": "Pregled i upravljanje šablonima izvještaja" },
       { "Locale": "en", "Name": "Report Templates", "Description": "View and manage report templates" }
     ]
-  }
-
+  },
+  {
+      "Id": 85,
+      "Icon": "icon-authorized-persons",
+      "IsObject": 1,
+      "HasReportTemplate": 0,
+      "TableName": "RegAuthorizedPersons, RegAuthorizedPersonBrancheOffices,",
+      "Deleted": 0,
+      "languages": [
+        { "Locale": "bs", "Name": "Ovlaštene osobe", "Description": "Registar ovlaštenih osoba" },
+        { "Locale": "en", "Name": "Authorized Persons", "Description": "Registry of authorized persons" }
+      ]
+    }
 ]
+

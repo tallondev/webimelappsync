@@ -673,6 +673,12 @@
   },
   {
     "ModuleName": "WMS",
+    "MenuName": "Ovlaštene osobe",
+    "MenuId": 85,
+    "Permissions": ["view", "add", "edit", "versioned_edit", "delete", "export", "log"]
+  },
+  {
+    "ModuleName": "WMS",
     "MenuName": "Prijem robe u skladište",
     "MenuId": 49,
     "Permissions": ["view", "add", "edit", "delete", "export", "log", "conclude"]

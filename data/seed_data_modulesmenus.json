@@ -1291,6 +1291,16 @@
   } ,
   {
     "ModuleName": "WMS",
+    "MenuName": "Ovlaštene osobe",
+    "MenuId": 85,
+    "Level": 2,
+    "ParentMenuId": 83,
+    "SortNumber": 4,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
     "MenuName": "Obrade",
     "MenuId": 3,
     "Level": 0,
