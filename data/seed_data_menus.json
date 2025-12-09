@@ -24,7 +24,7 @@
     "Icon": "icon-tax-rates",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "RegTaxes,",
+    "TableName": "RegTaxes",
     "Deleted": 0,
     "languages": [
       {
@@ -104,7 +104,7 @@
     "Icon": "icon-roles",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "CoreRoles,",
+    "TableName": "CoreRoles",
     "Deleted": 0,
     "languages": [
       {
@@ -124,7 +124,7 @@
     "Icon": "icon-users",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "CoreUsers,",
+    "TableName": "CoreUsers",
     "Deleted": 0,
     "languages": [
       {
@@ -144,7 +144,7 @@
     "Icon": "icon-general-settings",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "CoreCompaniesSetup,",
+    "TableName": "CoreCompaniesSetup",
     "Deleted": 0,
     "languages": [
       {
@@ -164,7 +164,7 @@
     "Icon": "icon-log",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "AuditLogs,",
+    "TableName": "AuditLogs",
     "Deleted": 0,
     "languages": [
       {
@@ -184,7 +184,7 @@
     "Icon": "icon-companies",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "CoreCompanies,",
+    "TableName": "CoreCompanies",
     "Deleted": 0,
     "languages": [
       {
@@ -204,7 +204,7 @@
     "Icon": "icon-regional-scheme",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "RegCountries,RegRegions,RegCities,RegPlaces,",
+    "TableName": "RegCountries,RegRegions,RegCities,RegPlaces",
     "Deleted": 0,
     "languages": [
       {
@@ -224,7 +224,7 @@
     "Icon": "icon-organizational-scheme",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "RegOrganizationalStructures,RegBranchOffices,",
+    "TableName": "RegOrganizationalStructures,RegBranchOffices",
     "Deleted": 0,
     "languages": [
       {
@@ -264,7 +264,7 @@
     "Icon": "icon-groups-subgroups",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "RegGroupsOfProducts,RegSubgroupsOfProducts,",
+    "TableName": "RegGroupsOfProducts,RegSubgroupsOfProducts",
     "Deleted": 0,
     "languages": [
       {
@@ -284,7 +284,7 @@
     "Icon": "icon-measurement-units",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "RegUnitsOfMeasure,",
+    "TableName": "RegUnitsOfMeasure",
     "Deleted": 0,
     "languages": [
       {
@@ -304,7 +304,7 @@
     "Icon": "icon-warehouses",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "RegWarehouses,",
+    "TableName": "RegWarehouses",
     "Deleted": 0,
     "languages": [
       {
@@ -324,7 +324,7 @@
     "Icon": "icon-price-list-types",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "RegPriceListTypes,",
+    "TableName": "RegPriceListTypes",
     "Deleted": 0,
     "languages": [
       {
@@ -344,7 +344,7 @@
     "Icon": "icon-payment-methods",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "RegPaymentMethods,",
+    "TableName": "RegPaymentMethods",
     "Deleted": 0,
     "languages": [
       {
@@ -364,7 +364,7 @@
     "Icon": "icon-products-services",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "RegProducts,RegProductBarCodes,RegProductProductAttributes,RegProductBatches,",
+    "TableName": "RegProducts,RegProductBarCodes,RegProductProductAttributes,RegProductBatches",
     "Deleted": 0,
     "languages": [
       {
@@ -384,7 +384,7 @@
     "Icon": "icon-business-partners",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "RegBusinessPartners,RegBusinessPartnerVehicles,",
+    "TableName": "RegBusinessPartners,RegBusinessPartnerVehicles",
     "Deleted": 0,
     "languages": [
       {
@@ -404,7 +404,7 @@
     "Icon": "icon-receipts",
     "IsObject": 1,
     "HasReportTemplate": 1,
-    "TableName": "PosRetailInvoices,PosRetailInvoiceItems,PosRetailInvoiceCustomers,PosRetailInvoicePaymentMethods,",
+    "TableName": "PosRetailInvoices,PosRetailInvoiceItems,PosRetailInvoiceCustomers,PosRetailInvoicePaymentMethods",
     "Deleted": 0,
     "languages": [
       {
@@ -424,7 +424,7 @@
     "Icon": "icon-price-list",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "SharedPriceLists,",
+    "TableName": "SharedPriceLists",
     "Deleted": 0,
     "languages": [
       {
@@ -444,7 +444,7 @@
     "Icon": "icon-sales-locations",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "RegSalesOutlets,RegSalesOutletWarehouses,",
+    "TableName": "RegSalesOutlets,RegSalesOutletWarehouses",
     "Deleted": 0,
     "languages": [
       {
@@ -464,7 +464,7 @@
     "Icon": "icon-workstations",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "RegPointsOfSale,RegPointsOfSaleAreas,PalsPointOfSale,MowsPointOfSale,RegPointOfSaleInvoiceCenters,",
+    "TableName": "RegPointsOfSale,RegPointsOfSaleAreas,PalsPointOfSale,MowsPointOfSale,RegPointOfSaleInvoiceCenters",
     "Deleted": 0,
     "languages": [
       {
@@ -484,7 +484,7 @@
     "Icon": "icon-deferred-payments",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "PosDeferredPayments,",
+    "TableName": "PosDeferredPayments",
     "Deleted": 0,
     "languages": [
       {
@@ -504,7 +504,7 @@
     "Icon": "icon-daily-sales",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "PosDailySalesByOutlet,PosDailySalesByPointOfSale,PosRetailInvoices,",
+    "TableName": "PosDailySalesByOutlet,PosDailySalesByPointOfSale,PosRetailInvoices",
     "Deleted": 0,
     "languages": [
       {
@@ -524,7 +524,7 @@
     "Icon": "icon-product-attributes",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "RegProductAttributeGroups,RegProductAttributes,",
+    "TableName": "RegProductAttributeGroups,RegProductAttributes",
     "Deleted": 0,
     "languages": [
       {
@@ -544,7 +544,7 @@
     "Icon": "icon-orders-hospitality",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "PosHospitalityOrders,PosHospitalityOrderItems,",
+    "TableName": "PosHospitalityOrders,PosHospitalityOrderItems",
     "Deleted": 0,
     "languages": [
       {
@@ -564,7 +564,7 @@
     "Icon": "icon-workstation-closure",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "PosDailySalesByPointOfSale,PosRetailInvoices,",
+    "TableName": "PosDailySalesByPointOfSale,PosRetailInvoices",
     "Deleted": 0,
     "languages": [
       {
@@ -584,7 +584,7 @@
     "Icon": "icon-outlet-closure",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "PosDailySalesByOutlet,PosDailySalesByPointOfSale,PosRetailInvoices,",
+    "TableName": "PosDailySalesByOutlet,PosDailySalesByPointOfSale,PosRetailInvoices",
     "Deleted": 0,
     "languages": [
       {
@@ -604,7 +604,7 @@
     "Icon": "icon-stock-report",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "SharedStockLists,",
+    "TableName": "SharedStockLists",
     "Deleted": 0,
     "languages": [
       {
@@ -624,7 +624,7 @@
     "Icon": "icon-change-types",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "RegChangeTypes,",
+    "TableName": "RegChangeTypes",
     "Deleted": 0,
     "languages": [
       {
@@ -664,7 +664,7 @@
     "Icon": "icon-calculations",
     "IsObject": 1,
     "HasReportTemplate": 1,
-    "TableName": "SharedCalculations, SharedCalculationItems,",
+    "TableName": "SharedCalculations, SharedCalculationItems",
     "Deleted": 0,
     "languages": [
       {
@@ -684,7 +684,7 @@
     "Icon": "icon-revaluations",
     "IsObject": 1,
     "HasReportTemplate": 1,
-    "TableName": "SharedRevaluations,SharedRevaluationItems,",
+    "TableName": "SharedRevaluations,SharedRevaluationItems",
     "Deleted": 0,
     "languages": [
       {
@@ -704,7 +704,7 @@
     "Icon": "icon-goods-inbounds",
     "IsObject": 1,
     "HasReportTemplate": 1,
-    "TableName": "SharedGoodsInbounds,SharedGoodsInboundItems,",
+    "TableName": "SharedGoodsInbounds,SharedGoodsInboundItems",
     "Deleted": 0,
     "languages": [
       {
@@ -724,7 +724,7 @@
     "Icon": "icon-goods-outbounds",
     "IsObject": 1,
     "HasReportTemplate": 1,
-    "TableName": "SharedGoodsOutbounds,SharedGoodsOutboundItems,",
+    "TableName": "SharedGoodsOutbounds,SharedGoodsOutboundItems",
     "Deleted": 0,
     "languages": [
       {
@@ -744,7 +744,7 @@
     "Icon": "icon-relocations",
     "IsObject": 1,
     "HasReportTemplate": 1,
-    "TableName": "SharedRelocations,SharedRelocationItems,",
+    "TableName": "SharedRelocations,SharedRelocationItems",
     "Deleted": 0,
     "languages": [
       {
@@ -764,7 +764,7 @@
     "Icon": "icon-supplier-return",
     "IsObject": 1,
     "HasReportTemplate": 1,
-    "TableName": "SharedRetailSupplierReturns,SharedRetailSupplierReturnItems,",
+    "TableName": "SharedRetailSupplierReturns,SharedRetailSupplierReturnItems",
     "Deleted": 0,
     "languages": [
       {
@@ -784,7 +784,7 @@
     "Icon": "icon-inventory",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "SharedInventories,SharedInventoryItems,",
+    "TableName": "SharedInventories,SharedInventoryItems",
     "Deleted": 0,
     "languages": [
       {
@@ -804,7 +804,7 @@
     "Icon": "icon-warehouse-location",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "RegWarehouseLocations,",
+    "TableName": "RegWarehouseLocations",
     "Deleted": 0,
     "languages": [
       {
@@ -824,7 +824,7 @@
     "Icon": "icon-invoice-center",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "RegInvoiceCenters,",
+    "TableName": "RegInvoiceCenters",
     "Deleted": 0,
     "languages": [
       {
@@ -844,7 +844,7 @@
     "Icon": "icon-pallet-label",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "PalsLabels,PalsLabelItems,",
+    "TableName": "PalsLabels,PalsLabelItems",
     "Deleted": 0,
     "languages": [
       {
@@ -864,7 +864,7 @@
     "Icon": "icon-sales-order",
     "IsObject": 1,
     "HasReportTemplate": 1,
-    "TableName": "SharedSalesOrders,SharedSalesOrdersItems,",
+    "TableName": "SharedSalesOrders,SharedSalesOrdersItems",
     "Deleted": 0,
     "languages": [
       {
@@ -884,7 +884,7 @@
     "Icon": "icon-pallet-workstation",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "PalsPointOfSale,RegPointsOfSale,RegPointsOfSaleAreas,",
+    "TableName": "PalsPointOfSale,RegPointsOfSale,RegPointsOfSaleAreas",
     "Deleted": 1,
     "languages": [
       {
@@ -904,7 +904,7 @@
     "Icon": "icon-pallet-transaction",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "PalsInbounds,PalsOutbounds,PalsTransactions,",
+    "TableName": "PalsInbounds,PalsOutbounds,PalsTransactions",
     "Deleted": 0,
     "languages": [
       {
@@ -924,7 +924,7 @@
     "Icon": "icon-purchase-order",
     "IsObject": 1,
     "HasReportTemplate": 1,
-    "TableName": "SharedPurchaseOrders,SharedPurchaseOrderItems,",
+    "TableName": "SharedPurchaseOrders,SharedPurchaseOrderItems",
     "Deleted": 0,
     "languages": [
       {
@@ -943,7 +943,7 @@
     "Id": 48,
     "Icon": "icon-mobile-warehouse",
     "IsObject": 1,
-    "TableName": "MowsInbounds,MowsOutbounds,",
+    "TableName": "MowsInbounds,MowsOutbounds",
     "Deleted": 0,
     "languages": [
       {
@@ -963,7 +963,7 @@
     "Icon": "icon-warehouse-receipt",
     "IsObject": 1,
     "HasReportTemplate": 1,
-    "TableName": "SharedWarehouseReceipts,SharedWarehouseReceiptItems,",
+    "TableName": "SharedWarehouseReceipts,SharedWarehouseReceiptItems",
     "Deleted": 0,
     "languages": [
       {
@@ -983,7 +983,7 @@
     "Icon": "icon-warehouse-issue",
     "IsObject": 1,
     "HasReportTemplate": 1,
-    "TableName": "SharedWarehouseIssues,SharedWarehouseIssueItems,",
+    "TableName": "SharedWarehouseIssues,SharedWarehouseIssueItems",
     "Deleted": 0,
     "languages": [
       {
@@ -1003,7 +1003,7 @@
     "Icon": "icon-order-types",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "RegPurchaseOrderTypes,",
+    "TableName": "RegPurchaseOrderTypes",
     "Deleted": 0,
     "languages": [
       {
@@ -1083,7 +1083,7 @@
     "Icon": "icon-stocktaking-lists",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "SharedStocktakingLists,SharedStocktakingListItems,",
+    "TableName": "SharedStocktakingLists,SharedStocktakingListItems",
     "Deleted": 0,
     "languages": [
       {
@@ -1103,7 +1103,7 @@
     "Icon": "icon-production-phase",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "RegProductionPhases,",
+    "TableName": "RegProductionPhases",
     "Deleted": 0,
     "languages": [
       {
@@ -1123,7 +1123,7 @@
     "Icon": "icon-production-center",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "RegProductionCenters,",
+    "TableName": "RegProductionCenters",
     "Deleted": 0,
     "languages": [
       {
@@ -1143,7 +1143,7 @@
     "Icon": "icon-production-order",
     "IsObject": 1,
     "HasReportTemplate": 1,
-    "TableName": "SharedProductionOrders,SharedProductionOrderItems,",
+    "TableName": "SharedProductionOrders,SharedProductionOrderItems",
     "Deleted": 0,
     "languages": [
       {
@@ -1163,7 +1163,7 @@
     "Icon": "icon-production-realization",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "SharedProductionRealizations,SharedProductionRealizationItems,",
+    "TableName": "SharedProductionRealizations,SharedProductionRealizationItems",
     "Deleted": 0,
     "languages": [
       {
@@ -1183,7 +1183,7 @@
     "Icon": "icon-wfm-settings",
     "IsObject": 0,
     "HasReportTemplate": 0,
-    "TableName": "WfmCompaniesSetup,",
+    "TableName": "WfmCompaniesSetup",
     "Deleted": 0,
     "languages": [
       {
@@ -1203,7 +1203,7 @@
     "Icon": "icon-hr-settings",
     "IsObject": 0,
     "HasReportTemplate": 0,
-    "TableName": "HrCompaniesSetup,",
+    "TableName": "HrCompaniesSetup",
     "Deleted": 0,
     "languages": [
       {
@@ -1223,7 +1223,7 @@
     "Icon": "icon-work-calendar",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "WfmCalendarExceptions,WfmCalendarExceptionItems,",
+    "TableName": "WfmCalendarExceptions,WfmCalendarExceptionItems",
     "Deleted": 0,
     "languages": [
       {
@@ -1243,7 +1243,7 @@
     "Icon": "icon-hours-funds",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "WfmHoursFunds,",
+    "TableName": "WfmHoursFunds",
     "Deleted": 0,
     "languages": [
       {
@@ -1263,7 +1263,7 @@
     "Icon": "icon-workplaces",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "HrWorkplaces,",
+    "TableName": "HrWorkplaces",
     "Deleted": 0,
     "languages": [
       {
@@ -1283,7 +1283,7 @@
     "Icon": "icon-employees",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "HrEmployees,",
+    "TableName": "HrEmployees",
     "Deleted": 0,
     "languages": [
       {
@@ -1303,7 +1303,7 @@
     "Icon": "icon-work-types",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "WfmWorkTypes,",
+    "TableName": "WfmWorkTypes",
     "Deleted": 0,
     "languages": [
       {
@@ -1323,7 +1323,7 @@
     "Icon": "icon-shifts",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "WfmShifts,WfmShiftTimes,WfmShiftRestrictions,WfmShiftWorkTypes,",
+    "TableName": "WfmShifts,WfmShiftTimes,WfmShiftRestrictions,WfmShiftWorkTypes",
     "Deleted": 0,
     "languages": [
       {
@@ -1343,7 +1343,7 @@
     "Icon": "icon-work-books",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "WfmWorkBooks,WfmWorkBookResponsiblePersons,WfmWorkBookEmployees,",
+    "TableName": "WfmWorkBooks,WfmWorkBookResponsiblePersons,WfmWorkBookEmployees",
     "Deleted": 0,
     "languages": [
       {
@@ -1363,7 +1363,7 @@
     "Icon": "icon-schemes",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "WfmSchemes,WfmSchemeShifts,",
+    "TableName": "WfmSchemes,WfmSchemeShifts",
     "Deleted": 0,
     "languages": [
       {
@@ -1423,7 +1423,7 @@
     "Icon": "icon-goods-outbounds-costs",
     "IsObject": 1,
     "HasReportTemplate": 1,
-    "TableName": "SharedWarehouseReceipts,SharedWarehouseIssueItems,",
+    "TableName": "SharedWarehouseReceipts,SharedWarehouseIssueItems",
     "Deleted": 0,
     "languages": [
       {
@@ -1563,7 +1563,7 @@
     "Icon": "icon-stock-report",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "WmsTraffic,",
+    "TableName": "WmsTraffic",
     "Deleted": 0,
     "languages": [
       {
@@ -1583,7 +1583,7 @@
     "Icon": "icon-wms-settings",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "WmsCompaniesSetup,",
+    "TableName": "WmsCompaniesSetup",
     "Deleted": 0,
     "languages": [
       {
@@ -1603,7 +1603,7 @@
     "Icon": "icon-cost-types",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "RegCostTypes,",
+    "TableName": "RegCostTypes",
     "Deleted": 0,
     "languages": [
       {
@@ -1623,7 +1623,7 @@
     "Icon": "icon-order-types",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "RegSalesOrderTypes,",
+    "TableName": "RegSalesOrderTypes",
     "Deleted": 0,
     "languages": [
       {
@@ -1683,7 +1683,7 @@
     "Icon": "icon-authorized-persons",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "RegAuthorizedPersons, RegAuthorizedPersonBrancheOffices,",
+    "TableName": "RegAuthorizedPersons, RegAuthorizedPersonBrancheOffices",
     "Deleted": 0,
     "languages": [
       {
