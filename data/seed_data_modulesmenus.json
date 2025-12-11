@@ -1391,11 +1391,21 @@
   },
   {
     "ModuleName": "WMS",
+    "MenuName": "Zbirni izlaz materijala",
+    "MenuId": 86,
+    "Level": 2,
+    "ParentMenuId": 70,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
     "MenuName": "Skladišne prelokacije",
     "MenuId": 54,
     "Level": 2,
     "ParentMenuId": 70,
-    "SortNumber": 3,
+    "SortNumber": 4,
     "Status": 1,
     "ApiOnly": 0
   },

@@ -1697,5 +1697,25 @@
         "Description": "Registry of authorized persons"
       }
     ]
+  },
+  {
+    "Id": 86,
+    "Icon": "icon-bulk-warehouse-issue",
+    "IsObject": 1,
+    "HasReportTemplate": 1,
+    "TableName": "SharedBulkWarehouseIssues,SharedBulkWarehouseIssueItems",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Zbirni izlaz materijala",
+        "Description": "Evidencija zbirnog izlaza materijala"
+      },
+      {
+        "Locale": "en",
+        "Name": "Bulk Material Issue",
+        "Description": "Bulk material issue records"
+      }
+    ]
   }
 ]

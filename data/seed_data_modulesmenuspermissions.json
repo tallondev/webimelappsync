@@ -1600,6 +1600,20 @@
   },
   {
     "ModuleName": "WMS",
+    "MenuName": "Zbirni izlaz materijala",
+    "MenuId": 86,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
+  },
+  {
+    "ModuleName": "WMS",
     "MenuName": "Skladišne prelokacije",
     "MenuId": 54,
     "Permissions": [
