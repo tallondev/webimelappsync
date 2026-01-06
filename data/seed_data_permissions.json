@@ -134,5 +134,56 @@
         "Description": "Permission to conclude a process or document"
       }
     ]
+  },
+  {
+    "Name": "approve",
+    "Enabled": 1,
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Odabravanje",
+        "Description": "Dozvola za odobravanje"
+      },
+      {
+        "Locale": "en",
+        "Name": "Approve",
+        "Description": "Permission to approve"
+      }
+    ]
+  },
+  {
+    "Name": "verify",
+    "Enabled": 1,
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Verifikacija",
+        "Description": "Dozvola za verifikaciju"
+      },
+      {
+        "Locale": "en",
+        "Name": "Verify",
+        "Description": "Permission to verify"
+      }
+    ]
+  },
+  {
+    "Name": "special",
+    "Enabled": 1,
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Posebno pravo",
+        "Description": "Dozvola za posebno pravo"
+      },
+      {
+        "Locale": "en",
+        "Name": "Special right",
+        "Description": "Permission for special right"
+      }
+    ]
   }
 ]
