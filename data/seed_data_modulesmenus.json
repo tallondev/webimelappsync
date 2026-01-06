@@ -1508,5 +1508,75 @@
     "SortNumber": 5,
     "Status": 1,
     "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Tipovi izlaznica",
+    "MenuId": 87,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 5,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Ustanove - Destinacije",
+    "MenuId": 88,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 6,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "HR",
+    "MenuName": "Godišnji odmori",
+    "MenuId": 89,
+    "Level": 1,
+    "ParentMenuId": 3,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "HR",
+    "MenuName": "Bolovanja",
+    "MenuId": 90,
+    "Level": 1,
+    "ParentMenuId": 3,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "HR",
+    "MenuName": "Planirani godišnji odmori",
+    "MenuId": 91,
+    "Level": 1,
+    "ParentMenuId": 4,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Planirani godišnji odmori",
+    "MenuId": 91,
+    "Level": 1,
+    "ParentMenuId": 4,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Izlaznice",
+    "MenuId": 92,
+    "Level": 1,
+    "ParentMenuId": 3,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 0
   }
 ]

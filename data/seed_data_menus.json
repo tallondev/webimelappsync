@@ -1717,5 +1717,125 @@
         "Description": "Bulk material issue records"
       }
     ]
+  },
+  {
+    "Id": 87,
+    "Icon": "icon-exit-types",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "WfmExitTypes",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Tipovi izlaznica",
+        "Description": "Evidencija tipova izlaznica"
+      },
+      {
+        "Locale": "en",
+        "Name": "Exit Types",
+        "Description": "Exit types records"
+      }
+    ]
+  },
+  {
+    "Id": 88,
+    "Icon": "icon-institution-destinations",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "WfmInstitutionDestinations",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Ustanove - Destinacije",
+        "Description": "Evidencija ustanova i destinacija"
+      },
+      {
+        "Locale": "en",
+        "Name": "Institutions - Destinations",
+        "Description": "Institutions and destinations records"
+      }
+    ]
+  },
+  {
+    "Id": 89,
+    "Icon": "icon-vacations",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "HrVacations",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Godišnji odmori",
+        "Description": "Evidencija godišnjih odmora"
+      },
+      {
+        "Locale": "en",
+        "Name": "Vacations",
+        "Description": "Vacation records"
+      }
+    ]
+  },
+  {
+    "Id": 90,
+    "Icon": "icon-sick-leaves",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "HrSickLeaves",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Bolovanja",
+        "Description": "Evidencija bolovanja"
+      },
+      {
+        "Locale": "en",
+        "Name": "Sick Leaves",
+        "Description": "Sick leave records"
+      }
+    ]
+  },
+  {
+    "Id": 91,
+    "Icon": "icon-vacations-report",
+    "IsObject": 0,
+    "HasReportTemplate": 0,
+    "TableName": "HrVacations",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Planirani godišnji odmori",
+        "Description": "Izvještaj planiranih godišnjih odmora"
+      },
+      {
+        "Locale": "en",
+        "Name": "Planned Vacations",
+        "Description": "Planned vacations report"
+      }
+    ]
+  },
+  {
+    "Id": 92,
+    "Icon": "icon-exits",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "WfmExits",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Izlaznice",
+        "Description": "Evidencija izlaznica"
+      },
+      {
+        "Locale": "en",
+        "Name": "Exits",
+        "Description": "Exits records"
+      }
+    ]
   }
 ]

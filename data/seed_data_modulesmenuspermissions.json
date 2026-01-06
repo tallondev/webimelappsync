@@ -1713,5 +1713,95 @@
       "export",
       "log"
     ]
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Tipovi izlaznica",
+    "MenuId": 87,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Ustanove - Destinacije",
+    "MenuId": 88,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
+  },
+  {
+    "ModuleName": "HR",
+    "MenuName": "Godišnji odmori",
+    "MenuId": 89,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
+  },
+  {
+    "ModuleName": "HR",
+    "MenuName": "Bolovanja",
+    "MenuId": 90,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
+  },
+  {
+    "ModuleName": "HR",
+    "MenuName": "Planirani godišnji odmori",
+    "MenuId": 91,
+    "Permissions": [
+      "view",
+      "export",
+      "special"
+    ]
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Planirani godišnji odmori",
+    "MenuId": 91,
+    "Permissions": [
+      "view",
+      "export",
+      "special"
+    ]
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Izlaznice",
+    "MenuId": 92,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "approve",
+      "verify",
+      "special"
+    ]
   }
 ]
