@@ -1803,5 +1803,32 @@
       "verify",
       "special"
     ]
+  },
+  {
+    "ModuleName": "HR",
+    "MenuName": "Vrste dopusta",
+    "MenuId": 93,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
+  },
+  {
+    "ModuleName": "HR",
+    "MenuName": "Rješenja za odsustvo",
+    "MenuId": 94,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   }
 ]

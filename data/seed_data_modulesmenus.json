@@ -1578,5 +1578,25 @@
     "SortNumber": 3,
     "Status": 1,
     "ApiOnly": 0
+  },
+  {
+    "ModuleName": "HR",
+    "MenuName": "Vrste dopusta",
+    "MenuId": 93,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 5,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "HR",
+    "MenuName": "Rješenja za odsustvo",
+    "MenuId": 94,
+    "Level": 1,
+    "ParentMenuId": 3,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 0
   }
 ]

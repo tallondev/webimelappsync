@@ -1838,4 +1838,45 @@
       }
     ]
   }
+  ,
+  {
+    "Id": 93,
+    "Icon": "icon-leave-types",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "RegLeaveTypes",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Vrste dopusta",
+        "Description": "Evidencija vrsta dopusta"
+      },
+      {
+        "Locale": "en",
+        "Name": "Leave Types",
+        "Description": "Leave types records"
+      }
+    ]
+  },
+  {
+    "Id": 94,
+    "Icon": "icon-leave-decisions",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "HrLeaveDecisions",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Rješenja za odsustvo",
+        "Description": "Evidencija rješenja za odsustvo"
+      },
+      {
+        "Locale": "en",
+        "Name": "Leave Decisions",
+        "Description": "Leave decisions records"
+      }
+    ]
+  }
 ]
