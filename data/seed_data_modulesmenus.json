@@ -1598,5 +1598,15 @@
     "SortNumber": 3,
     "Status": 1,
     "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Kartice",
+    "MenuId": 95,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 7,
+    "Status": 1,
+    "ApiOnly": 0
   }
 ]

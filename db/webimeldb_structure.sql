@@ -1,4 +1,4 @@
-﻿-- WEBIMELDB STRUKTURA - Generisano: 7.1.2026. 14:10:51
+﻿-- WEBIMELDB STRUKTURA - Generisano: 8.1.2026. 15:01:14
 -- --------------------------------------------------
 
 -- TABELE
@@ -652,6 +652,38 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[HrLeaveDecisions]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[HrLeaveDecisions](
+	[Id] [bigint] IDENTITY(1,1) NOT NULL,
+	[BranchOfficeId] [int] NOT NULL,
+	[EmployeeId] [int] NOT NULL,
+	[DateFrom] [date] NOT NULL,
+	[DateTo] [date] NOT NULL,
+	[DurationDays] [int] NOT NULL,
+	[DateStartWork] [date] NOT NULL,
+	[LeaveTypeId] [int] NOT NULL,
+	[Note] [nvarchar](500) NULL,
+	[Status] [smallint] NOT NULL,
+	[BreakDateFrom] [date] NULL,
+	[BreakDateTo] [date] NULL,
+	[BreakReason] [nvarchar](500) NULL,
+	[RootId] [bigint] NULL,
+	[VersionParentId] [bigint] NULL,
+	[VersionChildId] [bigint] NULL,
+	[VersionExpiredDate] [datetime2](7) NULL,
+	[CompanyId] [int] NOT NULL,
+ CONSTRAINT [PK_HrLeaveDecisions] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[HrSickLeaves]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[HrSickLeaves](
@@ -1243,6 +1275,7 @@ CREATE TABLE [dbo].[RegBranchOffices](
 	[VersionChildId] [int] NULL,
 	[VersionExpiredDate] [datetime2](7) NULL,
 	[CompanyId] [int] NOT NULL,
+	[ParentId] [int] NULL,
  CONSTRAINT [PK_RegBranchOffices] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -1450,18 +1483,38 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RegOrganizationalStructures]') AND type in (N'U'))
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RegLeaveTypes]') AND type in (N'U'))
 BEGIN
-CREATE TABLE [dbo].[RegOrganizationalStructures](
+CREATE TABLE [dbo].[RegLeaveTypes](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[Label] [nvarchar](2) NOT NULL,
+	[Label] [nvarchar](3) NOT NULL,
 	[Name] [nvarchar](100) NOT NULL,
+	[WorkTypeId] [int] NULL,
 	[Status] [smallint] NOT NULL,
 	[RootId] [int] NULL,
 	[VersionParentId] [int] NULL,
 	[VersionChildId] [int] NULL,
 	[VersionExpiredDate] [datetime2](7) NULL,
 	[CompanyId] [int] NOT NULL,
+ CONSTRAINT [PK_RegLeaveTypes] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RegOrganizationalStructures]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[RegOrganizationalStructures](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Level] [smallint] NOT NULL,
+	[Name] [nvarchar](100) NOT NULL,
+	[CompanyId] [int] NOT NULL,
+	[UsedForConclusion] [smallint] NOT NULL,
  CONSTRAINT [PK_RegOrganizationalStructures] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -4234,6 +4287,66 @@ CREATE NONCLUSTERED INDEX [IX_HrEmployees_VersionParentId] ON [dbo].[HrEmployees
 	[VersionParentId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[HrLeaveDecisions]') AND name = N'Index_HrLeaveDecisions_RootId')
+CREATE NONCLUSTERED INDEX [Index_HrLeaveDecisions_RootId] ON [dbo].[HrLeaveDecisions]
+(
+	[RootId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[HrLeaveDecisions]') AND name = N'Index_HrLeaveDecisions_Status')
+CREATE NONCLUSTERED INDEX [Index_HrLeaveDecisions_Status] ON [dbo].[HrLeaveDecisions]
+(
+	[Status] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[HrLeaveDecisions]') AND name = N'Index_HrLeaveDecisions_VersionChildId')
+CREATE NONCLUSTERED INDEX [Index_HrLeaveDecisions_VersionChildId] ON [dbo].[HrLeaveDecisions]
+(
+	[VersionChildId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[HrLeaveDecisions]') AND name = N'Index_HrLeaveDecisions_VersionParentId')
+CREATE NONCLUSTERED INDEX [Index_HrLeaveDecisions_VersionParentId] ON [dbo].[HrLeaveDecisions]
+(
+	[VersionParentId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[HrLeaveDecisions]') AND name = N'IX_HrLeaveDecisions_BranchOfficeId')
+CREATE NONCLUSTERED INDEX [IX_HrLeaveDecisions_BranchOfficeId] ON [dbo].[HrLeaveDecisions]
+(
+	[BranchOfficeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[HrLeaveDecisions]') AND name = N'IX_HrLeaveDecisions_CompanyId')
+CREATE NONCLUSTERED INDEX [IX_HrLeaveDecisions_CompanyId] ON [dbo].[HrLeaveDecisions]
+(
+	[CompanyId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[HrLeaveDecisions]') AND name = N'IX_HrLeaveDecisions_DateFrom')
+CREATE NONCLUSTERED INDEX [IX_HrLeaveDecisions_DateFrom] ON [dbo].[HrLeaveDecisions]
+(
+	[DateFrom] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[HrLeaveDecisions]') AND name = N'IX_HrLeaveDecisions_DateTo')
+CREATE NONCLUSTERED INDEX [IX_HrLeaveDecisions_DateTo] ON [dbo].[HrLeaveDecisions]
+(
+	[DateTo] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[HrLeaveDecisions]') AND name = N'IX_HrLeaveDecisions_EmployeeId')
+CREATE NONCLUSTERED INDEX [IX_HrLeaveDecisions_EmployeeId] ON [dbo].[HrLeaveDecisions]
+(
+	[EmployeeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[HrLeaveDecisions]') AND name = N'IX_HrLeaveDecisions_LeaveTypeId')
+CREATE NONCLUSTERED INDEX [IX_HrLeaveDecisions_LeaveTypeId] ON [dbo].[HrLeaveDecisions]
+(
+	[LeaveTypeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[HrSickLeaves]') AND name = N'Index_HrSickLeaves_DateTo')
 CREATE NONCLUSTERED INDEX [Index_HrSickLeaves_DateTo] ON [dbo].[HrSickLeaves]
 (
@@ -5501,6 +5614,12 @@ CREATE NONCLUSTERED INDEX [Index_RegBranchOffices_OrganizationalStructureId] ON 
 	[OrganizationalStructureId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegBranchOffices]') AND name = N'Index_RegBranchOffices_ParentId')
+CREATE NONCLUSTERED INDEX [Index_RegBranchOffices_ParentId] ON [dbo].[RegBranchOffices]
+(
+	[ParentId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegBranchOffices]') AND name = N'Index_RegBranchOffices_RootId')
 CREATE NONCLUSTERED INDEX [Index_RegBranchOffices_RootId] ON [dbo].[RegBranchOffices]
 (
@@ -5870,44 +5989,75 @@ CREATE NONCLUSTERED INDEX [IX_RegInvoiceCenters_WarehouseId] ON [dbo].[RegInvoic
 	[WarehouseId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
+SET ANSI_PADDING ON
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegLeaveTypes]') AND name = N'Index_RegLeaveTypes_Label')
+CREATE NONCLUSTERED INDEX [Index_RegLeaveTypes_Label] ON [dbo].[RegLeaveTypes]
+(
+	[Label] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegLeaveTypes]') AND name = N'Index_RegLeaveTypes_RootId')
+CREATE NONCLUSTERED INDEX [Index_RegLeaveTypes_RootId] ON [dbo].[RegLeaveTypes]
+(
+	[RootId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegLeaveTypes]') AND name = N'Index_RegLeaveTypes_Status')
+CREATE NONCLUSTERED INDEX [Index_RegLeaveTypes_Status] ON [dbo].[RegLeaveTypes]
+(
+	[Status] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegLeaveTypes]') AND name = N'Index_RegLeaveTypes_VersionChildId')
+CREATE NONCLUSTERED INDEX [Index_RegLeaveTypes_VersionChildId] ON [dbo].[RegLeaveTypes]
+(
+	[VersionChildId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegLeaveTypes]') AND name = N'Index_RegLeaveTypes_VersionParentId')
+CREATE NONCLUSTERED INDEX [Index_RegLeaveTypes_VersionParentId] ON [dbo].[RegLeaveTypes]
+(
+	[VersionParentId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegLeaveTypes]') AND name = N'IX_RegLeaveTypes_CompanyId')
+CREATE NONCLUSTERED INDEX [IX_RegLeaveTypes_CompanyId] ON [dbo].[RegLeaveTypes]
+(
+	[CompanyId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegLeaveTypes]') AND name = N'IX_RegLeaveTypes_WorkTypeId')
+CREATE NONCLUSTERED INDEX [IX_RegLeaveTypes_WorkTypeId] ON [dbo].[RegLeaveTypes]
+(
+	[WorkTypeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegOrganizationalStructures]') AND name = N'Index_RegOrganizationalStructures_CompanyId')
 CREATE NONCLUSTERED INDEX [Index_RegOrganizationalStructures_CompanyId] ON [dbo].[RegOrganizationalStructures]
 (
 	[CompanyId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-SET ANSI_PADDING ON
-
-GO
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegOrganizationalStructures]') AND name = N'Index_RegOrganizationalStructures_Label')
 CREATE NONCLUSTERED INDEX [Index_RegOrganizationalStructures_Label] ON [dbo].[RegOrganizationalStructures]
 (
-	[Label] ASC
+	[Level] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegOrganizationalStructures]') AND name = N'Index_RegOrganizationalStructures_RootId')
-CREATE NONCLUSTERED INDEX [Index_RegOrganizationalStructures_RootId] ON [dbo].[RegOrganizationalStructures]
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegOrganizationalStructures]') AND name = N'Index_RegOrganizationalStructures_UsedForConclusion')
+CREATE NONCLUSTERED INDEX [Index_RegOrganizationalStructures_UsedForConclusion] ON [dbo].[RegOrganizationalStructures]
 (
-	[RootId] ASC
+	[UsedForConclusion] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegOrganizationalStructures]') AND name = N'Index_RegOrganizationalStructures_Status')
-CREATE NONCLUSTERED INDEX [Index_RegOrganizationalStructures_Status] ON [dbo].[RegOrganizationalStructures]
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegOrganizationalStructures]') AND name = N'UQ_RegOrganizationalStructures_1')
+CREATE UNIQUE NONCLUSTERED INDEX [UQ_RegOrganizationalStructures_1] ON [dbo].[RegOrganizationalStructures]
 (
-	[Status] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegOrganizationalStructures]') AND name = N'Index_RegOrganizationalStructures_VersionChildId')
-CREATE NONCLUSTERED INDEX [Index_RegOrganizationalStructures_VersionChildId] ON [dbo].[RegOrganizationalStructures]
-(
-	[VersionChildId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegOrganizationalStructures]') AND name = N'Index_RegOrganizationalStructures_VersionParentId')
-CREATE NONCLUSTERED INDEX [Index_RegOrganizationalStructures_VersionParentId] ON [dbo].[RegOrganizationalStructures]
-(
-	[VersionParentId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+	[CompanyId] ASC,
+	[Level] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegPaymentMethods]') AND name = N'Index_RegPaymentMethods_CompanyId')
 CREATE NONCLUSTERED INDEX [Index_RegPaymentMethods_CompanyId] ON [dbo].[RegPaymentMethods]
@@ -9947,6 +10097,12 @@ ALTER TABLE [dbo].[HrEmployees] ADD  DEFAULT (CONVERT([smallint],(1))) FOR [Stat
 END
 
 GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__HrLeaveDe__Statu__44160A59]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[HrLeaveDecisions] ADD  DEFAULT (CONVERT([smallint],(0))) FOR [Status]
+END
+
+GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__HrSickLea__Statu__2779CBAB]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[HrSickLeaves] ADD  DEFAULT (CONVERT([smallint],(0))) FOR [Status]
@@ -10211,9 +10367,15 @@ ALTER TABLE [dbo].[RegInvoiceCenters] ADD  DEFAULT (CONVERT([smallint],(1))) FOR
 END
 
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__RegOrgani__Statu__14E61A24]') AND type = 'D')
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__RegLeaveT__Statu__41399DAE]') AND type = 'D')
 BEGIN
-ALTER TABLE [dbo].[RegOrganizationalStructures] ADD  DEFAULT (CONVERT([smallint],(1))) FOR [Status]
+ALTER TABLE [dbo].[RegLeaveTypes] ADD  DEFAULT (CONVERT([smallint],(1))) FOR [Status]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DEFAULT_RegOrganizationalStructures_UsedForConclusion]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[RegOrganizationalStructures] ADD  CONSTRAINT [DEFAULT_RegOrganizationalStructures_UsedForConclusion]  DEFAULT (CONVERT([smallint],(1))) FOR [UsedForConclusion]
 END
 
 GO
@@ -11297,6 +11459,48 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_HrEmployees_RegBusinessPartners_BusinesPartnerId]') AND parent_object_id = OBJECT_ID(N'[dbo].[HrEmployees]'))
 ALTER TABLE [dbo].[HrEmployees] CHECK CONSTRAINT [FK_HrEmployees_RegBusinessPartners_BusinesPartnerId]
 GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_HrLeaveDecisions_CoreCompanies]') AND parent_object_id = OBJECT_ID(N'[dbo].[HrLeaveDecisions]'))
+ALTER TABLE [dbo].[HrLeaveDecisions]  WITH CHECK ADD  CONSTRAINT [FK_HrLeaveDecisions_CoreCompanies] FOREIGN KEY([CompanyId])
+REFERENCES [dbo].[CoreCompanies] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_HrLeaveDecisions_CoreCompanies]') AND parent_object_id = OBJECT_ID(N'[dbo].[HrLeaveDecisions]'))
+ALTER TABLE [dbo].[HrLeaveDecisions] CHECK CONSTRAINT [FK_HrLeaveDecisions_CoreCompanies]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_HrLeaveDecisions_HrEmployees]') AND parent_object_id = OBJECT_ID(N'[dbo].[HrLeaveDecisions]'))
+ALTER TABLE [dbo].[HrLeaveDecisions]  WITH CHECK ADD  CONSTRAINT [FK_HrLeaveDecisions_HrEmployees] FOREIGN KEY([EmployeeId])
+REFERENCES [dbo].[HrEmployees] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_HrLeaveDecisions_HrEmployees]') AND parent_object_id = OBJECT_ID(N'[dbo].[HrLeaveDecisions]'))
+ALTER TABLE [dbo].[HrLeaveDecisions] CHECK CONSTRAINT [FK_HrLeaveDecisions_HrEmployees]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_HrLeaveDecisions_HrLeaveDecisions_VersionChildId]') AND parent_object_id = OBJECT_ID(N'[dbo].[HrLeaveDecisions]'))
+ALTER TABLE [dbo].[HrLeaveDecisions]  WITH CHECK ADD  CONSTRAINT [FK_HrLeaveDecisions_HrLeaveDecisions_VersionChildId] FOREIGN KEY([VersionChildId])
+REFERENCES [dbo].[HrLeaveDecisions] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_HrLeaveDecisions_HrLeaveDecisions_VersionChildId]') AND parent_object_id = OBJECT_ID(N'[dbo].[HrLeaveDecisions]'))
+ALTER TABLE [dbo].[HrLeaveDecisions] CHECK CONSTRAINT [FK_HrLeaveDecisions_HrLeaveDecisions_VersionChildId]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_HrLeaveDecisions_HrLeaveDecisions_VersionParentId]') AND parent_object_id = OBJECT_ID(N'[dbo].[HrLeaveDecisions]'))
+ALTER TABLE [dbo].[HrLeaveDecisions]  WITH CHECK ADD  CONSTRAINT [FK_HrLeaveDecisions_HrLeaveDecisions_VersionParentId] FOREIGN KEY([VersionParentId])
+REFERENCES [dbo].[HrLeaveDecisions] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_HrLeaveDecisions_HrLeaveDecisions_VersionParentId]') AND parent_object_id = OBJECT_ID(N'[dbo].[HrLeaveDecisions]'))
+ALTER TABLE [dbo].[HrLeaveDecisions] CHECK CONSTRAINT [FK_HrLeaveDecisions_HrLeaveDecisions_VersionParentId]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_HrLeaveDecisions_RegBranchOffices]') AND parent_object_id = OBJECT_ID(N'[dbo].[HrLeaveDecisions]'))
+ALTER TABLE [dbo].[HrLeaveDecisions]  WITH CHECK ADD  CONSTRAINT [FK_HrLeaveDecisions_RegBranchOffices] FOREIGN KEY([BranchOfficeId])
+REFERENCES [dbo].[RegBranchOffices] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_HrLeaveDecisions_RegBranchOffices]') AND parent_object_id = OBJECT_ID(N'[dbo].[HrLeaveDecisions]'))
+ALTER TABLE [dbo].[HrLeaveDecisions] CHECK CONSTRAINT [FK_HrLeaveDecisions_RegBranchOffices]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_HrLeaveDecisions_RegLeaveTypes]') AND parent_object_id = OBJECT_ID(N'[dbo].[HrLeaveDecisions]'))
+ALTER TABLE [dbo].[HrLeaveDecisions]  WITH CHECK ADD  CONSTRAINT [FK_HrLeaveDecisions_RegLeaveTypes] FOREIGN KEY([LeaveTypeId])
+REFERENCES [dbo].[RegLeaveTypes] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_HrLeaveDecisions_RegLeaveTypes]') AND parent_object_id = OBJECT_ID(N'[dbo].[HrLeaveDecisions]'))
+ALTER TABLE [dbo].[HrLeaveDecisions] CHECK CONSTRAINT [FK_HrLeaveDecisions_RegLeaveTypes]
+GO
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_HrSickLeaves_CoreCompanies]') AND parent_object_id = OBJECT_ID(N'[dbo].[HrSickLeaves]'))
 ALTER TABLE [dbo].[HrSickLeaves]  WITH CHECK ADD  CONSTRAINT [FK_HrSickLeaves_CoreCompanies] FOREIGN KEY([CompanyId])
 REFERENCES [dbo].[CoreCompanies] ([Id])
@@ -12076,6 +12280,13 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegBranchOffices_CoreCompanies_CompanyId]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegBranchOffices]'))
 ALTER TABLE [dbo].[RegBranchOffices] CHECK CONSTRAINT [FK_RegBranchOffices_CoreCompanies_CompanyId]
 GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegBranchOffices_RegBranchOffices_ParentId]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegBranchOffices]'))
+ALTER TABLE [dbo].[RegBranchOffices]  WITH CHECK ADD  CONSTRAINT [FK_RegBranchOffices_RegBranchOffices_ParentId] FOREIGN KEY([ParentId])
+REFERENCES [dbo].[RegBranchOffices] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegBranchOffices_RegBranchOffices_ParentId]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegBranchOffices]'))
+ALTER TABLE [dbo].[RegBranchOffices] CHECK CONSTRAINT [FK_RegBranchOffices_RegBranchOffices_ParentId]
+GO
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegBranchOffices_RegBranchOffices_VersionChildId]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegBranchOffices]'))
 ALTER TABLE [dbo].[RegBranchOffices]  WITH CHECK ADD  CONSTRAINT [FK_RegBranchOffices_RegBranchOffices_VersionChildId] FOREIGN KEY([VersionChildId])
 REFERENCES [dbo].[RegBranchOffices] ([Id])
@@ -12290,26 +12501,40 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegInvoiceCenters_RegWarehouses_WarehouseId]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegInvoiceCenters]'))
 ALTER TABLE [dbo].[RegInvoiceCenters] CHECK CONSTRAINT [FK_RegInvoiceCenters_RegWarehouses_WarehouseId]
 GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegLeaveTypes_CoreCompanies]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegLeaveTypes]'))
+ALTER TABLE [dbo].[RegLeaveTypes]  WITH CHECK ADD  CONSTRAINT [FK_RegLeaveTypes_CoreCompanies] FOREIGN KEY([CompanyId])
+REFERENCES [dbo].[CoreCompanies] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegLeaveTypes_CoreCompanies]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegLeaveTypes]'))
+ALTER TABLE [dbo].[RegLeaveTypes] CHECK CONSTRAINT [FK_RegLeaveTypes_CoreCompanies]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegLeaveTypes_RegLeaveTypes_VersionChildId]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegLeaveTypes]'))
+ALTER TABLE [dbo].[RegLeaveTypes]  WITH CHECK ADD  CONSTRAINT [FK_RegLeaveTypes_RegLeaveTypes_VersionChildId] FOREIGN KEY([VersionChildId])
+REFERENCES [dbo].[RegLeaveTypes] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegLeaveTypes_RegLeaveTypes_VersionChildId]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegLeaveTypes]'))
+ALTER TABLE [dbo].[RegLeaveTypes] CHECK CONSTRAINT [FK_RegLeaveTypes_RegLeaveTypes_VersionChildId]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegLeaveTypes_RegLeaveTypes_VersionParentId]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegLeaveTypes]'))
+ALTER TABLE [dbo].[RegLeaveTypes]  WITH CHECK ADD  CONSTRAINT [FK_RegLeaveTypes_RegLeaveTypes_VersionParentId] FOREIGN KEY([VersionParentId])
+REFERENCES [dbo].[RegLeaveTypes] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegLeaveTypes_RegLeaveTypes_VersionParentId]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegLeaveTypes]'))
+ALTER TABLE [dbo].[RegLeaveTypes] CHECK CONSTRAINT [FK_RegLeaveTypes_RegLeaveTypes_VersionParentId]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegLeaveTypes_WfmWorkTypes]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegLeaveTypes]'))
+ALTER TABLE [dbo].[RegLeaveTypes]  WITH CHECK ADD  CONSTRAINT [FK_RegLeaveTypes_WfmWorkTypes] FOREIGN KEY([WorkTypeId])
+REFERENCES [dbo].[WfmWorkTypes] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegLeaveTypes_WfmWorkTypes]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegLeaveTypes]'))
+ALTER TABLE [dbo].[RegLeaveTypes] CHECK CONSTRAINT [FK_RegLeaveTypes_WfmWorkTypes]
+GO
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegOrganizationalStructures_CoreCompanies_CompanyId]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegOrganizationalStructures]'))
 ALTER TABLE [dbo].[RegOrganizationalStructures]  WITH CHECK ADD  CONSTRAINT [FK_RegOrganizationalStructures_CoreCompanies_CompanyId] FOREIGN KEY([CompanyId])
 REFERENCES [dbo].[CoreCompanies] ([Id])
 GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegOrganizationalStructures_CoreCompanies_CompanyId]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegOrganizationalStructures]'))
 ALTER TABLE [dbo].[RegOrganizationalStructures] CHECK CONSTRAINT [FK_RegOrganizationalStructures_CoreCompanies_CompanyId]
-GO
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegOrganizationalStructures_VersionChildId]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegOrganizationalStructures]'))
-ALTER TABLE [dbo].[RegOrganizationalStructures]  WITH CHECK ADD  CONSTRAINT [FK_RegOrganizationalStructures_VersionChildId] FOREIGN KEY([VersionChildId])
-REFERENCES [dbo].[RegOrganizationalStructures] ([Id])
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegOrganizationalStructures_VersionChildId]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegOrganizationalStructures]'))
-ALTER TABLE [dbo].[RegOrganizationalStructures] CHECK CONSTRAINT [FK_RegOrganizationalStructures_VersionChildId]
-GO
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegOrganizationalStructures_VersionParentId]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegOrganizationalStructures]'))
-ALTER TABLE [dbo].[RegOrganizationalStructures]  WITH CHECK ADD  CONSTRAINT [FK_RegOrganizationalStructures_VersionParentId] FOREIGN KEY([VersionParentId])
-REFERENCES [dbo].[RegOrganizationalStructures] ([Id])
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegOrganizationalStructures_VersionParentId]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegOrganizationalStructures]'))
-ALTER TABLE [dbo].[RegOrganizationalStructures] CHECK CONSTRAINT [FK_RegOrganizationalStructures_VersionParentId]
 GO
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegPaymentMethods_CoreCompanies_CompanyId]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegPaymentMethods]'))
 ALTER TABLE [dbo].[RegPaymentMethods]  WITH CHECK ADD  CONSTRAINT [FK_RegPaymentMethods_CoreCompanies_CompanyId] FOREIGN KEY([CompanyId])
@@ -15331,6 +15556,45 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'HrEmployees', NULL,NULL))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Zaposlenici' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'HrEmployees'
 GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'HrLeaveDecisions', N'COLUMN',N'BranchOfficeId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Poslovna jedinica' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'HrLeaveDecisions', @level2type=N'COLUMN',@level2name=N'BranchOfficeId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'HrLeaveDecisions', N'COLUMN',N'EmployeeId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Zaposlenik' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'HrLeaveDecisions', @level2type=N'COLUMN',@level2name=N'EmployeeId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'HrLeaveDecisions', N'COLUMN',N'DateFrom'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Od datuma' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'HrLeaveDecisions', @level2type=N'COLUMN',@level2name=N'DateFrom'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'HrLeaveDecisions', N'COLUMN',N'DateTo'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Do datuma' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'HrLeaveDecisions', @level2type=N'COLUMN',@level2name=N'DateTo'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'HrLeaveDecisions', N'COLUMN',N'DurationDays'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Trajanje (dana)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'HrLeaveDecisions', @level2type=N'COLUMN',@level2name=N'DurationDays'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'HrLeaveDecisions', N'COLUMN',N'DateStartWork'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Datum početka sa radom' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'HrLeaveDecisions', @level2type=N'COLUMN',@level2name=N'DateStartWork'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'HrLeaveDecisions', N'COLUMN',N'LeaveTypeId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Vrsta dopusta' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'HrLeaveDecisions', @level2type=N'COLUMN',@level2name=N'LeaveTypeId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'HrLeaveDecisions', N'COLUMN',N'Note'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Napomena' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'HrLeaveDecisions', @level2type=N'COLUMN',@level2name=N'Note'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'HrLeaveDecisions', N'COLUMN',N'Status'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Status (0 - U pripremi, 1 - Aktivan, 2 - Storno)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'HrLeaveDecisions', @level2type=N'COLUMN',@level2name=N'Status'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'HrLeaveDecisions', N'COLUMN',N'BreakDateFrom'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Datum prekida od' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'HrLeaveDecisions', @level2type=N'COLUMN',@level2name=N'BreakDateFrom'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'HrLeaveDecisions', N'COLUMN',N'BreakDateTo'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Datum prekida do' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'HrLeaveDecisions', @level2type=N'COLUMN',@level2name=N'BreakDateTo'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'HrLeaveDecisions', N'COLUMN',N'BreakReason'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Razlog prekida' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'HrLeaveDecisions', @level2type=N'COLUMN',@level2name=N'BreakReason'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'HrLeaveDecisions', NULL,NULL))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Rješenja za odsustvo' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'HrLeaveDecisions'
+GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'HrSickLeaves', N'COLUMN',N'BranchOfficeId'))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Poslovna jedinica' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'HrSickLeaves', @level2type=N'COLUMN',@level2name=N'BranchOfficeId'
 GO
@@ -16093,8 +16357,11 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegBranchOffices', N'COLUMN',N'CompanyId'))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Kompanija' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegBranchOffices', @level2type=N'COLUMN',@level2name=N'CompanyId'
 GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegBranchOffices', N'COLUMN',N'ParentId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Nadređena organizaciona jedinica' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegBranchOffices', @level2type=N'COLUMN',@level2name=N'ParentId'
+GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegBranchOffices', NULL,NULL))
-	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Poslovne jedinice' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegBranchOffices'
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Organizacione jedinice' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegBranchOffices'
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegBusinessPartners', N'COLUMN',N'Label'))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Šifra (inkrement)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegBusinessPartners', @level2type=N'COLUMN',@level2name=N'Label'
@@ -16342,32 +16609,32 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegInvoiceCenters', NULL,NULL))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Fakturni centri' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegInvoiceCenters'
 GO
-IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegOrganizationalStructures', N'COLUMN',N'Label'))
-	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Šifra (inkrement)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegOrganizationalStructures', @level2type=N'COLUMN',@level2name=N'Label'
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegLeaveTypes', N'COLUMN',N'Label'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Šifra (inkrement)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegLeaveTypes', @level2type=N'COLUMN',@level2name=N'Label'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegLeaveTypes', N'COLUMN',N'Name'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Naziv' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegLeaveTypes', @level2type=N'COLUMN',@level2name=N'Name'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegLeaveTypes', N'COLUMN',N'WorkTypeId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Vrsta rada' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegLeaveTypes', @level2type=N'COLUMN',@level2name=N'WorkTypeId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegLeaveTypes', NULL,NULL))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Vrste dopusta' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegLeaveTypes'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegOrganizationalStructures', N'COLUMN',N'Level'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Nivo' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegOrganizationalStructures', @level2type=N'COLUMN',@level2name=N'Level'
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegOrganizationalStructures', N'COLUMN',N'Name'))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Naziv' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegOrganizationalStructures', @level2type=N'COLUMN',@level2name=N'Name'
 GO
-IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegOrganizationalStructures', N'COLUMN',N'Status'))
-	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Status: 0 - Neaktivan 1 - Aktivan 2 - Arhiviran' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegOrganizationalStructures', @level2type=N'COLUMN',@level2name=N'Status'
-GO
-IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegOrganizationalStructures', N'COLUMN',N'RootId'))
-	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Ključ osnovne verzije' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegOrganizationalStructures', @level2type=N'COLUMN',@level2name=N'RootId'
-GO
-IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegOrganizationalStructures', N'COLUMN',N'VersionParentId'))
-	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Ključ prethodne verzije' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegOrganizationalStructures', @level2type=N'COLUMN',@level2name=N'VersionParentId'
-GO
-IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegOrganizationalStructures', N'COLUMN',N'VersionChildId'))
-	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Ključ nove verzije' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegOrganizationalStructures', @level2type=N'COLUMN',@level2name=N'VersionChildId'
-GO
-IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegOrganizationalStructures', N'COLUMN',N'VersionExpiredDate'))
-	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Vrijeme arhiviranja verzije' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegOrganizationalStructures', @level2type=N'COLUMN',@level2name=N'VersionExpiredDate'
-GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegOrganizationalStructures', N'COLUMN',N'CompanyId'))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Kompanija' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegOrganizationalStructures', @level2type=N'COLUMN',@level2name=N'CompanyId'
 GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegOrganizationalStructures', N'COLUMN',N'UsedForConclusion'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Koristi se za zaključenje (1 - Da, 0 - Ne)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegOrganizationalStructures', @level2type=N'COLUMN',@level2name=N'UsedForConclusion'
+GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegOrganizationalStructures', NULL,NULL))
-	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Viši organizacioni oblici' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegOrganizationalStructures'
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Organizaciona struktura' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegOrganizationalStructures'
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegPaymentMethods', N'COLUMN',N'Label'))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Šifra (inkrement)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegPaymentMethods', @level2type=N'COLUMN',@level2name=N'Label'

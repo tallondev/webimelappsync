@@ -1830,5 +1830,18 @@
       "export",
       "log"
     ]
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Kartice",
+    "MenuId": 95,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   }
 ]

@@ -1879,4 +1879,25 @@
       }
     ]
   }
+  ,
+  {
+    "Id": 95,
+    "Icon": "icon-registers",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "WfmCards,WfmCardEmployees",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Kartice",
+        "Description": "Evidencija kartica"
+      },
+      {
+        "Locale": "en",
+        "Name": "Cards",
+        "Description": "Cards records"
+      }
+    ]
+  }
 ]
