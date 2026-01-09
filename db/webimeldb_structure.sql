@@ -1,4 +1,4 @@
-﻿-- WEBIMELDB STRUKTURA - Generisano: 9.1.2026. 11:36:40
+﻿-- WEBIMELDB STRUKTURA - Generisano: 9.1.2026. 13:01:22
 -- --------------------------------------------------
 
 -- TABELE
@@ -3247,6 +3247,28 @@ CREATE TABLE [dbo].[WfmCompaniesSetup](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[CompanyId] [int] NOT NULL,
  CONSTRAINT [PK_WfmCompanySetup] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[WfmDailyEarnings]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[WfmDailyEarnings](
+	[Id] [bigint] IDENTITY(1,1) NOT NULL,
+	[WorkTypeId] [int] NOT NULL,
+	[EmployeeId] [int] NOT NULL,
+	[DateFrom] [datetime2](7) NOT NULL,
+	[DateTo] [datetime2](7) NOT NULL,
+	[Hours] [decimal](10, 2) NOT NULL,
+	[UserId] [nvarchar](450) NOT NULL,
+	[CompanyId] [int] NOT NULL,
+ CONSTRAINT [PK_WfmDailyEarnings] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
@@ -9353,6 +9375,51 @@ CREATE UNIQUE NONCLUSTERED INDEX [Index_WfmCompaniesSetup_CompanyId] ON [dbo].[W
 	[CompanyId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[WfmDailyEarnings]') AND name = N'Index_WfmDailyEarnings_DateFrom')
+CREATE NONCLUSTERED INDEX [Index_WfmDailyEarnings_DateFrom] ON [dbo].[WfmDailyEarnings]
+(
+	[DateFrom] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[WfmDailyEarnings]') AND name = N'Index_WfmDailyEarnings_DateTo')
+CREATE NONCLUSTERED INDEX [Index_WfmDailyEarnings_DateTo] ON [dbo].[WfmDailyEarnings]
+(
+	[DateTo] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[WfmDailyEarnings]') AND name = N'Index_WfmDailyEarnings_Hours')
+CREATE NONCLUSTERED INDEX [Index_WfmDailyEarnings_Hours] ON [dbo].[WfmDailyEarnings]
+(
+	[Hours] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[WfmDailyEarnings]') AND name = N'IX_WfmDailyEarnings_CompanyId')
+CREATE NONCLUSTERED INDEX [IX_WfmDailyEarnings_CompanyId] ON [dbo].[WfmDailyEarnings]
+(
+	[CompanyId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[WfmDailyEarnings]') AND name = N'IX_WfmDailyEarnings_EmployeeId')
+CREATE NONCLUSTERED INDEX [IX_WfmDailyEarnings_EmployeeId] ON [dbo].[WfmDailyEarnings]
+(
+	[EmployeeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[WfmDailyEarnings]') AND name = N'IX_WfmDailyEarnings_UserId')
+CREATE NONCLUSTERED INDEX [IX_WfmDailyEarnings_UserId] ON [dbo].[WfmDailyEarnings]
+(
+	[UserId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[WfmDailyEarnings]') AND name = N'IX_WfmDailyEarnings_WorkTypeId')
+CREATE NONCLUSTERED INDEX [IX_WfmDailyEarnings_WorkTypeId] ON [dbo].[WfmDailyEarnings]
+(
+	[WorkTypeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
 SET ANSI_PADDING ON
 
 GO
@@ -14848,6 +14915,34 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmCompaniesSetup_CoreCompanies_CompanyId]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmCompaniesSetup]'))
 ALTER TABLE [dbo].[WfmCompaniesSetup] CHECK CONSTRAINT [FK_WfmCompaniesSetup_CoreCompanies_CompanyId]
 GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmDailyEarnings_CoreCompanies_CompanyId]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmDailyEarnings]'))
+ALTER TABLE [dbo].[WfmDailyEarnings]  WITH CHECK ADD  CONSTRAINT [FK_WfmDailyEarnings_CoreCompanies_CompanyId] FOREIGN KEY([CompanyId])
+REFERENCES [dbo].[CoreCompanies] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmDailyEarnings_CoreCompanies_CompanyId]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmDailyEarnings]'))
+ALTER TABLE [dbo].[WfmDailyEarnings] CHECK CONSTRAINT [FK_WfmDailyEarnings_CoreCompanies_CompanyId]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmDailyEarnings_CoreUsers_UserId]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmDailyEarnings]'))
+ALTER TABLE [dbo].[WfmDailyEarnings]  WITH CHECK ADD  CONSTRAINT [FK_WfmDailyEarnings_CoreUsers_UserId] FOREIGN KEY([UserId])
+REFERENCES [dbo].[CoreUsers] ([UserId])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmDailyEarnings_CoreUsers_UserId]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmDailyEarnings]'))
+ALTER TABLE [dbo].[WfmDailyEarnings] CHECK CONSTRAINT [FK_WfmDailyEarnings_CoreUsers_UserId]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmDailyEarnings_HrEmployees_EmployeeId]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmDailyEarnings]'))
+ALTER TABLE [dbo].[WfmDailyEarnings]  WITH CHECK ADD  CONSTRAINT [FK_WfmDailyEarnings_HrEmployees_EmployeeId] FOREIGN KEY([EmployeeId])
+REFERENCES [dbo].[HrEmployees] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmDailyEarnings_HrEmployees_EmployeeId]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmDailyEarnings]'))
+ALTER TABLE [dbo].[WfmDailyEarnings] CHECK CONSTRAINT [FK_WfmDailyEarnings_HrEmployees_EmployeeId]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmDailyEarnings_WfmWorkTypes_WorkTypeId]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmDailyEarnings]'))
+ALTER TABLE [dbo].[WfmDailyEarnings]  WITH CHECK ADD  CONSTRAINT [FK_WfmDailyEarnings_WfmWorkTypes_WorkTypeId] FOREIGN KEY([WorkTypeId])
+REFERENCES [dbo].[WfmWorkTypes] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmDailyEarnings_WfmWorkTypes_WorkTypeId]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmDailyEarnings]'))
+ALTER TABLE [dbo].[WfmDailyEarnings] CHECK CONSTRAINT [FK_WfmDailyEarnings_WfmWorkTypes_WorkTypeId]
+GO
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmExits_CoreCompanies]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmExits]'))
 ALTER TABLE [dbo].[WfmExits]  WITH CHECK ADD  CONSTRAINT [FK_WfmExits_CoreCompanies] FOREIGN KEY([CompanyId])
 REFERENCES [dbo].[CoreCompanies] ([Id])
@@ -18924,6 +19019,30 @@ IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'S
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmCompaniesSetup', NULL,NULL))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'WFM konfiguracija' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmCompaniesSetup'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmDailyEarnings', N'COLUMN',N'WorkTypeId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Vrsta rada' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmDailyEarnings', @level2type=N'COLUMN',@level2name=N'WorkTypeId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmDailyEarnings', N'COLUMN',N'EmployeeId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Zaposlenik' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmDailyEarnings', @level2type=N'COLUMN',@level2name=N'EmployeeId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmDailyEarnings', N'COLUMN',N'DateFrom'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Od datuma' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmDailyEarnings', @level2type=N'COLUMN',@level2name=N'DateFrom'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmDailyEarnings', N'COLUMN',N'DateTo'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Do datuma' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmDailyEarnings', @level2type=N'COLUMN',@level2name=N'DateTo'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmDailyEarnings', N'COLUMN',N'Hours'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Sati' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmDailyEarnings', @level2type=N'COLUMN',@level2name=N'Hours'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmDailyEarnings', N'COLUMN',N'UserId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Autor' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmDailyEarnings', @level2type=N'COLUMN',@level2name=N'UserId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmDailyEarnings', N'COLUMN',N'CompanyId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Kompanija' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmDailyEarnings', @level2type=N'COLUMN',@level2name=N'CompanyId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmDailyEarnings', NULL,NULL))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Evidencija dnevnih zarada' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmDailyEarnings'
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmExits', N'COLUMN',N'Number'))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Broj (inkrement)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmExits', @level2type=N'COLUMN',@level2name=N'Number'

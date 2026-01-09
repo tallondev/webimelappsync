@@ -1611,11 +1611,21 @@
   },
   {
     "ModuleName": "WFM",
+    "MenuName": "Evidencija dnevnih zarada",
+    "MenuId": 96,
+    "Level": 1,
+    "ParentMenuId": 3,
+    "SortNumber": 4,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
     "MenuName": "Rješenja za odsustvo",
     "MenuId": 94,
     "Level": 1,
     "ParentMenuId": 3,
-    "SortNumber": 4,
+    "SortNumber": 5,
     "Status": 1,
     "ApiOnly": 0
   }

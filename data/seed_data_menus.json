@@ -1837,8 +1837,7 @@
         "Description": "Exits records"
       }
     ]
-  }
-  ,
+  },
   {
     "Id": 93,
     "Icon": "icon-leave-types",
@@ -1864,7 +1863,7 @@
     "Icon": "icon-leave-decisions",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "HrLeaveDecisions, WfmLeaveDecisions",
+    "TableName": "HrLeaveDecisions,WfmLeaveDecisions",
     "Deleted": 0,
     "languages": [
       {
@@ -1878,8 +1877,7 @@
         "Description": "Leave decisions records"
       }
     ]
-  }
-  ,
+  },
   {
     "Id": 95,
     "Icon": "icon-cards",
@@ -1897,6 +1895,26 @@
         "Locale": "en",
         "Name": "Cards",
         "Description": "Cards records"
+      }
+    ]
+  },
+  {
+    "Id": 96,
+    "Icon": "icon-daily-earnings",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "WfmDailyEarnings",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Evidencija dnevnih zarada",
+        "Description": "Evidencija dnevnih zarada"
+      },
+      {
+        "Locale": "en",
+        "Name": "Daily Earnings Record",
+        "Description": "Daily earnings record"
       }
     ]
   }
