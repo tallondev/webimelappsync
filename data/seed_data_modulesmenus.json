@@ -941,11 +941,21 @@
   },
   {
     "ModuleName": "WFM",
+    "MenuName": "Plan rada",
+    "MenuId": 97,
+    "Level": 1,
+    "ParentMenuId": 3,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
     "MenuName": "Fond sati",
     "MenuId": 63,
     "Level": 1,
     "ParentMenuId": 3,
-    "SortNumber": 2,
+    "SortNumber": 3,
     "Status": 1,
     "ApiOnly": 0
   },
@@ -1575,7 +1585,7 @@
     "MenuId": 92,
     "Level": 1,
     "ParentMenuId": 3,
-    "SortNumber": 3,
+    "SortNumber": 4,
     "Status": 1,
     "ApiOnly": 0
   },
@@ -1615,7 +1625,7 @@
     "MenuId": 96,
     "Level": 1,
     "ParentMenuId": 3,
-    "SortNumber": 4,
+    "SortNumber": 5,
     "Status": 1,
     "ApiOnly": 0
   },
@@ -1625,7 +1635,7 @@
     "MenuId": 94,
     "Level": 1,
     "ParentMenuId": 3,
-    "SortNumber": 5,
+    "SortNumber": 6,
     "Status": 1,
     "ApiOnly": 0
   }

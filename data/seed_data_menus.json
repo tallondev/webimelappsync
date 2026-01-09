@@ -1917,5 +1917,25 @@
         "Description": "Daily earnings record"
       }
     ]
+  },
+  {
+    "Id": 97,
+    "Icon": "icon-work-plan",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "WfmWorkPlans",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Plan rada",
+        "Description": "Evidencija plana rada"
+      },
+      {
+        "Locale": "en",
+        "Name": "Work Plan",
+        "Description": "Work plan record"
+      }
+    ]
   }
 ]
