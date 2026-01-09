@@ -1843,5 +1843,18 @@
       "export",
       "log"
     ]
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Rješenja za odsustvo",
+    "MenuId": 94,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   }
 ]

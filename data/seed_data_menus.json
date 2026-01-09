@@ -1864,7 +1864,7 @@
     "Icon": "icon-leave-decisions",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "HrLeaveDecisions",
+    "TableName": "HrLeaveDecisions, WfmLeaveDecisions",
     "Deleted": 0,
     "languages": [
       {
@@ -1882,7 +1882,7 @@
   ,
   {
     "Id": 95,
-    "Icon": "icon-registers",
+    "Icon": "icon-cards",
     "IsObject": 1,
     "HasReportTemplate": 0,
     "TableName": "WfmCards,WfmCardEmployees",

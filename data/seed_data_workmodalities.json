@@ -243,6 +243,20 @@
     "languages": [
       {
         "Locale": "bs",
+        "Name": "Plaćeni dopust - dobrovoljno davanje krvi"
+      },
+      {
+        "Locale": "en",
+        "Name": "Paid leave - voluntary blood donation"
+      }
+    ]
+  },
+  {
+    "Type": 19,
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
         "Name": "Neplaćeni dopust"
       },
       {
@@ -252,7 +266,7 @@
     ]
   },
   {
-    "Type": 19,
+    "Type": 20,
     "Deleted": 0,
     "languages": [
       {
@@ -266,7 +280,7 @@
     ]
   },
   {
-    "Type": 20,
+    "Type": 21,
     "Deleted": 0,
     "languages": [
       {
@@ -280,7 +294,7 @@
     ]
   },
   {
-    "Type": 21,
+    "Type": 22,
     "Deleted": 0,
     "languages": [
       {

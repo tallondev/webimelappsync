@@ -1608,5 +1608,15 @@
     "SortNumber": 7,
     "Status": 1,
     "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Rješenja za odsustvo",
+    "MenuId": 94,
+    "Level": 1,
+    "ParentMenuId": 3,
+    "SortNumber": 4,
+    "Status": 1,
+    "ApiOnly": 0
   }
 ]
