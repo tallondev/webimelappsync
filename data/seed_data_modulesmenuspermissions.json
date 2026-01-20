@@ -1882,5 +1882,74 @@
       "export",
       "log"
     ]
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Lokacije",
+    "MenuId": 98,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Vozila",
+    "MenuId": 99,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Dežurstva",
+    "MenuId": 100,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Područja",
+    "MenuId": 102,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Postrojenja",
+    "MenuId": 103,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   }
 ]

@@ -1283,7 +1283,7 @@
     "Icon": "icon-employees",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "HrEmployees",
+    "TableName": "HrEmployees,HrEmployeeMedia",
     "Deleted": 0,
     "languages": [
       {
@@ -1882,7 +1882,7 @@
     "Id": 95,
     "Icon": "icon-cards",
     "IsObject": 1,
-    "HasReportTemplate": 0,
+    "HasReportTemplate": 1,
     "TableName": "WfmCards,WfmCardEmployees",
     "Deleted": 0,
     "languages": [
@@ -1935,6 +1935,126 @@
         "Locale": "en",
         "Name": "Work Plan",
         "Description": "Work plan record"
+      }
+    ]
+  },
+  {
+    "Id": 98,
+    "Icon": "icon-locations",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "WfmLocations",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Lokacije",
+        "Description": "Evidencija lokacija"
+      },
+      {
+        "Locale": "en",
+        "Name": "Locations",
+        "Description": "Locations records"
+      }
+    ]
+  },
+  {
+    "Id": 99,
+    "Icon": "icon-vehicles",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "RegVehicles",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Vozila",
+        "Description": "Evidencija vozila"
+      },
+      {
+        "Locale": "en",
+        "Name": "Vehicles",
+        "Description": "Vehicles records"
+      }
+    ]
+  },
+  {
+    "Id": 100,
+    "Icon": "icon-standby-duties",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "WfmStandbyDuties",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Dežurstva",
+        "Description": "Evidencija dežurstava"
+      },
+      {
+        "Locale": "en",
+        "Name": "Standby Duties",
+        "Description": "Standby duties records"
+      }
+    ]
+  },
+  {
+    "Id": 101,
+    "Icon": "icon-maintenance",
+    "IsObject": 0,
+    "HasReportTemplate": 0,
+    "TableName": null,
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Održavanje",
+        "Description": "Održavanje"
+      },
+      {
+        "Locale": "en",
+        "Name": "Maintenance",
+        "Description": "Maintenance"
+      }
+    ]
+  },
+  {
+    "Id": 102,
+    "Icon": "icon-maintenance-areas",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "WfmMaintenanceAreas",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Područja",
+        "Description": "Evidencija područja"
+      },
+      {
+        "Locale": "en",
+        "Name": "Maintenance Areas",
+        "Description": "Maintenance areas records"
+      }
+    ]
+  },
+  {
+    "Id": 103,
+    "Icon": "icon-maintenance-facilities",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "WfmMaintenanceFacilities",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Postrojenja",
+        "Description": "Evidencija postrojenja"
+      },
+      {
+        "Locale": "en",
+        "Name": "Maintenance Facilities",
+        "Description": "Maintenance facilities records"
       }
     ]
   }

@@ -1638,5 +1638,65 @@
     "SortNumber": 6,
     "Status": 1,
     "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Lokacije",
+    "MenuId": 98,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 8,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Vozila",
+    "MenuId": 99,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 9,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Dežurstva",
+    "MenuId": 100,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 10,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Održavanje",
+    "MenuId": 101,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 11,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Područja",
+    "MenuId": 102,
+    "Level": 2,
+    "ParentMenuId": 101,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Postrojenja",
+    "MenuId": 103,
+    "Level": 2,
+    "ParentMenuId": 101,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
   }
 ]
