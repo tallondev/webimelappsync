@@ -1743,9 +1743,9 @@
     "ModuleName": "WFM",
     "MenuName": "Upravljanje šablonima",
     "MenuId": 84,
-    "Level": 1,
-    "ParentMenuId": 60,
-    "SortNumber": 1,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 5,
     "Status": 1,
     "ApiOnly": 0
   }
