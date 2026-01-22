@@ -1951,5 +1951,44 @@
       "export",
       "log"
     ]
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Tipovi događaja",
+    "MenuId": 105,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Postavke uređaja",
+    "MenuId": 106,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Evidencija uređaja",
+    "MenuId": 107,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   }
 ]

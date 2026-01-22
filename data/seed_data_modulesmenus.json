@@ -1651,11 +1651,51 @@
   },
   {
     "ModuleName": "WFM",
+    "MenuName": "Uređaji",
+    "MenuId": 104,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 9,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Tipovi događaja",
+    "MenuId": 105,
+    "Level": 2,
+    "ParentMenuId": 104,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Postavke uređaja",
+    "MenuId": 106,
+    "Level": 2,
+    "ParentMenuId": 104,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Evidencija uređaja",
+    "MenuId": 107,
+    "Level": 2,
+    "ParentMenuId": 104,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
     "MenuName": "Vozila",
     "MenuId": 99,
     "Level": 1,
     "ParentMenuId": 1,
-    "SortNumber": 9,
+    "SortNumber": 10,
     "Status": 1,
     "ApiOnly": 0
   },
@@ -1665,7 +1705,7 @@
     "MenuId": 100,
     "Level": 1,
     "ParentMenuId": 1,
-    "SortNumber": 10,
+    "SortNumber": 11,
     "Status": 1,
     "ApiOnly": 0
   },
@@ -1675,7 +1715,7 @@
     "MenuId": 101,
     "Level": 1,
     "ParentMenuId": 1,
-    "SortNumber": 11,
+    "SortNumber": 12,
     "Status": 1,
     "ApiOnly": 0
   },

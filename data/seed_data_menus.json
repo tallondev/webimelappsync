@@ -2057,5 +2057,85 @@
         "Description": "Maintenance facilities records"
       }
     ]
+  },
+  {
+    "Id": 104,
+    "Icon": "icon-devices",
+    "IsObject": 0,
+    "HasReportTemplate": 0,
+    "TableName": null,
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Uređaji",
+        "Description": "Uređaji"
+      },
+      {
+        "Locale": "en",
+        "Name": "Devices",
+        "Description": "Devices"
+      }
+    ]
+  },
+  {
+    "Id": 105,
+    "Icon": "icon-event-types",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "WfmEventTypes",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Tipovi događaja",
+        "Description": "Evidencija tipova događaja"
+      },
+      {
+        "Locale": "en",
+        "Name": "Event Types",
+        "Description": "Event types records"
+      }
+    ]
+  },
+  {
+    "Id": 106,
+    "Icon": "icon-device-settings",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "WfmDeviceSettings,WfmDeviceSettingAdditional,WfmDeviceSettingEventTypes",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Postavke uređaja",
+        "Description": "Evidencija postavki uređaja"
+      },
+      {
+        "Locale": "en",
+        "Name": "Device Settings",
+        "Description": "Device settings records"
+      }
+    ]
+  },
+  {
+    "Id": 107,
+    "Icon": "icon-device-records",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "WfmDevices",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Evidencija uređaja",
+        "Description": "Evidencija uređaja"
+      },
+      {
+        "Locale": "en",
+        "Name": "Device Records",
+        "Description": "Device records"
+      }
+    ]
   }
 ]
