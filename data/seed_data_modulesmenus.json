@@ -1738,5 +1738,15 @@
     "SortNumber": 2,
     "Status": 1,
     "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Upravljanje šablonima",
+    "MenuId": 84,
+    "Level": 1,
+    "ParentMenuId": 60,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
   }
 ]
