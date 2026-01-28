@@ -1530,6 +1530,20 @@
   },
   {
     "ModuleName": "WMS",
+    "MenuName": "Izlaz na osnovu trebovanja",
+    "MenuId": 108,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
+  },
+  {
+    "ModuleName": "WMS",
     "MenuName": "Trošak",
     "MenuId": 72,
     "Permissions": [

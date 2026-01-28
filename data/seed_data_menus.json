@@ -2137,5 +2137,25 @@
         "Description": "Device records"
       }
     ]
+  },
+  {
+    "Id": 108,
+    "Icon": "icon-goods-outbounds-costs",
+    "IsObject": 1,
+    "HasReportTemplate": 1,
+    "TableName": "SharedWarehouseReceipts,SharedWarehouseIssueItems",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Izlaz na osnovu trebovanja",
+        "Description": "Izlaza materijala na osnovu trebovanja."
+      },
+      {
+        "Locale": "en",
+        "Name": "Requisition Based Outbound",
+        "Description": "Material outbound based on requisition."
+      }
+    ]
   }
 ]
