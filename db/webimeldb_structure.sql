@@ -1,4 +1,4 @@
-﻿-- WEBIMELDB STRUKTURA - Generisano: 22.1.2026. 13:02:36
+﻿-- WEBIMELDB STRUKTURA - Generisano: 28.1.2026. 15:49:24
 -- --------------------------------------------------
 
 -- TABELE
@@ -2483,6 +2483,7 @@ CREATE TABLE [dbo].[SharedInventories](
 	[AuthorId] [nvarchar](450) NOT NULL,
 	[Status] [smallint] NOT NULL,
 	[ConcludedTime] [datetime2](7) NULL,
+	[WarehouseChangeTypeId] [int] NULL,
  CONSTRAINT [PK_SharedInventories] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -2505,6 +2506,7 @@ CREATE TABLE [dbo].[SharedInventoryItems](
 	[PurchasePrice] [decimal](18, 7) NOT NULL,
 	[SalePrice] [decimal](18, 7) NOT NULL,
 	[InventoryQuantity] [decimal](18, 4) NULL,
+	[WarehouseInventoryQuantity] [decimal](18, 4) NULL,
  CONSTRAINT [PK_SharedInventoryItems] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -2809,6 +2811,7 @@ CREATE TABLE [dbo].[SharedRequisitions](
 	[CostTypeId] [int] NOT NULL,
 	[ProductionOrderItemId] [bigint] NULL,
 	[ErpLabel] [nvarchar](10) NULL,
+	[DeliveredDeadline] [datetime2](7) NULL,
  CONSTRAINT [PK_SharedRequisitions] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -8165,6 +8168,12 @@ IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[Sh
 CREATE NONCLUSTERED INDEX [Index_SharedInventories_Status] ON [dbo].[SharedInventories]
 (
 	[Status] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[SharedInventories]') AND name = N'Index_SharedInventories_WarehouseChangeTypeId')
+CREATE NONCLUSTERED INDEX [Index_SharedInventories_WarehouseChangeTypeId] ON [dbo].[SharedInventories]
+(
+	[WarehouseChangeTypeId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[SharedInventories]') AND name = N'Index_SharedInventories_WarehouseId')
@@ -14578,6 +14587,13 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedInventories_CoreCompanies_CompanyId]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedInventories]'))
 ALTER TABLE [dbo].[SharedInventories] CHECK CONSTRAINT [FK_SharedInventories_CoreCompanies_CompanyId]
 GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedInventories_CoreUsers_AuthorId]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedInventories]'))
+ALTER TABLE [dbo].[SharedInventories]  WITH CHECK ADD  CONSTRAINT [FK_SharedInventories_CoreUsers_AuthorId] FOREIGN KEY([AuthorId])
+REFERENCES [dbo].[CoreUsers] ([UserId])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedInventories_CoreUsers_AuthorId]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedInventories]'))
+ALTER TABLE [dbo].[SharedInventories] CHECK CONSTRAINT [FK_SharedInventories_CoreUsers_AuthorId]
+GO
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedInventories_RegChangeTypes_ChangeTypeInId]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedInventories]'))
 ALTER TABLE [dbo].[SharedInventories]  WITH CHECK ADD  CONSTRAINT [FK_SharedInventories_RegChangeTypes_ChangeTypeInId] FOREIGN KEY([ChangeTypeInId])
 REFERENCES [dbo].[RegChangeTypes] ([Id])
@@ -14592,19 +14608,19 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedInventories_RegChangeTypes_ChangeTypeOutId]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedInventories]'))
 ALTER TABLE [dbo].[SharedInventories] CHECK CONSTRAINT [FK_SharedInventories_RegChangeTypes_ChangeTypeOutId]
 GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedInventories_RegChangeTypes_WarehouseChangeTypeId]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedInventories]'))
+ALTER TABLE [dbo].[SharedInventories]  WITH CHECK ADD  CONSTRAINT [FK_SharedInventories_RegChangeTypes_WarehouseChangeTypeId] FOREIGN KEY([WarehouseChangeTypeId])
+REFERENCES [dbo].[RegChangeTypes] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedInventories_RegChangeTypes_WarehouseChangeTypeId]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedInventories]'))
+ALTER TABLE [dbo].[SharedInventories] CHECK CONSTRAINT [FK_SharedInventories_RegChangeTypes_WarehouseChangeTypeId]
+GO
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedInventories_RegWarehouses_WarehouseId]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedInventories]'))
 ALTER TABLE [dbo].[SharedInventories]  WITH CHECK ADD  CONSTRAINT [FK_SharedInventories_RegWarehouses_WarehouseId] FOREIGN KEY([WarehouseId])
 REFERENCES [dbo].[RegWarehouses] ([Id])
 GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedInventories_RegWarehouses_WarehouseId]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedInventories]'))
 ALTER TABLE [dbo].[SharedInventories] CHECK CONSTRAINT [FK_SharedInventories_RegWarehouses_WarehouseId]
-GO
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[Index_SharedInventories_AuthorId]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedInventories]'))
-ALTER TABLE [dbo].[SharedInventories]  WITH CHECK ADD  CONSTRAINT [Index_SharedInventories_AuthorId] FOREIGN KEY([AuthorId])
-REFERENCES [dbo].[CoreUsers] ([UserId])
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[Index_SharedInventories_AuthorId]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedInventories]'))
-ALTER TABLE [dbo].[SharedInventories] CHECK CONSTRAINT [Index_SharedInventories_AuthorId]
 GO
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedInventoryItems_CoreCompanies_CompanyId]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedInventoryItems]'))
 ALTER TABLE [dbo].[SharedInventoryItems]  WITH CHECK ADD  CONSTRAINT [FK_SharedInventoryItems_CoreCompanies_CompanyId] FOREIGN KEY([CompanyId])
@@ -19141,6 +19157,9 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedInventories', N'COLUMN',N'ConcludedTime'))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Vrijeme zaključenja' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedInventories', @level2type=N'COLUMN',@level2name=N'ConcludedTime'
 GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedInventories', N'COLUMN',N'WarehouseChangeTypeId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Vrsta Promjene-Skladišno-Popis' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedInventories', @level2type=N'COLUMN',@level2name=N'WarehouseChangeTypeId'
+GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedInventories', NULL,NULL))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Popisi' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedInventories'
 GO
@@ -19164,6 +19183,9 @@ IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'S
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedInventoryItems', N'COLUMN',N'InventoryQuantity'))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Popisna količina' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedInventoryItems', @level2type=N'COLUMN',@level2name=N'InventoryQuantity'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedInventoryItems', N'COLUMN',N'WarehouseInventoryQuantity'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Skladišno stanje' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedInventoryItems', @level2type=N'COLUMN',@level2name=N'WarehouseInventoryQuantity'
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedInventoryItems', NULL,NULL))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Stavke popisa' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedInventoryItems'
@@ -19530,6 +19552,9 @@ IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'S
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedRequisitions', N'COLUMN',N'ErpLabel'))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'ERP oznaka' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedRequisitions', @level2type=N'COLUMN',@level2name=N'ErpLabel'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedRequisitions', N'COLUMN',N'DeliveredDeadline'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Rok isporuke' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedRequisitions', @level2type=N'COLUMN',@level2name=N'DeliveredDeadline'
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedRequisitions', NULL,NULL))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Trebovanja' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedRequisitions'
