@@ -2031,5 +2031,19 @@
       "export",
       "log"
     ]
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Lista prisustva",
+    "MenuId": 109,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "special"
+    ]
   }
 ]

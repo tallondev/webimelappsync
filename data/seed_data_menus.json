@@ -2157,5 +2157,25 @@
         "Description": "Material outbound based on requisition."
       }
     ]
+  },
+  {
+    "Id": 109,
+    "Icon": "icon-attendance-list",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "WfmAttendanceList",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Lista prisustva",
+        "Description": "Lista prisustva"
+      },
+      {
+        "Locale": "en",
+        "Name": "Attendance list",
+        "Description": "Attendance list"
+      }
+    ]
   }
 ]
