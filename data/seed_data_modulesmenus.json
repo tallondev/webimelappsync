@@ -811,7 +811,7 @@
   },
   {
     "ModuleName": "MOWS",
-    "MenuName": "Popisne liste",
+    "MenuName": "Popisni listovi",
     "MenuId": 55,
     "Level": 0,
     "ParentMenuId": null,
@@ -1441,11 +1441,21 @@
   },
   {
     "ModuleName": "WMS",
-    "MenuName": "Popisne liste",
+    "MenuName": "Popisni listovi",
     "MenuId": 55,
     "Level": 2,
     "ParentMenuId": 77,
     "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Popis",
+    "MenuId": 40,
+    "Level": 2,
+    "ParentMenuId": 77,
+    "SortNumber": 2,
     "Status": 1,
     "ApiOnly": 0
   },

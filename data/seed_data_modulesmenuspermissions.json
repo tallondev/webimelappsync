@@ -1642,8 +1642,22 @@
   },
   {
     "ModuleName": "WMS",
-    "MenuName": "Popisne liste",
+    "MenuName": "Popisni listovi",
     "MenuId": 55,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Popis",
+    "MenuId": 40,
     "Permissions": [
       "view",
       "add",
