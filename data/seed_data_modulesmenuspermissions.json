@@ -2045,5 +2045,15 @@
       "log",
       "special"
     ]
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Prisustvo",
+    "MenuId": 110,
+    "Permissions": [
+      "view",
+      "export",
+      "special"
+    ]
   }
 ]

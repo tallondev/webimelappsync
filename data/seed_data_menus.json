@@ -2177,5 +2177,25 @@
         "Description": "Attendance list"
       }
     ]
+  },
+  {
+    "Id": 110,
+    "Icon": "icon-attendance-list",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "WfmAttendanceList",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Prisustvo",
+        "Description": "Prisustvo"
+      },
+      {
+        "Locale": "en",
+        "Name": "Attendance",
+        "Description": "Attendance"
+      }
+    ]
   }
 ]

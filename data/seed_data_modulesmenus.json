@@ -1591,11 +1591,21 @@
   },
   {
     "ModuleName": "WFM",
+    "MenuName": "Prisustvo",
+    "MenuId": 110,
+    "Level": 1,
+    "ParentMenuId": 4,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
     "MenuName": "Planirani godišnji odmori",
     "MenuId": 91,
     "Level": 1,
     "ParentMenuId": 4,
-    "SortNumber": 1,
+    "SortNumber": 2,
     "Status": 1,
     "ApiOnly": 0
   },
