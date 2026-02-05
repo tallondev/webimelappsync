@@ -1544,6 +1544,20 @@
   },
   {
     "ModuleName": "WMS",
+    "MenuName": "Izlaz na osnovu naloga za isporuku",
+    "MenuId": 111,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "conclude"
+    ]
+  },
+  {
+    "ModuleName": "WMS",
     "MenuName": "Trošak",
     "MenuId": 72,
     "Permissions": [

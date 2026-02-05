@@ -1361,11 +1361,21 @@
   },
   {
     "ModuleName": "WMS",
+    "MenuName": "Izlaz na osnovu naloga za isporuku",
+    "MenuId": 111,
+    "Level": 3,
+    "ParentMenuId": 71,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
     "MenuName": "Trošak",
     "MenuId": 72,
     "Level": 3,
     "ParentMenuId": 71,
-    "SortNumber": 2,
+    "SortNumber": 3,
     "Status": 1,
     "ApiOnly": 0
   },
@@ -1375,7 +1385,7 @@
     "MenuId": 73,
     "Level": 3,
     "ParentMenuId": 71,
-    "SortNumber": 3,
+    "SortNumber": 4,
     "Status": 1,
     "ApiOnly": 0
   },
@@ -1385,7 +1395,7 @@
     "MenuId": 74,
     "Level": 3,
     "ParentMenuId": 71,
-    "SortNumber": 4,
+    "SortNumber": 5,
     "Status": 1,
     "ApiOnly": 0
   },
@@ -1395,7 +1405,7 @@
     "MenuId": 75,
     "Level": 3,
     "ParentMenuId": 71,
-    "SortNumber": 5,
+    "SortNumber": 6,
     "Status": 1,
     "ApiOnly": 0
   },
@@ -1405,7 +1415,7 @@
     "MenuId": 76,
     "Level": 3,
     "ParentMenuId": 71,
-    "SortNumber": 6,
+    "SortNumber": 7,
     "Status": 1,
     "ApiOnly": 0
   },

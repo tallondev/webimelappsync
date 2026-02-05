@@ -364,7 +364,7 @@
     "Icon": "icon-products-services",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "RegProducts,RegProductBarCodes,RegProductProductAttributes,RegProductBatches",
+    "TableName": "RegProducts,RegProductBarCodes,RegProductProductAttributes,RegProductBatches,RegProductMedia",
     "Deleted": 0,
     "languages": [
       {
@@ -403,7 +403,7 @@
     "Id": 21,
     "Icon": "icon-receipts",
     "IsObject": 1,
-    "HasReportTemplate": 1,
+    "HasReportTemplate": 0,
     "TableName": "PosRetailInvoices,PosRetailInvoiceItems,PosRetailInvoiceCustomers,PosRetailInvoicePaymentMethods",
     "Deleted": 0,
     "languages": [
@@ -503,7 +503,7 @@
     "Id": 26,
     "Icon": "icon-daily-sales",
     "IsObject": 1,
-    "HasReportTemplate": 0,
+    "HasReportTemplate": 1,
     "TableName": "PosDailySalesByOutlet,PosDailySalesByPointOfSale,PosRetailInvoices",
     "Deleted": 0,
     "languages": [
@@ -2195,6 +2195,26 @@
         "Locale": "en",
         "Name": "Attendance",
         "Description": "Attendance"
+      }
+    ]
+  },
+  {
+    "Id": 111,
+    "Icon": "icon-goods-outbounds-costs",
+    "IsObject": 1,
+    "HasReportTemplate": 1,
+    "TableName": "SharedWarehouseReceipts,SharedWarehouseIssueItems",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Izlaz na osnovu naloga za isporuku",
+        "Description": "Izlaza materijala na osnovu naloga za isporuku."
+      },
+      {
+        "Locale": "en",
+        "Name": "Sales order Based Outbound",
+        "Description": "Material outbound based on sales order."
       }
     ]
   }
