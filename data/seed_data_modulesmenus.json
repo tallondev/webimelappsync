@@ -70,6 +70,16 @@
     "ApiOnly": 0
   },
   {
+    "ModuleName": "LINE_POS",
+    "MenuName": "Upravljanje šablonima",
+    "MenuId": 84,
+    "Level": 0,
+    "ParentMenuId": null,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
     "ModuleName": "POS",
     "MenuName": "Registri",
     "MenuId": 1,

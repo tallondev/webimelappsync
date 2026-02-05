@@ -58,6 +58,19 @@
     ]
   },
   {
+    "ModuleName": "LINE_POS",
+    "MenuName": "Upravljanje šablonima",
+    "MenuId": 84,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
+  },
+  {
     "ModuleName": "POS",
     "MenuName": "Regionalna šema",
     "MenuId": 11,
@@ -980,7 +993,7 @@
   },
   {
     "ModuleName": "MOWS",
-    "MenuName": "Popisne liste",
+    "MenuName": "Popisni listovi",
     "MenuId": 55,
     "Permissions": [
       "view",
