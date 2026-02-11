@@ -1,4 +1,4 @@
-﻿-- WEBIMELDB STRUKTURA - Generisano: 11.2.2026. 14:26:48
+﻿-- WEBIMELDB STRUKTURA - Generisano: 11.2.2026. 15:42:50
 -- --------------------------------------------------
 
 -- TABELE
@@ -657,7 +657,6 @@ CREATE TABLE [dbo].[HrEmployees](
 	[CompanyId] [int] NOT NULL,
 	[BranchOfficeId] [int] NULL,
 	[WorkplaceId] [int] NULL,
-	[BusinesPartnerId] [int] NULL,
 	[LinkedUserId] [nvarchar](450) NULL,
 	[BusinessPartnerId] [int] NULL,
  CONSTRAINT [PK_HrEmployees] PRIMARY KEY CLUSTERED 
@@ -4688,12 +4687,6 @@ IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[Hr
 CREATE NONCLUSTERED INDEX [Index_HrEmployees_BranchOfficeId] ON [dbo].[HrEmployees]
 (
 	[BranchOfficeId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[HrEmployees]') AND name = N'Index_HrEmployees_BusinesPartnerId')
-CREATE NONCLUSTERED INDEX [Index_HrEmployees_BusinesPartnerId] ON [dbo].[HrEmployees]
-(
-	[BusinesPartnerId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[HrEmployees]') AND name = N'Index_HrEmployees_CompanyId')
@@ -12747,13 +12740,6 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_HrEmployees_RegBranchOffices_BranchOfficeId]') AND parent_object_id = OBJECT_ID(N'[dbo].[HrEmployees]'))
 ALTER TABLE [dbo].[HrEmployees] CHECK CONSTRAINT [FK_HrEmployees_RegBranchOffices_BranchOfficeId]
 GO
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_HrEmployees_RegBusinessPartners_BusinesPartnerId]') AND parent_object_id = OBJECT_ID(N'[dbo].[HrEmployees]'))
-ALTER TABLE [dbo].[HrEmployees]  WITH CHECK ADD  CONSTRAINT [FK_HrEmployees_RegBusinessPartners_BusinesPartnerId] FOREIGN KEY([BusinesPartnerId])
-REFERENCES [dbo].[RegBusinessPartners] ([Id])
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_HrEmployees_RegBusinessPartners_BusinesPartnerId]') AND parent_object_id = OBJECT_ID(N'[dbo].[HrEmployees]'))
-ALTER TABLE [dbo].[HrEmployees] CHECK CONSTRAINT [FK_HrEmployees_RegBusinessPartners_BusinesPartnerId]
-GO
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_HrEmployees_RegBusinessPartners_BusinessPartnerId]') AND parent_object_id = OBJECT_ID(N'[dbo].[HrEmployees]'))
 ALTER TABLE [dbo].[HrEmployees]  WITH CHECK ADD  CONSTRAINT [FK_HrEmployees_RegBusinessPartners_BusinessPartnerId] FOREIGN KEY([BusinessPartnerId])
 REFERENCES [dbo].[RegBusinessPartners] ([Id])
@@ -17282,9 +17268,6 @@ IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'S
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'HrEmployees', N'COLUMN',N'WorkplaceId'))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Radno mjesto' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'HrEmployees', @level2type=N'COLUMN',@level2name=N'WorkplaceId'
-GO
-IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'HrEmployees', N'COLUMN',N'BusinesPartnerId'))
-	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Poslovni partner' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'HrEmployees', @level2type=N'COLUMN',@level2name=N'BusinesPartnerId'
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'HrEmployees', N'COLUMN',N'LinkedUserId'))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Poveznica sa korisnikom' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'HrEmployees', @level2type=N'COLUMN',@level2name=N'LinkedUserId'
