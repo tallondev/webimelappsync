@@ -2085,6 +2085,20 @@
   },
   {
     "ModuleName": "WFM",
+    "MenuName": "Poslovni partneri",
+    "MenuId": 20,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
+  },
+  {
+    "ModuleName": "WFM",
     "MenuName": "Fizička lica",
     "MenuId": 112,
     "Permissions": [
