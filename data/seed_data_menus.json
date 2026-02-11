@@ -1181,7 +1181,7 @@
   {
     "Id": 60,
     "Icon": "icon-wfm-settings",
-    "IsObject": 0,
+    "IsObject": 1,
     "HasReportTemplate": 0,
     "TableName": "WfmCompaniesSetup",
     "Deleted": 0,
@@ -1201,7 +1201,7 @@
   {
     "Id": 61,
     "Icon": "icon-hr-settings",
-    "IsObject": 0,
+    "IsObject": 1,
     "HasReportTemplate": 0,
     "TableName": "HrCompaniesSetup",
     "Deleted": 0,
@@ -1801,7 +1801,7 @@
   {
     "Id": 91,
     "Icon": "icon-vacations-report",
-    "IsObject": 0,
+    "IsObject": 1,
     "HasReportTemplate": 0,
     "TableName": "HrVacations",
     "Deleted": 0,
