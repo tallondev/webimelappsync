@@ -384,7 +384,7 @@
     "Icon": "icon-business-partners",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "RegBusinessPartners,RegBusinessPartnerVehicles",
+    "TableName": "RegBusinessPartners,RegBusinessPartnerVehicles,RegEmployees,RegContacts",
     "Deleted": 0,
     "languages": [
       {
@@ -784,7 +784,7 @@
     "Icon": "icon-inventory",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "SharedInventories,SharedInventoryItems",
+    "TableName": "SharedInventories,SharedInventoryItems,SharedInventoryItemBatches",
     "Deleted": 0,
     "languages": [
       {
@@ -2215,6 +2215,26 @@
         "Locale": "en",
         "Name": "Sales order Based Outbound",
         "Description": "Material outbound based on sales order."
+      }
+    ]
+  },
+  {
+    "Id": 112,
+    "Icon": "icon-contacts",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "RegContacts",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Fizička lica",
+        "Description": "Fizička lica"
+      },
+      {
+        "Locale": "en",
+        "Name": "Contacts",
+        "Description": "Contacts"
       }
     ]
   }

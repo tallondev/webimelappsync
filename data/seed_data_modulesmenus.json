@@ -1571,11 +1571,31 @@
   },
   {
     "ModuleName": "WFM",
+    "MenuName": "Poslovni partneri",
+    "MenuId": 20,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 6,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Fizička lica",
+    "MenuId": 112,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 7,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
     "MenuName": "Ustanove - Destinacije",
     "MenuId": 88,
     "Level": 1,
     "ParentMenuId": 1,
-    "SortNumber": 6,
+    "SortNumber": 8,
     "Status": 1,
     "ApiOnly": 0
   },
@@ -1665,7 +1685,7 @@
     "MenuId": 95,
     "Level": 1,
     "ParentMenuId": 1,
-    "SortNumber": 7,
+    "SortNumber": 9,
     "Status": 1,
     "ApiOnly": 0
   },
@@ -1705,7 +1725,7 @@
     "MenuId": 98,
     "Level": 1,
     "ParentMenuId": 1,
-    "SortNumber": 8,
+    "SortNumber": 10,
     "Status": 1,
     "ApiOnly": 0
   },
@@ -1715,7 +1735,7 @@
     "MenuId": 104,
     "Level": 1,
     "ParentMenuId": 1,
-    "SortNumber": 9,
+    "SortNumber": 11,
     "Status": 1,
     "ApiOnly": 0
   },
@@ -1755,7 +1775,7 @@
     "MenuId": 99,
     "Level": 1,
     "ParentMenuId": 1,
-    "SortNumber": 10,
+    "SortNumber": 12,
     "Status": 1,
     "ApiOnly": 0
   },
@@ -1765,7 +1785,7 @@
     "MenuId": 100,
     "Level": 1,
     "ParentMenuId": 1,
-    "SortNumber": 11,
+    "SortNumber": 13,
     "Status": 1,
     "ApiOnly": 0
   },
@@ -1775,7 +1795,7 @@
     "MenuId": 101,
     "Level": 1,
     "ParentMenuId": 1,
-    "SortNumber": 12,
+    "SortNumber": 14,
     "Status": 1,
     "ApiOnly": 0
   },
