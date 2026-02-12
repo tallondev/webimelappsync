@@ -1,4 +1,4 @@
-﻿-- WEBIMELDB STRUKTURA - Generisano: 11.2.2026. 15:42:50
+﻿-- WEBIMELDB STRUKTURA - Generisano: 12.2.2026. 14:31:39
 -- --------------------------------------------------
 
 -- TABELE
@@ -2514,6 +2514,43 @@ CREATE TABLE [dbo].[SharedGoodsTraffic](
  CONSTRAINT [PK_SharedGoodsTraffic] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SharedGuests]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[SharedGuests](
+	[Id] [bigint] IDENTITY(1,1) NOT NULL,
+	[Year] [smallint] NOT NULL,
+	[DocumentNumber] [int] NOT NULL,
+	[ContactId] [int] NULL,
+	[FirstName] [nvarchar](100) NOT NULL,
+	[LastName] [nvarchar](100) NOT NULL,
+	[CountryId] [int] NOT NULL,
+	[PersonalDocumentNumber] [nvarchar](255) NOT NULL,
+	[BusinessPartnerId] [int] NULL,
+	[BusinessPartnerName] [nvarchar](100) NULL,
+	[ArrivalAnnouncement] [datetime] NOT NULL,
+	[EmployeeId] [int] NULL,
+	[EmployeeFirstName] [nvarchar](100) NOT NULL,
+	[EmployeeLastName] [nvarchar](100) NOT NULL,
+	[EntryTime] [datetime] NULL,
+	[ExitTime] [datetime] NULL,
+	[Status] [smallint] NOT NULL,
+	[CompanyId] [int] NOT NULL,
+ CONSTRAINT [PK_SharedGuests] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [UQ_SharedGuests_Year_DocumentNumber] UNIQUE NONCLUSTERED 
+(
+	[Year] ASC,
+	[DocumentNumber] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 END
@@ -8322,6 +8359,60 @@ CREATE UNIQUE NONCLUSTERED INDEX [UQ_SharedGoodsTraffic_1] ON [dbo].[SharedGoods
 	[ProductId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[SharedGuests]') AND name = N'Index_SharedGuests_ArrivalAnnouncement')
+CREATE NONCLUSTERED INDEX [Index_SharedGuests_ArrivalAnnouncement] ON [dbo].[SharedGuests]
+(
+	[ArrivalAnnouncement] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[SharedGuests]') AND name = N'Index_SharedGuests_BusinessPartnerId')
+CREATE NONCLUSTERED INDEX [Index_SharedGuests_BusinessPartnerId] ON [dbo].[SharedGuests]
+(
+	[BusinessPartnerId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[SharedGuests]') AND name = N'Index_SharedGuests_CompanyId')
+CREATE NONCLUSTERED INDEX [Index_SharedGuests_CompanyId] ON [dbo].[SharedGuests]
+(
+	[CompanyId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[SharedGuests]') AND name = N'Index_SharedGuests_ContactId')
+CREATE NONCLUSTERED INDEX [Index_SharedGuests_ContactId] ON [dbo].[SharedGuests]
+(
+	[ContactId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[SharedGuests]') AND name = N'Index_SharedGuests_CountryId')
+CREATE NONCLUSTERED INDEX [Index_SharedGuests_CountryId] ON [dbo].[SharedGuests]
+(
+	[CountryId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[SharedGuests]') AND name = N'Index_SharedGuests_DocumentNumber')
+CREATE NONCLUSTERED INDEX [Index_SharedGuests_DocumentNumber] ON [dbo].[SharedGuests]
+(
+	[DocumentNumber] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[SharedGuests]') AND name = N'Index_SharedGuests_EmployeeId')
+CREATE NONCLUSTERED INDEX [Index_SharedGuests_EmployeeId] ON [dbo].[SharedGuests]
+(
+	[EmployeeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[SharedGuests]') AND name = N'Index_SharedGuests_Status')
+CREATE NONCLUSTERED INDEX [Index_SharedGuests_Status] ON [dbo].[SharedGuests]
+(
+	[Status] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[SharedGuests]') AND name = N'Index_SharedGuests_Year')
+CREATE NONCLUSTERED INDEX [Index_SharedGuests_Year] ON [dbo].[SharedGuests]
+(
+	[Year] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
 SET ANSI_PADDING ON
 
 GO
@@ -11933,6 +12024,12 @@ ALTER TABLE [dbo].[SharedGoodsTraffic] ADD  DEFAULT ((0.0)) FOR [OldRevaluationP
 END
 
 GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_SharedGuests_Status]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[SharedGuests] ADD  CONSTRAINT [DF_SharedGuests_Status]  DEFAULT ((1)) FOR [Status]
+END
+
+GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__SharedInv__Statu__43A1090D]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[SharedInventories] ADD  DEFAULT (CONVERT([smallint],(0))) FOR [Status]
@@ -14902,6 +14999,41 @@ REFERENCES [dbo].[RegWarehouses] ([Id])
 GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedGoodsTraffic_RegWarehouses_WarehouseId]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedGoodsTraffic]'))
 ALTER TABLE [dbo].[SharedGoodsTraffic] CHECK CONSTRAINT [FK_SharedGoodsTraffic_RegWarehouses_WarehouseId]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedGuests_CoreCompanies]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedGuests]'))
+ALTER TABLE [dbo].[SharedGuests]  WITH CHECK ADD  CONSTRAINT [FK_SharedGuests_CoreCompanies] FOREIGN KEY([CompanyId])
+REFERENCES [dbo].[CoreCompanies] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedGuests_CoreCompanies]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedGuests]'))
+ALTER TABLE [dbo].[SharedGuests] CHECK CONSTRAINT [FK_SharedGuests_CoreCompanies]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedGuests_HrEmployees]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedGuests]'))
+ALTER TABLE [dbo].[SharedGuests]  WITH CHECK ADD  CONSTRAINT [FK_SharedGuests_HrEmployees] FOREIGN KEY([EmployeeId])
+REFERENCES [dbo].[HrEmployees] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedGuests_HrEmployees]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedGuests]'))
+ALTER TABLE [dbo].[SharedGuests] CHECK CONSTRAINT [FK_SharedGuests_HrEmployees]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedGuests_RegBusinessPartners]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedGuests]'))
+ALTER TABLE [dbo].[SharedGuests]  WITH CHECK ADD  CONSTRAINT [FK_SharedGuests_RegBusinessPartners] FOREIGN KEY([BusinessPartnerId])
+REFERENCES [dbo].[RegBusinessPartners] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedGuests_RegBusinessPartners]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedGuests]'))
+ALTER TABLE [dbo].[SharedGuests] CHECK CONSTRAINT [FK_SharedGuests_RegBusinessPartners]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedGuests_RegContacts]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedGuests]'))
+ALTER TABLE [dbo].[SharedGuests]  WITH CHECK ADD  CONSTRAINT [FK_SharedGuests_RegContacts] FOREIGN KEY([ContactId])
+REFERENCES [dbo].[RegContacts] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedGuests_RegContacts]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedGuests]'))
+ALTER TABLE [dbo].[SharedGuests] CHECK CONSTRAINT [FK_SharedGuests_RegContacts]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedGuests_RegCountries]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedGuests]'))
+ALTER TABLE [dbo].[SharedGuests]  WITH CHECK ADD  CONSTRAINT [FK_SharedGuests_RegCountries] FOREIGN KEY([CountryId])
+REFERENCES [dbo].[RegCountries] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedGuests_RegCountries]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedGuests]'))
+ALTER TABLE [dbo].[SharedGuests] CHECK CONSTRAINT [FK_SharedGuests_RegCountries]
 GO
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedInventories_CoreCompanies_CompanyId]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedInventories]'))
 ALTER TABLE [dbo].[SharedInventories]  WITH CHECK ADD  CONSTRAINT [FK_SharedInventories_CoreCompanies_CompanyId] FOREIGN KEY([CompanyId])
@@ -19581,6 +19713,60 @@ IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'S
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedGoodsTraffic', NULL,NULL))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Robni promet' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedGoodsTraffic'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedGuests', N'COLUMN',N'Year'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Godina u trenutku evidencije' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedGuests', @level2type=N'COLUMN',@level2name=N'Year'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedGuests', N'COLUMN',N'DocumentNumber'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Redni broj dokumenta na nivou godine evidencije' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedGuests', @level2type=N'COLUMN',@level2name=N'DocumentNumber'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedGuests', N'COLUMN',N'ContactId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Fizičko lice' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedGuests', @level2type=N'COLUMN',@level2name=N'ContactId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedGuests', N'COLUMN',N'FirstName'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Ime gosta' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedGuests', @level2type=N'COLUMN',@level2name=N'FirstName'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedGuests', N'COLUMN',N'LastName'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Prezime gosta' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedGuests', @level2type=N'COLUMN',@level2name=N'LastName'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedGuests', N'COLUMN',N'CountryId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Država' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedGuests', @level2type=N'COLUMN',@level2name=N'CountryId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedGuests', N'COLUMN',N'PersonalDocumentNumber'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Broj ličnog dokumenta' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedGuests', @level2type=N'COLUMN',@level2name=N'PersonalDocumentNumber'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedGuests', N'COLUMN',N'BusinessPartnerId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Poslovni partner' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedGuests', @level2type=N'COLUMN',@level2name=N'BusinessPartnerId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedGuests', N'COLUMN',N'BusinessPartnerName'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Naziv poslovnog partnera' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedGuests', @level2type=N'COLUMN',@level2name=N'BusinessPartnerName'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedGuests', N'COLUMN',N'ArrivalAnnouncement'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Najava dolaska' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedGuests', @level2type=N'COLUMN',@level2name=N'ArrivalAnnouncement'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedGuests', N'COLUMN',N'EmployeeId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Zaposlenik' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedGuests', @level2type=N'COLUMN',@level2name=N'EmployeeId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedGuests', N'COLUMN',N'EmployeeFirstName'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Ime zaposlenika' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedGuests', @level2type=N'COLUMN',@level2name=N'EmployeeFirstName'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedGuests', N'COLUMN',N'EmployeeLastName'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Prezime zaposlenika' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedGuests', @level2type=N'COLUMN',@level2name=N'EmployeeLastName'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedGuests', N'COLUMN',N'EntryTime'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Vrijeme ulaza' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedGuests', @level2type=N'COLUMN',@level2name=N'EntryTime'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedGuests', N'COLUMN',N'ExitTime'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Vrijeme izlaza' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedGuests', @level2type=N'COLUMN',@level2name=N'ExitTime'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedGuests', N'COLUMN',N'Status'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Status: 0 - Neaktivan, 1 - Aktivan' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedGuests', @level2type=N'COLUMN',@level2name=N'Status'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedGuests', N'COLUMN',N'CompanyId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Kompanija' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedGuests', @level2type=N'COLUMN',@level2name=N'CompanyId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedGuests', NULL,NULL))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Evidencija gostiju' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedGuests'
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedInventories', N'COLUMN',N'CompanyId'))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Kompanija' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedInventories', @level2type=N'COLUMN',@level2name=N'CompanyId'

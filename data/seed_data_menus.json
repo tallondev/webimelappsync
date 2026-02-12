@@ -2237,5 +2237,25 @@
         "Description": "Contacts"
       }
     ]
+  },
+  {
+    "Id": 113,
+    "Icon": "icon-guest-log",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "SharedGuests",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Evidencija gostiju",
+        "Description": "Evidencija gostiju/posjetilaca"
+      },
+      {
+        "Locale": "en",
+        "Name": "Guest Log",
+        "Description": "Guest/visitor log"
+      }
+    ]
   }
 ]

@@ -1721,6 +1721,16 @@
   },
   {
     "ModuleName": "WFM",
+    "MenuName": "Evidencija gostiju",
+    "MenuId": 113,
+    "Level": 1,
+    "ParentMenuId": 3,
+    "SortNumber": 8,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
     "MenuName": "Lokacije",
     "MenuId": 98,
     "Level": 1,
