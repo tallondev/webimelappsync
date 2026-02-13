@@ -2123,5 +2123,23 @@
       "export",
       "log"
     ]
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Nalozi za preraspodjelu",
+    "MenuId": 114,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "approve",
+      "verify",
+      "special",
+      "certify",
+      "special_update"
+    ]
   }
 ]

@@ -2257,5 +2257,25 @@
         "Description": "Guest/visitor log"
       }
     ]
+  },
+  {
+    "Id": 114,
+    "Icon": "icon-redistribution-orders",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "WfmRedistributionOrders,WfmRedistributionOrderEmployees",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Nalozi za preraspodjelu",
+        "Description": "Evidencija naloga za preraspodjelu"
+      },
+      {
+        "Locale": "en",
+        "Name": "Redistribution orders",
+        "Description": "Redistribution orders records"
+      }
+    ]
   }
 ]

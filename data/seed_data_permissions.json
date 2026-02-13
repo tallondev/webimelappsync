@@ -185,5 +185,39 @@
         "Description": "Permission for special right"
       }
     ]
+  },
+  {
+    "Name": "certify",
+    "Enabled": 1,
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Ovjera",
+        "Description": "Dozvola za ovjeru"
+      },
+      {
+        "Locale": "en",
+        "Name": "Certify",
+        "Description": "Permission to certify"
+      }
+    ]
+  },
+  {
+    "Name": "special_update",
+    "Enabled": 1,
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Posebno ažuriranje",
+        "Description": "Dozvola za posebno ažuriranje"
+      },
+      {
+        "Locale": "en",
+        "Name": "Special update",
+        "Description": "Permission for special update"
+      }
+    ]
   }
 ]
