@@ -1361,16 +1361,6 @@
   },
   {
     "ModuleName": "WMS",
-    "MenuName": "Ugovori",
-    "MenuId": 116,
-    "Level": 2,
-    "ParentMenuId": 83,
-    "SortNumber": 8,
-    "Status": 1,
-    "ApiOnly": 0
-  },
-  {
-    "ModuleName": "WMS",
     "MenuName": "Obrade",
     "MenuId": 3,
     "Level": 0,
@@ -1551,11 +1541,21 @@
   },
   {
     "ModuleName": "WMS",
+    "MenuName": "Ugovori",
+    "MenuId": 116,
+    "Level": 2,
+    "ParentMenuId": 78,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
     "MenuName": "Trebovanja",
     "MenuId": 53,
     "Level": 2,
     "ParentMenuId": 78,
-    "SortNumber": 2,
+    "SortNumber": 3,
     "Status": 1,
     "ApiOnly": 0
   },
@@ -1565,7 +1565,7 @@
     "MenuId": 47,
     "Level": 2,
     "ParentMenuId": 78,
-    "SortNumber": 3,
+    "SortNumber": 4,
     "Status": 1,
     "ApiOnly": 0
   },
@@ -1575,7 +1575,7 @@
     "MenuId": 44,
     "Level": 2,
     "ParentMenuId": 78,
-    "SortNumber": 4,
+    "SortNumber": 5,
     "Status": 1,
     "ApiOnly": 0
   },
