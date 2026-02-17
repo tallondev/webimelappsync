@@ -1,4 +1,4 @@
-﻿-- WEBIMELDB STRUKTURA - Generisano: 13.2.2026. 13:33:06
+﻿-- WEBIMELDB STRUKTURA - Generisano: 17.2.2026. 13:26:18
 -- --------------------------------------------------
 
 -- TABELE
@@ -1300,6 +1300,31 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RegBusinessPartnerDepartments]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[RegBusinessPartnerDepartments](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[BusinessPartnerId] [int] NOT NULL,
+	[Name] [nvarchar](100) NOT NULL,
+	[CityId] [int] NOT NULL,
+	[Headquarters] [nvarchar](100) NULL,
+	[Address] [nvarchar](100) NULL,
+	[ZipCode] [nvarchar](10) NULL,
+	[RegistrationNumber] [nvarchar](15) NULL,
+	[Status] [smallint] NOT NULL,
+	[Entity] [smallint] NOT NULL,
+	[CompanyId] [int] NOT NULL,
+ CONSTRAINT [PK_RegBusinessPartnerDepartments] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RegBusinessPartners]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[RegBusinessPartners](
@@ -1423,6 +1448,103 @@ CREATE TABLE [dbo].[RegContacts](
 	[VersionChildId] [int] NULL,
 	[VersionExpiredDate] [datetime2](7) NULL,
  CONSTRAINT [PK_RegContacts] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RegContractProducts]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[RegContractProducts](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[ContractId] [int] NOT NULL,
+	[ProductId] [int] NOT NULL,
+	[PriceNoTax] [decimal](18, 4) NULL,
+	[DiscountPercent] [decimal](18, 4) NULL,
+	[ActionDiscountPercent] [decimal](18, 4) NULL,
+	[DiscountUnit] [decimal](18, 4) NULL,
+	[ActionDiscountUnit] [decimal](18, 4) NULL,
+	[Quantity] [decimal](18, 4) NULL,
+	[CompanyId] [int] NOT NULL,
+ CONSTRAINT [PK_RegContractProducts] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [UQ_RegContractProducts_CompanyId_ContractId_ProductId] UNIQUE NONCLUSTERED 
+(
+	[CompanyId] ASC,
+	[ContractId] ASC,
+	[ProductId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RegContracts]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[RegContracts](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[BranchOfficeId] [int] NOT NULL,
+	[ContractTypeId] [int] NOT NULL,
+	[Type] [smallint] NOT NULL,
+	[Label] [nvarchar](30) NOT NULL,
+	[Name] [nvarchar](100) NOT NULL,
+	[BusinessPartnerId] [int] NULL,
+	[BusinessPartnerDepartmentId] [int] NULL,
+	[ContactId] [int] NULL,
+	[ClientReference] [nvarchar](30) NULL,
+	[Date] [date] NOT NULL,
+	[TimeLimit] [bit] NOT NULL,
+	[StartDate] [date] NULL,
+	[DurationDays] [smallint] NOT NULL,
+	[EndDate] [date] NULL,
+	[ValueNoTax] [decimal](18, 2) NOT NULL,
+	[GuaranteeValue] [decimal](18, 2) NOT NULL,
+	[DiscountPercent] [decimal](10, 2) NOT NULL,
+	[PriceListTypeId] [int] NULL,
+	[PaymentMethodId] [int] NULL,
+	[PaymentDeadlineDays] [smallint] NOT NULL,
+	[Description] [nvarchar](4000) NULL,
+	[Status] [smallint] NOT NULL,
+	[CompanyId] [int] NOT NULL,
+ CONSTRAINT [PK_RegContracts] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [UQ_RegContracts_CompanyId_Label] UNIQUE NONCLUSTERED 
+(
+	[CompanyId] ASC,
+	[Label] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RegContractTypes]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[RegContractTypes](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Label] [nvarchar](3) NOT NULL,
+	[Name] [nvarchar](100) NOT NULL,
+	[Description] [nvarchar](1000) NULL,
+	[Status] [smallint] NOT NULL,
+	[CompanyId] [int] NOT NULL,
+	[RootId] [int] NULL,
+	[VersionParentId] [int] NULL,
+	[VersionChildId] [int] NULL,
+	[VersionExpiredDate] [datetime2](7) NULL,
+ CONSTRAINT [PK_RegContractTypes] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
@@ -6232,6 +6354,36 @@ CREATE NONCLUSTERED INDEX [Index_RegBranchOffices_VersionParentId] ON [dbo].[Reg
 	[VersionParentId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegBusinessPartnerDepartments]') AND name = N'IX_RegBusinessPartnerDepartments_BusinessPartnerId')
+CREATE NONCLUSTERED INDEX [IX_RegBusinessPartnerDepartments_BusinessPartnerId] ON [dbo].[RegBusinessPartnerDepartments]
+(
+	[BusinessPartnerId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegBusinessPartnerDepartments]') AND name = N'IX_RegBusinessPartnerDepartments_CityId')
+CREATE NONCLUSTERED INDEX [IX_RegBusinessPartnerDepartments_CityId] ON [dbo].[RegBusinessPartnerDepartments]
+(
+	[CityId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegBusinessPartnerDepartments]') AND name = N'IX_RegBusinessPartnerDepartments_CompanyId')
+CREATE NONCLUSTERED INDEX [IX_RegBusinessPartnerDepartments_CompanyId] ON [dbo].[RegBusinessPartnerDepartments]
+(
+	[CompanyId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegBusinessPartnerDepartments]') AND name = N'IX_RegBusinessPartnerDepartments_Entity')
+CREATE NONCLUSTERED INDEX [IX_RegBusinessPartnerDepartments_Entity] ON [dbo].[RegBusinessPartnerDepartments]
+(
+	[Entity] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegBusinessPartnerDepartments]') AND name = N'IX_RegBusinessPartnerDepartments_Status')
+CREATE NONCLUSTERED INDEX [IX_RegBusinessPartnerDepartments_Status] ON [dbo].[RegBusinessPartnerDepartments]
+(
+	[Status] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegBusinessPartners]') AND name = N'Index_RegBusinessPartners_CityId')
 CREATE NONCLUSTERED INDEX [Index_RegBusinessPartners_CityId] ON [dbo].[RegBusinessPartners]
 (
@@ -6459,6 +6611,162 @@ CREATE NONCLUSTERED INDEX [IX_RegContacts_VersionChildId] ON [dbo].[RegContacts]
 GO
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContacts]') AND name = N'IX_RegContacts_VersionParentId')
 CREATE NONCLUSTERED INDEX [IX_RegContacts_VersionParentId] ON [dbo].[RegContacts]
+(
+	[VersionParentId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContractProducts]') AND name = N'IX_RegContractProducts_CompanyId')
+CREATE NONCLUSTERED INDEX [IX_RegContractProducts_CompanyId] ON [dbo].[RegContractProducts]
+(
+	[CompanyId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContractProducts]') AND name = N'IX_RegContractProducts_ContractId')
+CREATE NONCLUSTERED INDEX [IX_RegContractProducts_ContractId] ON [dbo].[RegContractProducts]
+(
+	[ContractId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContractProducts]') AND name = N'IX_RegContractProducts_ProductId')
+CREATE NONCLUSTERED INDEX [IX_RegContractProducts_ProductId] ON [dbo].[RegContractProducts]
+(
+	[ProductId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContracts]') AND name = N'Index_RegContracts_Type')
+CREATE NONCLUSTERED INDEX [Index_RegContracts_Type] ON [dbo].[RegContracts]
+(
+	[Type] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContracts]') AND name = N'IX_RegContracts_BranchOfficeId')
+CREATE NONCLUSTERED INDEX [IX_RegContracts_BranchOfficeId] ON [dbo].[RegContracts]
+(
+	[BranchOfficeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContracts]') AND name = N'IX_RegContracts_BusinessPartnerDepartmentId')
+CREATE NONCLUSTERED INDEX [IX_RegContracts_BusinessPartnerDepartmentId] ON [dbo].[RegContracts]
+(
+	[BusinessPartnerDepartmentId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContracts]') AND name = N'IX_RegContracts_BusinessPartnerId')
+CREATE NONCLUSTERED INDEX [IX_RegContracts_BusinessPartnerId] ON [dbo].[RegContracts]
+(
+	[BusinessPartnerId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContracts]') AND name = N'IX_RegContracts_CompanyId')
+CREATE NONCLUSTERED INDEX [IX_RegContracts_CompanyId] ON [dbo].[RegContracts]
+(
+	[CompanyId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContracts]') AND name = N'IX_RegContracts_ContactId')
+CREATE NONCLUSTERED INDEX [IX_RegContracts_ContactId] ON [dbo].[RegContracts]
+(
+	[ContactId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContracts]') AND name = N'IX_RegContracts_ContractTypeId')
+CREATE NONCLUSTERED INDEX [IX_RegContracts_ContractTypeId] ON [dbo].[RegContracts]
+(
+	[ContractTypeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContracts]') AND name = N'IX_RegContracts_Date')
+CREATE NONCLUSTERED INDEX [IX_RegContracts_Date] ON [dbo].[RegContracts]
+(
+	[Date] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContracts]') AND name = N'IX_RegContracts_EndDate')
+CREATE NONCLUSTERED INDEX [IX_RegContracts_EndDate] ON [dbo].[RegContracts]
+(
+	[EndDate] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContracts]') AND name = N'IX_RegContracts_Label')
+CREATE NONCLUSTERED INDEX [IX_RegContracts_Label] ON [dbo].[RegContracts]
+(
+	[Label] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContracts]') AND name = N'IX_RegContracts_PaymentMethodId')
+CREATE NONCLUSTERED INDEX [IX_RegContracts_PaymentMethodId] ON [dbo].[RegContracts]
+(
+	[PaymentMethodId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContracts]') AND name = N'IX_RegContracts_PriceListTypeId')
+CREATE NONCLUSTERED INDEX [IX_RegContracts_PriceListTypeId] ON [dbo].[RegContracts]
+(
+	[PriceListTypeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContracts]') AND name = N'IX_RegContracts_Purchase')
+CREATE NONCLUSTERED INDEX [IX_RegContracts_Purchase] ON [dbo].[RegContracts]
+(
+	[Type] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContracts]') AND name = N'IX_RegContracts_StartDate')
+CREATE NONCLUSTERED INDEX [IX_RegContracts_StartDate] ON [dbo].[RegContracts]
+(
+	[StartDate] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContracts]') AND name = N'IX_RegContracts_Status')
+CREATE NONCLUSTERED INDEX [IX_RegContracts_Status] ON [dbo].[RegContracts]
+(
+	[Status] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContractTypes]') AND name = N'IX_RegContractTypes_CompanyId')
+CREATE NONCLUSTERED INDEX [IX_RegContractTypes_CompanyId] ON [dbo].[RegContractTypes]
+(
+	[CompanyId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContractTypes]') AND name = N'IX_RegContractTypes_Label')
+CREATE NONCLUSTERED INDEX [IX_RegContractTypes_Label] ON [dbo].[RegContractTypes]
+(
+	[Label] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContractTypes]') AND name = N'IX_RegContractTypes_RootId')
+CREATE NONCLUSTERED INDEX [IX_RegContractTypes_RootId] ON [dbo].[RegContractTypes]
+(
+	[RootId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContractTypes]') AND name = N'IX_RegContractTypes_Status')
+CREATE NONCLUSTERED INDEX [IX_RegContractTypes_Status] ON [dbo].[RegContractTypes]
+(
+	[Status] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContractTypes]') AND name = N'IX_RegContractTypes_VersionChildId')
+CREATE NONCLUSTERED INDEX [IX_RegContractTypes_VersionChildId] ON [dbo].[RegContractTypes]
+(
+	[VersionChildId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContractTypes]') AND name = N'IX_RegContractTypes_VersionExpiredDate')
+CREATE NONCLUSTERED INDEX [IX_RegContractTypes_VersionExpiredDate] ON [dbo].[RegContractTypes]
+(
+	[VersionExpiredDate] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContractTypes]') AND name = N'IX_RegContractTypes_VersionParentId')
+CREATE NONCLUSTERED INDEX [IX_RegContractTypes_VersionParentId] ON [dbo].[RegContractTypes]
 (
 	[VersionParentId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
@@ -11744,6 +12052,18 @@ ALTER TABLE [dbo].[RegBranchOffices] ADD  DEFAULT (CONVERT([smallint],(1))) FOR 
 END
 
 GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__RegBusine__Statu__261B931E]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[RegBusinessPartnerDepartments] ADD  DEFAULT ((1)) FOR [Status]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__RegBusine__Entit__270FB757]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[RegBusinessPartnerDepartments] ADD  DEFAULT ((0)) FOR [Entity]
+END
+
+GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__RegBusine__Statu__0D44F85C]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[RegBusinessPartners] ADD  DEFAULT (CONVERT([smallint],(1))) FOR [Status]
@@ -11795,6 +12115,90 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__RegContac__Statu__729BEF18]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[RegContacts] ADD  DEFAULT ((1)) FOR [Status]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__RegContra__Price__40CF895A]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[RegContractProducts] ADD  DEFAULT ((0.0)) FOR [PriceNoTax]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__RegContra__Disco__41C3AD93]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[RegContractProducts] ADD  DEFAULT ((0.0)) FOR [DiscountPercent]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__RegContra__Actio__42B7D1CC]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[RegContractProducts] ADD  DEFAULT ((0.0)) FOR [ActionDiscountPercent]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__RegContra__Disco__43ABF605]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[RegContractProducts] ADD  DEFAULT ((0.0)) FOR [DiscountUnit]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__RegContra__Actio__44A01A3E]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[RegContractProducts] ADD  DEFAULT ((0.0)) FOR [ActionDiscountUnit]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__RegContra__Quant__45943E77]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[RegContractProducts] ADD  DEFAULT ((0.0)) FOR [Quantity]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__RegContra__TimeL__2FA4FD58]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[RegContracts] ADD  DEFAULT ((0)) FOR [TimeLimit]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__RegContra__Durat__30992191]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[RegContracts] ADD  DEFAULT ((0)) FOR [DurationDays]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__RegContra__Value__318D45CA]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[RegContracts] ADD  DEFAULT ((0.0)) FOR [ValueNoTax]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__RegContra__Guara__32816A03]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[RegContracts] ADD  DEFAULT ((0.0)) FOR [GuaranteeValue]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__RegContra__Disco__33758E3C]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[RegContracts] ADD  DEFAULT ((0.0)) FOR [DiscountPercent]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__RegContra__Payme__3469B275]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[RegContracts] ADD  DEFAULT ((0)) FOR [PaymentDeadlineDays]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__RegContra__Statu__355DD6AE]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[RegContracts] ADD  DEFAULT ((0)) FOR [Status]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__RegContra__Statu__1F6E958F]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[RegContractTypes] ADD  DEFAULT ((1)) FOR [Status]
 END
 
 GO
@@ -13880,6 +14284,27 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegBranchOffices_RegCountries_OrganizationalStructureId]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegBranchOffices]'))
 ALTER TABLE [dbo].[RegBranchOffices] CHECK CONSTRAINT [FK_RegBranchOffices_RegCountries_OrganizationalStructureId]
 GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegBusinessPartnerDepartments_CoreCompanies]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegBusinessPartnerDepartments]'))
+ALTER TABLE [dbo].[RegBusinessPartnerDepartments]  WITH CHECK ADD  CONSTRAINT [FK_RegBusinessPartnerDepartments_CoreCompanies] FOREIGN KEY([CompanyId])
+REFERENCES [dbo].[CoreCompanies] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegBusinessPartnerDepartments_CoreCompanies]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegBusinessPartnerDepartments]'))
+ALTER TABLE [dbo].[RegBusinessPartnerDepartments] CHECK CONSTRAINT [FK_RegBusinessPartnerDepartments_CoreCompanies]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegBusinessPartnerDepartments_RegBusinessPartners]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegBusinessPartnerDepartments]'))
+ALTER TABLE [dbo].[RegBusinessPartnerDepartments]  WITH CHECK ADD  CONSTRAINT [FK_RegBusinessPartnerDepartments_RegBusinessPartners] FOREIGN KEY([BusinessPartnerId])
+REFERENCES [dbo].[RegBusinessPartners] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegBusinessPartnerDepartments_RegBusinessPartners]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegBusinessPartnerDepartments]'))
+ALTER TABLE [dbo].[RegBusinessPartnerDepartments] CHECK CONSTRAINT [FK_RegBusinessPartnerDepartments_RegBusinessPartners]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegBusinessPartnerDepartments_RegCities]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegBusinessPartnerDepartments]'))
+ALTER TABLE [dbo].[RegBusinessPartnerDepartments]  WITH CHECK ADD  CONSTRAINT [FK_RegBusinessPartnerDepartments_RegCities] FOREIGN KEY([CityId])
+REFERENCES [dbo].[RegCities] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegBusinessPartnerDepartments_RegCities]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegBusinessPartnerDepartments]'))
+ALTER TABLE [dbo].[RegBusinessPartnerDepartments] CHECK CONSTRAINT [FK_RegBusinessPartnerDepartments_RegCities]
+GO
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegBusinessPartners_CoreCompanies_CompanyId]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegBusinessPartners]'))
 ALTER TABLE [dbo].[RegBusinessPartners]  WITH CHECK ADD  CONSTRAINT [FK_RegBusinessPartners_CoreCompanies_CompanyId] FOREIGN KEY([CompanyId])
 REFERENCES [dbo].[CoreCompanies] ([Id])
@@ -13985,6 +14410,111 @@ REFERENCES [dbo].[RegCities] ([Id])
 GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContacts_RegCities_CityId]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContacts]'))
 ALTER TABLE [dbo].[RegContacts] CHECK CONSTRAINT [FK_RegContacts_RegCities_CityId]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContractProducts_CoreCompanies]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContractProducts]'))
+ALTER TABLE [dbo].[RegContractProducts]  WITH CHECK ADD  CONSTRAINT [FK_RegContractProducts_CoreCompanies] FOREIGN KEY([CompanyId])
+REFERENCES [dbo].[CoreCompanies] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContractProducts_CoreCompanies]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContractProducts]'))
+ALTER TABLE [dbo].[RegContractProducts] CHECK CONSTRAINT [FK_RegContractProducts_CoreCompanies]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContractProducts_RegContracts]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContractProducts]'))
+ALTER TABLE [dbo].[RegContractProducts]  WITH CHECK ADD  CONSTRAINT [FK_RegContractProducts_RegContracts] FOREIGN KEY([ContractId])
+REFERENCES [dbo].[RegContracts] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContractProducts_RegContracts]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContractProducts]'))
+ALTER TABLE [dbo].[RegContractProducts] CHECK CONSTRAINT [FK_RegContractProducts_RegContracts]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContractProducts_RegProducts]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContractProducts]'))
+ALTER TABLE [dbo].[RegContractProducts]  WITH CHECK ADD  CONSTRAINT [FK_RegContractProducts_RegProducts] FOREIGN KEY([ProductId])
+REFERENCES [dbo].[RegProducts] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContractProducts_RegProducts]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContractProducts]'))
+ALTER TABLE [dbo].[RegContractProducts] CHECK CONSTRAINT [FK_RegContractProducts_RegProducts]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContracts_CoreCompanies]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContracts]'))
+ALTER TABLE [dbo].[RegContracts]  WITH CHECK ADD  CONSTRAINT [FK_RegContracts_CoreCompanies] FOREIGN KEY([CompanyId])
+REFERENCES [dbo].[CoreCompanies] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContracts_CoreCompanies]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContracts]'))
+ALTER TABLE [dbo].[RegContracts] CHECK CONSTRAINT [FK_RegContracts_CoreCompanies]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContracts_RegBranchOffices]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContracts]'))
+ALTER TABLE [dbo].[RegContracts]  WITH CHECK ADD  CONSTRAINT [FK_RegContracts_RegBranchOffices] FOREIGN KEY([BranchOfficeId])
+REFERENCES [dbo].[RegBranchOffices] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContracts_RegBranchOffices]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContracts]'))
+ALTER TABLE [dbo].[RegContracts] CHECK CONSTRAINT [FK_RegContracts_RegBranchOffices]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContracts_RegBusinessPartnerDepartments]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContracts]'))
+ALTER TABLE [dbo].[RegContracts]  WITH CHECK ADD  CONSTRAINT [FK_RegContracts_RegBusinessPartnerDepartments] FOREIGN KEY([BusinessPartnerDepartmentId])
+REFERENCES [dbo].[RegBusinessPartnerDepartments] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContracts_RegBusinessPartnerDepartments]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContracts]'))
+ALTER TABLE [dbo].[RegContracts] CHECK CONSTRAINT [FK_RegContracts_RegBusinessPartnerDepartments]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContracts_RegBusinessPartners]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContracts]'))
+ALTER TABLE [dbo].[RegContracts]  WITH CHECK ADD  CONSTRAINT [FK_RegContracts_RegBusinessPartners] FOREIGN KEY([BusinessPartnerId])
+REFERENCES [dbo].[RegBusinessPartners] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContracts_RegBusinessPartners]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContracts]'))
+ALTER TABLE [dbo].[RegContracts] CHECK CONSTRAINT [FK_RegContracts_RegBusinessPartners]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContracts_RegContacts]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContracts]'))
+ALTER TABLE [dbo].[RegContracts]  WITH CHECK ADD  CONSTRAINT [FK_RegContracts_RegContacts] FOREIGN KEY([ContactId])
+REFERENCES [dbo].[RegContacts] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContracts_RegContacts]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContracts]'))
+ALTER TABLE [dbo].[RegContracts] CHECK CONSTRAINT [FK_RegContracts_RegContacts]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContracts_RegContractTypes]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContracts]'))
+ALTER TABLE [dbo].[RegContracts]  WITH CHECK ADD  CONSTRAINT [FK_RegContracts_RegContractTypes] FOREIGN KEY([ContractTypeId])
+REFERENCES [dbo].[RegContractTypes] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContracts_RegContractTypes]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContracts]'))
+ALTER TABLE [dbo].[RegContracts] CHECK CONSTRAINT [FK_RegContracts_RegContractTypes]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContracts_RegPaymentMethods]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContracts]'))
+ALTER TABLE [dbo].[RegContracts]  WITH CHECK ADD  CONSTRAINT [FK_RegContracts_RegPaymentMethods] FOREIGN KEY([PaymentMethodId])
+REFERENCES [dbo].[RegPaymentMethods] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContracts_RegPaymentMethods]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContracts]'))
+ALTER TABLE [dbo].[RegContracts] CHECK CONSTRAINT [FK_RegContracts_RegPaymentMethods]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContracts_RegPriceListTypes]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContracts]'))
+ALTER TABLE [dbo].[RegContracts]  WITH CHECK ADD  CONSTRAINT [FK_RegContracts_RegPriceListTypes] FOREIGN KEY([PriceListTypeId])
+REFERENCES [dbo].[RegPriceListTypes] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContracts_RegPriceListTypes]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContracts]'))
+ALTER TABLE [dbo].[RegContracts] CHECK CONSTRAINT [FK_RegContracts_RegPriceListTypes]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContractTypes_Child]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContractTypes]'))
+ALTER TABLE [dbo].[RegContractTypes]  WITH CHECK ADD  CONSTRAINT [FK_RegContractTypes_Child] FOREIGN KEY([VersionChildId])
+REFERENCES [dbo].[RegContractTypes] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContractTypes_Child]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContractTypes]'))
+ALTER TABLE [dbo].[RegContractTypes] CHECK CONSTRAINT [FK_RegContractTypes_Child]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContractTypes_CoreCompanies]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContractTypes]'))
+ALTER TABLE [dbo].[RegContractTypes]  WITH CHECK ADD  CONSTRAINT [FK_RegContractTypes_CoreCompanies] FOREIGN KEY([CompanyId])
+REFERENCES [dbo].[CoreCompanies] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContractTypes_CoreCompanies]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContractTypes]'))
+ALTER TABLE [dbo].[RegContractTypes] CHECK CONSTRAINT [FK_RegContractTypes_CoreCompanies]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContractTypes_Parent]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContractTypes]'))
+ALTER TABLE [dbo].[RegContractTypes]  WITH CHECK ADD  CONSTRAINT [FK_RegContractTypes_Parent] FOREIGN KEY([VersionParentId])
+REFERENCES [dbo].[RegContractTypes] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContractTypes_Parent]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContractTypes]'))
+ALTER TABLE [dbo].[RegContractTypes] CHECK CONSTRAINT [FK_RegContractTypes_Parent]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContractTypes_Root]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContractTypes]'))
+ALTER TABLE [dbo].[RegContractTypes]  WITH CHECK ADD  CONSTRAINT [FK_RegContractTypes_Root] FOREIGN KEY([RootId])
+REFERENCES [dbo].[RegContractTypes] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContractTypes_Root]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContractTypes]'))
+ALTER TABLE [dbo].[RegContractTypes] CHECK CONSTRAINT [FK_RegContractTypes_Root]
 GO
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegCostTypes_CoreCompanies_CompanyId]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegCostTypes]'))
 ALTER TABLE [dbo].[RegCostTypes]  WITH CHECK ADD  CONSTRAINT [FK_RegCostTypes_CoreCompanies_CompanyId] FOREIGN KEY([CompanyId])
@@ -18479,6 +19009,39 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegBranchOffices', NULL,NULL))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Organizacione jedinice' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegBranchOffices'
 GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegBusinessPartnerDepartments', N'COLUMN',N'BusinessPartnerId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Poslovni partner' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegBusinessPartnerDepartments', @level2type=N'COLUMN',@level2name=N'BusinessPartnerId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegBusinessPartnerDepartments', N'COLUMN',N'Name'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Naziv' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegBusinessPartnerDepartments', @level2type=N'COLUMN',@level2name=N'Name'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegBusinessPartnerDepartments', N'COLUMN',N'CityId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Grad' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegBusinessPartnerDepartments', @level2type=N'COLUMN',@level2name=N'CityId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegBusinessPartnerDepartments', N'COLUMN',N'Headquarters'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Sjedište' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegBusinessPartnerDepartments', @level2type=N'COLUMN',@level2name=N'Headquarters'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegBusinessPartnerDepartments', N'COLUMN',N'Address'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Adresa' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegBusinessPartnerDepartments', @level2type=N'COLUMN',@level2name=N'Address'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegBusinessPartnerDepartments', N'COLUMN',N'ZipCode'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'PTT broj' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegBusinessPartnerDepartments', @level2type=N'COLUMN',@level2name=N'ZipCode'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegBusinessPartnerDepartments', N'COLUMN',N'RegistrationNumber'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Matični broj' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegBusinessPartnerDepartments', @level2type=N'COLUMN',@level2name=N'RegistrationNumber'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegBusinessPartnerDepartments', N'COLUMN',N'Status'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Status: 0 - Neaktivan 1 - Aktivan' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegBusinessPartnerDepartments', @level2type=N'COLUMN',@level2name=N'Status'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegBusinessPartnerDepartments', N'COLUMN',N'Entity'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Entitet: 0 - Nedefinisano (Undefined) 1 - Federacija (Federation) 2 - Republika Srpska (Republic Of Srpska ) 3 - Brčko Distrikt (Brcko District)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegBusinessPartnerDepartments', @level2type=N'COLUMN',@level2name=N'Entity'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegBusinessPartnerDepartments', N'COLUMN',N'CompanyId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Kompanija' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegBusinessPartnerDepartments', @level2type=N'COLUMN',@level2name=N'CompanyId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegBusinessPartnerDepartments', NULL,NULL))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Poslovnice poslovnih partnera' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegBusinessPartnerDepartments'
+GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegBusinessPartners', N'COLUMN',N'Label'))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Šifra (inkrement)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegBusinessPartners', @level2type=N'COLUMN',@level2name=N'Label'
 GO
@@ -18661,6 +19224,138 @@ IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'S
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContacts', NULL,NULL))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Fizička lica' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContacts'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContractProducts', N'COLUMN',N'ContractId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Ugovor' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContractProducts', @level2type=N'COLUMN',@level2name=N'ContractId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContractProducts', N'COLUMN',N'ProductId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Artikal' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContractProducts', @level2type=N'COLUMN',@level2name=N'ProductId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContractProducts', N'COLUMN',N'PriceNoTax'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Cijena bez poreza' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContractProducts', @level2type=N'COLUMN',@level2name=N'PriceNoTax'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContractProducts', N'COLUMN',N'DiscountPercent'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Popust u procentima' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContractProducts', @level2type=N'COLUMN',@level2name=N'DiscountPercent'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContractProducts', N'COLUMN',N'ActionDiscountPercent'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Akcijski popust u procentima' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContractProducts', @level2type=N'COLUMN',@level2name=N'ActionDiscountPercent'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContractProducts', N'COLUMN',N'DiscountUnit'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Popust u jedinici mjere' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContractProducts', @level2type=N'COLUMN',@level2name=N'DiscountUnit'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContractProducts', N'COLUMN',N'ActionDiscountUnit'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Akcijski popust u jedinici mjere' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContractProducts', @level2type=N'COLUMN',@level2name=N'ActionDiscountUnit'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContractProducts', N'COLUMN',N'Quantity'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Količina' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContractProducts', @level2type=N'COLUMN',@level2name=N'Quantity'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContractProducts', N'COLUMN',N'CompanyId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Kompanija' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContractProducts', @level2type=N'COLUMN',@level2name=N'CompanyId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContractProducts', NULL,NULL))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Ugovoreni artikli' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContractProducts'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', N'COLUMN',N'BranchOfficeId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Organizaciona jedinica' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts', @level2type=N'COLUMN',@level2name=N'BranchOfficeId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', N'COLUMN',N'ContractTypeId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Vrsta ugovora' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts', @level2type=N'COLUMN',@level2name=N'ContractTypeId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', N'COLUMN',N'Type'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Tip: 1 - Nabava 2 - Prodaja 3 - Nabava i prodaja ' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts', @level2type=N'COLUMN',@level2name=N'Type'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', N'COLUMN',N'Label'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Oznaka ugovora' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts', @level2type=N'COLUMN',@level2name=N'Label'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', N'COLUMN',N'Name'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Naziv ugovora' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts', @level2type=N'COLUMN',@level2name=N'Name'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', N'COLUMN',N'BusinessPartnerId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Poslovni partner' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts', @level2type=N'COLUMN',@level2name=N'BusinessPartnerId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', N'COLUMN',N'BusinessPartnerDepartmentId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Poslovnica poslovnog partnera' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts', @level2type=N'COLUMN',@level2name=N'BusinessPartnerDepartmentId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', N'COLUMN',N'ContactId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Fizičko lice' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts', @level2type=N'COLUMN',@level2name=N'ContactId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', N'COLUMN',N'ClientReference'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Oznaka ugovora kod klijenta' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts', @level2type=N'COLUMN',@level2name=N'ClientReference'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', N'COLUMN',N'Date'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Datum' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts', @level2type=N'COLUMN',@level2name=N'Date'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', N'COLUMN',N'TimeLimit'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Vremensko ograničenje: 0 - Ne 1 - Da' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts', @level2type=N'COLUMN',@level2name=N'TimeLimit'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', N'COLUMN',N'StartDate'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Početak važenja ugovora' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts', @level2type=N'COLUMN',@level2name=N'StartDate'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', N'COLUMN',N'DurationDays'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Trajanje ugovora u danima' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts', @level2type=N'COLUMN',@level2name=N'DurationDays'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', N'COLUMN',N'EndDate'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Kraj važenja ugovora' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts', @level2type=N'COLUMN',@level2name=N'EndDate'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', N'COLUMN',N'ValueNoTax'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Vrijednost bez poreza' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts', @level2type=N'COLUMN',@level2name=N'ValueNoTax'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', N'COLUMN',N'GuaranteeValue'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Vrijednost garancije' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts', @level2type=N'COLUMN',@level2name=N'GuaranteeValue'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', N'COLUMN',N'DiscountPercent'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Popust u procentima' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts', @level2type=N'COLUMN',@level2name=N'DiscountPercent'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', N'COLUMN',N'PriceListTypeId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Vrsta cjenovnika' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts', @level2type=N'COLUMN',@level2name=N'PriceListTypeId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', N'COLUMN',N'PaymentMethodId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Način plaćanja' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts', @level2type=N'COLUMN',@level2name=N'PaymentMethodId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', N'COLUMN',N'PaymentDeadlineDays'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Rok plaćanja u danima' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts', @level2type=N'COLUMN',@level2name=N'PaymentDeadlineDays'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', N'COLUMN',N'Description'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Opis' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts', @level2type=N'COLUMN',@level2name=N'Description'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', N'COLUMN',N'Status'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Status: 0 - Neaktivan 1 - Aktivan 2 - Zakljucen' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts', @level2type=N'COLUMN',@level2name=N'Status'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', N'COLUMN',N'CompanyId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Kompanija' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts', @level2type=N'COLUMN',@level2name=N'CompanyId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', NULL,NULL))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Ugovori' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContractTypes', N'COLUMN',N'Label'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Šifra (inkrement)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContractTypes', @level2type=N'COLUMN',@level2name=N'Label'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContractTypes', N'COLUMN',N'Name'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Naziv' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContractTypes', @level2type=N'COLUMN',@level2name=N'Name'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContractTypes', N'COLUMN',N'Description'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Opis' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContractTypes', @level2type=N'COLUMN',@level2name=N'Description'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContractTypes', N'COLUMN',N'Status'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Status: 0 - Neaktivan 1 - Aktivan 2 - Arhiviran' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContractTypes', @level2type=N'COLUMN',@level2name=N'Status'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContractTypes', N'COLUMN',N'CompanyId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Kompanija' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContractTypes', @level2type=N'COLUMN',@level2name=N'CompanyId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContractTypes', N'COLUMN',N'RootId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Ključ osnovne verzije' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContractTypes', @level2type=N'COLUMN',@level2name=N'RootId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContractTypes', N'COLUMN',N'VersionParentId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Ključ prethodne verzije' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContractTypes', @level2type=N'COLUMN',@level2name=N'VersionParentId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContractTypes', N'COLUMN',N'VersionChildId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Ključ nove verzije' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContractTypes', @level2type=N'COLUMN',@level2name=N'VersionChildId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContractTypes', N'COLUMN',N'VersionExpiredDate'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Vrijeme arhiviranja verzije' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContractTypes', @level2type=N'COLUMN',@level2name=N'VersionExpiredDate'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContractTypes', NULL,NULL))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Vrste ugovora' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContractTypes'
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegCostTypes', N'COLUMN',N'Label'))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Šifra (inkrement)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegCostTypes', @level2type=N'COLUMN',@level2name=N'Label'
