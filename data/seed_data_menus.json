@@ -384,7 +384,7 @@
     "Icon": "icon-business-partners",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "RegBusinessPartners,RegBusinessPartnerVehicles,RegEmployees,RegContacts",
+    "TableName": "RegBusinessPartners,RegBusinessPartnerVehicles,RegEmployees,RegContacts,RegBusinessPartnerDepartments",
     "Deleted": 0,
     "languages": [
       {
@@ -2275,6 +2275,46 @@
         "Locale": "en",
         "Name": "Redistribution orders",
         "Description": "Redistribution orders records"
+      }
+    ]
+  },
+  {
+    "Id": 115,
+    "Icon": "icon-contract-types",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "RegContractTypes",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Vrste ugovora",
+        "Description": "Evidencija vrsta ugovora"
+      },
+      {
+        "Locale": "en",
+        "Name": "Contract Types",
+        "Description": "Registry of contract types"
+      }
+    ]
+  },
+  {
+    "Id": 116,
+    "Icon": "icon-contracts",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "RegContracts,RegContractProducts",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Ugovori",
+        "Description": "Evidencija ugovora"
+      },
+      {
+        "Locale": "en",
+        "Name": "Contracts",
+        "Description": "Registry of contracts"
       }
     ]
   }

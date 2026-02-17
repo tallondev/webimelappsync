@@ -2141,5 +2141,87 @@
       "certify",
       "special_update"
     ]
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Vrste cjenovnika",
+    "MenuId": 17,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Načini plaćanja",
+    "MenuId": 18,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Cjenovnici",
+    "MenuId": 22,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Fizička lica",
+    "MenuId": 112,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Vrste ugovora",
+    "MenuId": 115,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Ugovori",
+    "MenuId": 116,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log"
+    ]
   }
 ]

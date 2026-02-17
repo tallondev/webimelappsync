@@ -1251,11 +1251,21 @@
   },
   {
     "ModuleName": "WMS",
+    "MenuName": "Fizička lica",
+    "MenuId": 112,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 8,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
     "MenuName": "Vrste trebovanja",
     "MenuId": 52,
     "Level": 1,
     "ParentMenuId": 1,
-    "SortNumber": 8,
+    "SortNumber": 9,
     "Status": 1,
     "ApiOnly": 0
   },
@@ -1265,7 +1275,7 @@
     "MenuId": 81,
     "Level": 1,
     "ParentMenuId": 1,
-    "SortNumber": 9,
+    "SortNumber": 10,
     "Status": 1,
     "ApiOnly": 0
   },
@@ -1275,7 +1285,7 @@
     "MenuId": 83,
     "Level": 1,
     "ParentMenuId": 1,
-    "SortNumber": 10,
+    "SortNumber": 11,
     "Status": 1,
     "ApiOnly": 0
   },
@@ -1311,11 +1321,51 @@
   },
   {
     "ModuleName": "WMS",
+    "MenuName": "Vrste cjenovnika",
+    "MenuId": 17,
+    "Level": 2,
+    "ParentMenuId": 83,
+    "SortNumber": 4,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Načini plaćanja",
+    "MenuId": 18,
+    "Level": 2,
+    "ParentMenuId": 83,
+    "SortNumber": 5,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
     "MenuName": "Ovlaštene osobe",
     "MenuId": 85,
     "Level": 2,
     "ParentMenuId": 83,
-    "SortNumber": 4,
+    "SortNumber": 6,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Vrste ugovora",
+    "MenuId": 115,
+    "Level": 2,
+    "ParentMenuId": 83,
+    "SortNumber": 7,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Ugovori",
+    "MenuId": 116,
+    "Level": 2,
+    "ParentMenuId": 83,
+    "SortNumber": 8,
     "Status": 1,
     "ApiOnly": 0
   },
@@ -1491,11 +1541,21 @@
   },
   {
     "ModuleName": "WMS",
+    "MenuName": "Cjenovnici",
+    "MenuId": 22,
+    "Level": 2,
+    "ParentMenuId": 78,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
     "MenuName": "Trebovanja",
     "MenuId": 53,
     "Level": 2,
     "ParentMenuId": 78,
-    "SortNumber": 1,
+    "SortNumber": 2,
     "Status": 1,
     "ApiOnly": 0
   },
@@ -1505,7 +1565,7 @@
     "MenuId": 47,
     "Level": 2,
     "ParentMenuId": 78,
-    "SortNumber": 2,
+    "SortNumber": 3,
     "Status": 1,
     "ApiOnly": 0
   },
@@ -1515,7 +1575,7 @@
     "MenuId": 44,
     "Level": 2,
     "ParentMenuId": 78,
-    "SortNumber": 3,
+    "SortNumber": 4,
     "Status": 1,
     "ApiOnly": 0
   },
