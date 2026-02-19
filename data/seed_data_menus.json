@@ -2317,5 +2317,45 @@
         "Description": "Registry of contracts"
       }
     ]
+  },
+  {
+    "Id": 117,
+    "Icon": "icon-financial",
+    "IsObject": 0,
+    "HasReportTemplate": 0,
+    "TableName": null,
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Finansijsko",
+        "Description": "Finansijsko poslovanje"
+      },
+      {
+        "Locale": "en",
+        "Name": "Financial",
+        "Description": "Financial business"
+      }
+    ]
+  },
+  {
+    "Id": 118,
+    "Icon": "icon-currencies",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "RegCurrencies,SharedExchangeRates,SharedExchangeRatesSetup",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Valute i kursna lista",
+        "Description": "Evidencija valuta i kursnih lista"
+      },
+      {
+        "Locale": "en",
+        "Name": "Currencies and Exchange Rates",
+        "Description": "Registry of currencies and exchange rates"
+      }
+    ]
   }
 ]

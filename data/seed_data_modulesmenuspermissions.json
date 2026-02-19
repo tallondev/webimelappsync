@@ -2223,5 +2223,19 @@
       "export",
       "log"
     ]
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Valute i kursna lista",
+    "MenuId": 118,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "versioned_edit",
+      "delete",
+      "export",
+      "log"
+    ]
   }
 ]

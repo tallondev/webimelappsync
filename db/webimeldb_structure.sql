@@ -1,4 +1,4 @@
-﻿-- WEBIMELDB STRUKTURA - Generisano: 17.2.2026. 13:26:18
+﻿-- WEBIMELDB STRUKTURA - Generisano: 19.2.2026. 10:55:44
 -- --------------------------------------------------
 
 -- TABELE
@@ -1515,6 +1515,7 @@ CREATE TABLE [dbo].[RegContracts](
 	[Description] [nvarchar](4000) NULL,
 	[Status] [smallint] NOT NULL,
 	[CompanyId] [int] NOT NULL,
+	[Base] [smallint] NOT NULL,
  CONSTRAINT [PK_RegContracts] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -1595,6 +1596,30 @@ CREATE TABLE [dbo].[RegCountries](
 	[VersionExpiredDate] [datetime2](7) NULL,
 	[CompanyId] [int] NOT NULL,
  CONSTRAINT [PK_RegCountries] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RegCurrencies]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[RegCurrencies](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Symbol] [nvarchar](3) NOT NULL,
+	[InternationalLabel] [nvarchar](3) NULL,
+	[Description] [nvarchar](255) NOT NULL,
+	[Status] [smallint] NOT NULL,
+	[CompanyId] [int] NOT NULL,
+	[RootId] [int] NULL,
+	[VersionParentId] [int] NULL,
+	[VersionChildId] [int] NULL,
+	[VersionExpiredDate] [datetime2](7) NULL,
+ CONSTRAINT [PK_RegCurrencies] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
@@ -2504,6 +2529,61 @@ CREATE TABLE [dbo].[SharedCalculations](
  CONSTRAINT [PK_SharedCalculations] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SharedExchangeRates]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[SharedExchangeRates](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[CurrencyId] [int] NOT NULL,
+	[Date] [date] NOT NULL,
+	[BankRate] [decimal](18, 7) NOT NULL,
+	[BuyingRate] [decimal](18, 7) NOT NULL,
+	[SellingRate] [decimal](18, 7) NOT NULL,
+	[AccountingRate] [decimal](18, 7) NOT NULL,
+	[MiddleRate] [decimal](18, 7) NOT NULL,
+	[CompanyId] [int] NOT NULL,
+ CONSTRAINT [PK_SharedExchangeRates] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [UQ_SharedExchangeRates_Company_Currency_Date] UNIQUE NONCLUSTERED 
+(
+	[CompanyId] ASC,
+	[CurrencyId] ASC,
+	[Date] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SharedExchangeRatesSetup]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[SharedExchangeRatesSetup](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyId] [int] NOT NULL,
+	[ServiceApi] [smallint] NOT NULL,
+	[AutoUpdate] [smallint] NOT NULL,
+	[UpdateTime] [time](7) NULL,
+	[ApiUser] [nvarchar](50) NULL,
+	[ApiPassword] [nvarchar](255) NULL,
+	[ApiKey] [nvarchar](255) NULL,
+ CONSTRAINT [PK_SharedExchangeRatesSetup] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [UQ_SharedExchangeRatesSetup_CompanyId] UNIQUE NONCLUSTERED 
+(
+	[CompanyId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 END
@@ -6633,6 +6713,12 @@ CREATE NONCLUSTERED INDEX [IX_RegContractProducts_ProductId] ON [dbo].[RegContra
 	[ProductId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContracts]') AND name = N'Index_RegContracts_Base')
+CREATE NONCLUSTERED INDEX [Index_RegContracts_Base] ON [dbo].[RegContracts]
+(
+	[Base] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegContracts]') AND name = N'Index_RegContracts_Type')
 CREATE NONCLUSTERED INDEX [Index_RegContracts_Type] ON [dbo].[RegContracts]
 (
@@ -6866,6 +6952,60 @@ CREATE NONCLUSTERED INDEX [Index_RegCountries_VersionChildId] ON [dbo].[RegCount
 GO
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegCountries]') AND name = N'Index_RegCountries_VersionParentId')
 CREATE NONCLUSTERED INDEX [Index_RegCountries_VersionParentId] ON [dbo].[RegCountries]
+(
+	[VersionParentId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegCurrencies]') AND name = N'IX_RegCurrencies_CompanyId')
+CREATE NONCLUSTERED INDEX [IX_RegCurrencies_CompanyId] ON [dbo].[RegCurrencies]
+(
+	[CompanyId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegCurrencies]') AND name = N'IX_RegCurrencies_InternationalLabel')
+CREATE NONCLUSTERED INDEX [IX_RegCurrencies_InternationalLabel] ON [dbo].[RegCurrencies]
+(
+	[InternationalLabel] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegCurrencies]') AND name = N'IX_RegCurrencies_RootId')
+CREATE NONCLUSTERED INDEX [IX_RegCurrencies_RootId] ON [dbo].[RegCurrencies]
+(
+	[RootId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegCurrencies]') AND name = N'IX_RegCurrencies_Status')
+CREATE NONCLUSTERED INDEX [IX_RegCurrencies_Status] ON [dbo].[RegCurrencies]
+(
+	[Status] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegCurrencies]') AND name = N'IX_RegCurrencies_Symbol')
+CREATE NONCLUSTERED INDEX [IX_RegCurrencies_Symbol] ON [dbo].[RegCurrencies]
+(
+	[Symbol] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegCurrencies]') AND name = N'IX_RegCurrencies_VersionChildId')
+CREATE NONCLUSTERED INDEX [IX_RegCurrencies_VersionChildId] ON [dbo].[RegCurrencies]
+(
+	[VersionChildId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegCurrencies]') AND name = N'IX_RegCurrencies_VersionExpiredDate')
+CREATE NONCLUSTERED INDEX [IX_RegCurrencies_VersionExpiredDate] ON [dbo].[RegCurrencies]
+(
+	[VersionExpiredDate] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegCurrencies]') AND name = N'IX_RegCurrencies_VersionParentId')
+CREATE NONCLUSTERED INDEX [IX_RegCurrencies_VersionParentId] ON [dbo].[RegCurrencies]
 (
 	[VersionParentId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
@@ -8436,6 +8576,36 @@ CREATE UNIQUE NONCLUSTERED INDEX [UQ_SharedCalculations_1] ON [dbo].[SharedCalcu
 	[Year] ASC,
 	[WarehouseId] ASC,
 	[DocumentNumber] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[SharedExchangeRates]') AND name = N'IX_SharedExchangeRates_CompanyId')
+CREATE NONCLUSTERED INDEX [IX_SharedExchangeRates_CompanyId] ON [dbo].[SharedExchangeRates]
+(
+	[CompanyId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[SharedExchangeRates]') AND name = N'IX_SharedExchangeRates_CurrencyId')
+CREATE NONCLUSTERED INDEX [IX_SharedExchangeRates_CurrencyId] ON [dbo].[SharedExchangeRates]
+(
+	[CurrencyId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[SharedExchangeRates]') AND name = N'IX_SharedExchangeRates_Date')
+CREATE NONCLUSTERED INDEX [IX_SharedExchangeRates_Date] ON [dbo].[SharedExchangeRates]
+(
+	[Date] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[SharedExchangeRatesSetup]') AND name = N'IX_SharedExchangeRatesSetup_CompanyId')
+CREATE NONCLUSTERED INDEX [IX_SharedExchangeRatesSetup_CompanyId] ON [dbo].[SharedExchangeRatesSetup]
+(
+	[CompanyId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[SharedExchangeRatesSetup]') AND name = N'UQ_SharedExchangeRatesSetup_1')
+CREATE UNIQUE NONCLUSTERED INDEX [UQ_SharedExchangeRatesSetup_1] ON [dbo].[SharedExchangeRatesSetup]
+(
+	[CompanyId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[SharedGoodsInboundItems]') AND name = N'Index_SharedGoodsInboundItems_CompanyId')
@@ -12220,6 +12390,12 @@ ALTER TABLE [dbo].[RegCountries] ADD  DEFAULT (CONVERT([smallint],(1))) FOR [Sta
 END
 
 GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__RegCurren__Statu__5C77A3CF]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[RegCurrencies] ADD  DEFAULT ((1)) FOR [Status]
+END
+
+GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__RegGroups__Statu__12FDD1B2]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[RegGroupsOfProducts] ADD  DEFAULT (CONVERT([smallint],(1))) FOR [Status]
@@ -12559,6 +12735,36 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__SharedCal__Statu__3A179ED3]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[SharedCalculations] ADD  DEFAULT (CONVERT([smallint],(0))) FOR [Status]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__SharedExc__BankR__5D6BC808]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[SharedExchangeRates] ADD  DEFAULT ((0.0)) FOR [BankRate]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__SharedExc__Buyin__604834B3]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[SharedExchangeRates] ADD  DEFAULT ((0.0)) FOR [BuyingRate]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__SharedExc__Selli__5F54107A]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[SharedExchangeRates] ADD  DEFAULT ((0.0)) FOR [SellingRate]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__SharedExc__Accou__5E5FEC41]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[SharedExchangeRates] ADD  DEFAULT ((0.0)) FOR [AccountingRate]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__SharedExc__AutoU__613C58EC]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[SharedExchangeRatesSetup] ADD  DEFAULT ((0)) FOR [AutoUpdate]
 END
 
 GO
@@ -14509,13 +14715,6 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContractTypes_Parent]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContractTypes]'))
 ALTER TABLE [dbo].[RegContractTypes] CHECK CONSTRAINT [FK_RegContractTypes_Parent]
 GO
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContractTypes_Root]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContractTypes]'))
-ALTER TABLE [dbo].[RegContractTypes]  WITH CHECK ADD  CONSTRAINT [FK_RegContractTypes_Root] FOREIGN KEY([RootId])
-REFERENCES [dbo].[RegContractTypes] ([Id])
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContractTypes_Root]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContractTypes]'))
-ALTER TABLE [dbo].[RegContractTypes] CHECK CONSTRAINT [FK_RegContractTypes_Root]
-GO
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegCostTypes_CoreCompanies_CompanyId]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegCostTypes]'))
 ALTER TABLE [dbo].[RegCostTypes]  WITH CHECK ADD  CONSTRAINT [FK_RegCostTypes_CoreCompanies_CompanyId] FOREIGN KEY([CompanyId])
 REFERENCES [dbo].[CoreCompanies] ([Id])
@@ -14565,6 +14764,27 @@ REFERENCES [dbo].[RegCountries] ([Id])
 GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegCountries_RegCountries_VersionParentId]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegCountries]'))
 ALTER TABLE [dbo].[RegCountries] CHECK CONSTRAINT [FK_RegCountries_RegCountries_VersionParentId]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegCurrencies_CoreCompanies]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegCurrencies]'))
+ALTER TABLE [dbo].[RegCurrencies]  WITH CHECK ADD  CONSTRAINT [FK_RegCurrencies_CoreCompanies] FOREIGN KEY([CompanyId])
+REFERENCES [dbo].[CoreCompanies] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegCurrencies_CoreCompanies]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegCurrencies]'))
+ALTER TABLE [dbo].[RegCurrencies] CHECK CONSTRAINT [FK_RegCurrencies_CoreCompanies]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegCurrencies_RegCurrencies_Child]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegCurrencies]'))
+ALTER TABLE [dbo].[RegCurrencies]  WITH CHECK ADD  CONSTRAINT [FK_RegCurrencies_RegCurrencies_Child] FOREIGN KEY([VersionChildId])
+REFERENCES [dbo].[RegCurrencies] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegCurrencies_RegCurrencies_Child]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegCurrencies]'))
+ALTER TABLE [dbo].[RegCurrencies] CHECK CONSTRAINT [FK_RegCurrencies_RegCurrencies_Child]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegCurrencies_RegCurrencies_Parent]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegCurrencies]'))
+ALTER TABLE [dbo].[RegCurrencies]  WITH CHECK ADD  CONSTRAINT [FK_RegCurrencies_RegCurrencies_Parent] FOREIGN KEY([VersionParentId])
+REFERENCES [dbo].[RegCurrencies] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegCurrencies_RegCurrencies_Parent]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegCurrencies]'))
+ALTER TABLE [dbo].[RegCurrencies] CHECK CONSTRAINT [FK_RegCurrencies_RegCurrencies_Parent]
 GO
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegGroupsOfProducts_CoreCompanies_CompanyId]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegGroupsOfProducts]'))
 ALTER TABLE [dbo].[RegGroupsOfProducts]  WITH CHECK ADD  CONSTRAINT [FK_RegGroupsOfProducts_CoreCompanies_CompanyId] FOREIGN KEY([CompanyId])
@@ -15553,6 +15773,27 @@ REFERENCES [dbo].[RegWarehouses] ([Id])
 GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedCalculations_RegWarehouses_WarehouseId]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedCalculations]'))
 ALTER TABLE [dbo].[SharedCalculations] CHECK CONSTRAINT [FK_SharedCalculations_RegWarehouses_WarehouseId]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedExchangeRates_CoreCompanies]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedExchangeRates]'))
+ALTER TABLE [dbo].[SharedExchangeRates]  WITH CHECK ADD  CONSTRAINT [FK_SharedExchangeRates_CoreCompanies] FOREIGN KEY([CompanyId])
+REFERENCES [dbo].[CoreCompanies] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedExchangeRates_CoreCompanies]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedExchangeRates]'))
+ALTER TABLE [dbo].[SharedExchangeRates] CHECK CONSTRAINT [FK_SharedExchangeRates_CoreCompanies]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedExchangeRates_RegCurrencies]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedExchangeRates]'))
+ALTER TABLE [dbo].[SharedExchangeRates]  WITH CHECK ADD  CONSTRAINT [FK_SharedExchangeRates_RegCurrencies] FOREIGN KEY([CurrencyId])
+REFERENCES [dbo].[RegCurrencies] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedExchangeRates_RegCurrencies]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedExchangeRates]'))
+ALTER TABLE [dbo].[SharedExchangeRates] CHECK CONSTRAINT [FK_SharedExchangeRates_RegCurrencies]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedExchangeRatesSetup_CoreCompanies]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedExchangeRatesSetup]'))
+ALTER TABLE [dbo].[SharedExchangeRatesSetup]  WITH CHECK ADD  CONSTRAINT [FK_SharedExchangeRatesSetup_CoreCompanies] FOREIGN KEY([CompanyId])
+REFERENCES [dbo].[CoreCompanies] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedExchangeRatesSetup_CoreCompanies]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedExchangeRatesSetup]'))
+ALTER TABLE [dbo].[SharedExchangeRatesSetup] CHECK CONSTRAINT [FK_SharedExchangeRatesSetup_CoreCompanies]
 GO
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_SharedGoodsInboundItems_CoreCompanies_CompanyId]') AND parent_object_id = OBJECT_ID(N'[dbo].[SharedGoodsInboundItems]'))
 ALTER TABLE [dbo].[SharedGoodsInboundItems]  WITH CHECK ADD  CONSTRAINT [FK_SharedGoodsInboundItems_CoreCompanies_CompanyId] FOREIGN KEY([CompanyId])
@@ -19324,6 +19565,9 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', N'COLUMN',N'CompanyId'))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Kompanija' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts', @level2type=N'COLUMN',@level2name=N'CompanyId'
 GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', N'COLUMN',N'Base'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Osnovni: 0 - Ne 1 - Da' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts', @level2type=N'COLUMN',@level2name=N'Base'
+GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegContracts', NULL,NULL))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Ugovori' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegContracts'
 GO
@@ -19422,6 +19666,36 @@ IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'S
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegCountries', NULL,NULL))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Države' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegCountries'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegCurrencies', N'COLUMN',N'Symbol'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Oznaka (npr. €)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegCurrencies', @level2type=N'COLUMN',@level2name=N'Symbol'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegCurrencies', N'COLUMN',N'InternationalLabel'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Međunarodna oznaka (npr. EUR)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegCurrencies', @level2type=N'COLUMN',@level2name=N'InternationalLabel'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegCurrencies', N'COLUMN',N'Description'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Opis valute (npr. Euro)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegCurrencies', @level2type=N'COLUMN',@level2name=N'Description'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegCurrencies', N'COLUMN',N'Status'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Status: 0 - Neaktivan 1 - Aktivan 2 - Arhiviran' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegCurrencies', @level2type=N'COLUMN',@level2name=N'Status'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegCurrencies', N'COLUMN',N'CompanyId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Kompanija' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegCurrencies', @level2type=N'COLUMN',@level2name=N'CompanyId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegCurrencies', N'COLUMN',N'RootId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Ključ osnovne verzije' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegCurrencies', @level2type=N'COLUMN',@level2name=N'RootId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegCurrencies', N'COLUMN',N'VersionParentId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Ključ prethodne verzije' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegCurrencies', @level2type=N'COLUMN',@level2name=N'VersionParentId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegCurrencies', N'COLUMN',N'VersionChildId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Ključ nove verzije' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegCurrencies', @level2type=N'COLUMN',@level2name=N'VersionChildId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegCurrencies', N'COLUMN',N'VersionExpiredDate'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Vrijeme arhiviranja verzije' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegCurrencies', @level2type=N'COLUMN',@level2name=N'VersionExpiredDate'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegCurrencies', NULL,NULL))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Valute' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegCurrencies'
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegGroupsOfProducts', N'COLUMN',N'Label'))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Šifra (inkrement)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegGroupsOfProducts', @level2type=N'COLUMN',@level2name=N'Label'
@@ -20487,6 +20761,57 @@ IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'S
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedCalculations', NULL,NULL))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Kalkulacije' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedCalculations'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedExchangeRates', N'COLUMN',N'CurrencyId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Valuta' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedExchangeRates', @level2type=N'COLUMN',@level2name=N'CurrencyId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedExchangeRates', N'COLUMN',N'Date'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Datum' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedExchangeRates', @level2type=N'COLUMN',@level2name=N'Date'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedExchangeRates', N'COLUMN',N'BankRate'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Bankovni' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedExchangeRates', @level2type=N'COLUMN',@level2name=N'BankRate'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedExchangeRates', N'COLUMN',N'BuyingRate'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Kupovni' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedExchangeRates', @level2type=N'COLUMN',@level2name=N'BuyingRate'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedExchangeRates', N'COLUMN',N'SellingRate'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Prodajni' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedExchangeRates', @level2type=N'COLUMN',@level2name=N'SellingRate'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedExchangeRates', N'COLUMN',N'AccountingRate'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Obračunski' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedExchangeRates', @level2type=N'COLUMN',@level2name=N'AccountingRate'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedExchangeRates', N'COLUMN',N'MiddleRate'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Srednji' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedExchangeRates', @level2type=N'COLUMN',@level2name=N'MiddleRate'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedExchangeRates', N'COLUMN',N'CompanyId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Kompanija' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedExchangeRates', @level2type=N'COLUMN',@level2name=N'CompanyId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedExchangeRates', NULL,NULL))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Kursna lista' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedExchangeRates'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedExchangeRatesSetup', N'COLUMN',N'CompanyId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Kompanija' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedExchangeRatesSetup', @level2type=N'COLUMN',@level2name=N'CompanyId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedExchangeRatesSetup', N'COLUMN',N'ServiceApi'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Servis API: 0 - Ništa 1 - Centralna Banka BiH 2 - Hrvatska Narodna Banka 3 - Narodna Banka Srbije' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedExchangeRatesSetup', @level2type=N'COLUMN',@level2name=N'ServiceApi'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedExchangeRatesSetup', N'COLUMN',N'AutoUpdate'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Automatsko ažuriranje: 0 - Ne 1 - Da' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedExchangeRatesSetup', @level2type=N'COLUMN',@level2name=N'AutoUpdate'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedExchangeRatesSetup', N'COLUMN',N'UpdateTime'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Vrijeme ažuriranja' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedExchangeRatesSetup', @level2type=N'COLUMN',@level2name=N'UpdateTime'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedExchangeRatesSetup', N'COLUMN',N'ApiUser'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'API korisnik' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedExchangeRatesSetup', @level2type=N'COLUMN',@level2name=N'ApiUser'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedExchangeRatesSetup', N'COLUMN',N'ApiPassword'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'API lozinka' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedExchangeRatesSetup', @level2type=N'COLUMN',@level2name=N'ApiPassword'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedExchangeRatesSetup', N'COLUMN',N'ApiKey'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'API ključ' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedExchangeRatesSetup', @level2type=N'COLUMN',@level2name=N'ApiKey'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedExchangeRatesSetup', NULL,NULL))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Konfiguracija servisa za kursnu listu' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedExchangeRatesSetup'
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'SharedGoodsInboundItems', N'COLUMN',N'CompanyId'))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Kompanija' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SharedGoodsInboundItems', @level2type=N'COLUMN',@level2name=N'CompanyId'

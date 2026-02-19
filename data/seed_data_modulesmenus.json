@@ -1908,5 +1908,25 @@
     "SortNumber": 5,
     "Status": 1,
     "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Finansijsko",
+    "MenuId": 117,
+    "Level": 1,
+    "ParentMenuId": 1,
+    "SortNumber": 12,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WMS",
+    "MenuName": "Valute i kursna lista",
+    "MenuId": 118,
+    "Level": 2,
+    "ParentMenuId": 117,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
   }
 ]
