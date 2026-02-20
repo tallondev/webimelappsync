@@ -2256,7 +2256,6 @@
       "view",
       "export",
       "log",
-      "special",
       "certify",
       "special_update"
     ]
@@ -2269,7 +2268,6 @@
       "view",
       "export",
       "log",
-      "special",
       "approve",
       "special_update"
     ]
@@ -2294,7 +2292,6 @@
       "view",
       "export",
       "log",
-      "special",
       "verify",
       "special_update"
     ]
