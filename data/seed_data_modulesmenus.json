@@ -1801,7 +1801,7 @@
   },
   {
     "ModuleName": "WFM",
-    "MenuName": "Nalozi za preraspodjelu",
+    "MenuName": "Nalozi za preraspodjelu i prekovremene sate",
     "MenuId": 114,
     "Level": 1,
     "ParentMenuId": 3,
@@ -1936,6 +1936,56 @@
     "Level": 2,
     "ParentMenuId": 117,
     "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Kreiranje",
+    "MenuId": 119,
+    "Level": 2,
+    "ParentMenuId": 114,
+    "SortNumber": 1,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Ovjeravanje",
+    "MenuId": 120,
+    "Level": 2,
+    "ParentMenuId": 114,
+    "SortNumber": 2,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Odobravanje",
+    "MenuId": 121,
+    "Level": 2,
+    "ParentMenuId": 114,
+    "SortNumber": 3,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Evidentiranje",
+    "MenuId": 122,
+    "Level": 2,
+    "ParentMenuId": 114,
+    "SortNumber": 4,
+    "Status": 1,
+    "ApiOnly": 0
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Verifikacija",
+    "MenuId": 123,
+    "Level": 2,
+    "ParentMenuId": 114,
+    "SortNumber": 5,
     "Status": 1,
     "ApiOnly": 0
   }

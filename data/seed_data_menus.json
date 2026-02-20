@@ -2261,20 +2261,20 @@
   {
     "Id": 114,
     "Icon": "icon-redistribution-orders",
-    "IsObject": 1,
+    "IsObject": 0,
     "HasReportTemplate": 0,
-    "TableName": "WfmRedistributionOrders,WfmRedistributionOrderEmployees,WfmRedistributionOrderStatus",
+    "TableName": null,
     "Deleted": 0,
     "languages": [
       {
         "Locale": "bs",
-        "Name": "Nalozi za preraspodjelu",
-        "Description": "Evidencija naloga za preraspodjelu"
+        "Name": "Nalozi za preraspodjelu i prekovremene sate",
+        "Description": "Nalozi za preraspodjelu i prekovremene sate"
       },
       {
         "Locale": "en",
-        "Name": "Redistribution orders",
-        "Description": "Redistribution orders records"
+        "Name": "Redistribution orders and overtime",
+        "Description": "Redistribution orders and overtime"
       }
     ]
   },
@@ -2355,6 +2355,106 @@
         "Locale": "en",
         "Name": "Currencies and Exchange Rates",
         "Description": "Registry of currencies and exchange rates"
+      }
+    ]
+  },
+  {
+    "Id": 119,
+    "Icon": "icon-redistribution-orders",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "WfmRedistributionOrders,WfmRedistributionOrderEmployees,WfmRedistributionOrderStatus",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Kreiranje",
+        "Description": "Kreiranje"
+      },
+      {
+        "Locale": "en",
+        "Name": "Creation",
+        "Description": "Creation"
+      }
+    ]
+  },
+  {
+    "Id": 120,
+    "Icon": "icon-redistribution-orders",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "WfmRedistributionOrders,WfmRedistributionOrderEmployees,WfmRedistributionOrderStatus",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Ovjeravanje",
+        "Description": "Ovjeravanje"
+      },
+      {
+        "Locale": "en",
+        "Name": "Certification",
+        "Description": "Certification"
+      }
+    ]
+  },
+  {
+    "Id": 121,
+    "Icon": "icon-redistribution-orders",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "WfmRedistributionOrders,WfmRedistributionOrderEmployees,WfmRedistributionOrderStatus",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Odobravanje",
+        "Description": "Odobravanje"
+      },
+      {
+        "Locale": "en",
+        "Name": "Approval",
+        "Description": "Approval"
+      }
+    ]
+  },
+  {
+    "Id": 122,
+    "Icon": "icon-redistribution-orders",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "WfmRedistributionOrders,WfmRedistributionOrderEmployees,WfmRedistributionOrderStatus",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Evidentiranje",
+        "Description": "Evidentiranje"
+      },
+      {
+        "Locale": "en",
+        "Name": "Recording",
+        "Description": "Recording"
+      }
+    ]
+  },
+  {
+    "Id": 123,
+    "Icon": "icon-redistribution-orders",
+    "IsObject": 1,
+    "HasReportTemplate": 0,
+    "TableName": "WfmRedistributionOrders,WfmRedistributionOrderEmployees,WfmRedistributionOrderStatus",
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Verifikacija",
+        "Description": "Verifikacija"
+      },
+      {
+        "Locale": "en",
+        "Name": "Verification",
+        "Description": "Verification"
       }
     ]
   }

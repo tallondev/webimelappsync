@@ -2139,24 +2139,6 @@
     ]
   },
   {
-    "ModuleName": "WFM",
-    "MenuName": "Nalozi za preraspodjelu",
-    "MenuId": 114,
-    "Permissions": [
-      "view",
-      "add",
-      "edit",
-      "delete",
-      "export",
-      "log",
-      "approve",
-      "verify",
-      "special",
-      "certify",
-      "special_update"
-    ]
-  },
-  {
     "ModuleName": "WMS",
     "MenuName": "Vrste cjenovnika",
     "MenuId": 17,
@@ -2250,6 +2232,71 @@
       "delete",
       "export",
       "log"
+    ]
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Kreiranje",
+    "MenuId": 119,
+    "Permissions": [
+      "view",
+      "add",
+      "edit",
+      "delete",
+      "export",
+      "log",
+      "special"
+    ]
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Ovjeravanje",
+    "MenuId": 120,
+    "Permissions": [
+      "view",
+      "export",
+      "log",
+      "special",
+      "certify",
+      "special_update"
+    ]
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Odobravanje",
+    "MenuId": 121,
+    "Permissions": [
+      "view",
+      "export",
+      "log",
+      "special",
+      "approve",
+      "special_update"
+    ]
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Evidentiranje",
+    "MenuId": 122,
+    "Permissions": [
+      "view",
+      "export",
+      "log",
+      "special",
+      "special_update"
+    ]
+  },
+  {
+    "ModuleName": "WFM",
+    "MenuName": "Verifikacija",
+    "MenuId": 123,
+    "Permissions": [
+      "view",
+      "export",
+      "log",
+      "special",
+      "verify",
+      "special_update"
     ]
   }
 ]
