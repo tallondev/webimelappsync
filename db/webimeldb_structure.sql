@@ -1,4 +1,4 @@
-﻿-- WEBIMELDB STRUKTURA - Generisano: 19.2.2026. 10:55:44
+﻿-- WEBIMELDB STRUKTURA - Generisano: 20.2.2026. 10:00:51
 -- --------------------------------------------------
 
 -- TABELE
@@ -1264,6 +1264,9 @@ CREATE TABLE [dbo].[RegAuthorizedPersons](
 	[CompanyId] [int] NOT NULL,
 	[BranchOfficeId] [int] NOT NULL,
 	[LinkedUserId] [nvarchar](450) NULL,
+	[Certify] [smallint] NOT NULL,
+	[Approve] [smallint] NOT NULL,
+	[Verify] [smallint] NOT NULL,
  CONSTRAINT [PK_RegAuthorizedPersons] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -2569,7 +2572,7 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SharedExchangeRatesSetup]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[SharedExchangeRatesSetup](
-	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Id] [int] NOT NULL,
 	[CompanyId] [int] NOT NULL,
 	[ServiceApi] [smallint] NOT NULL,
 	[AutoUpdate] [smallint] NOT NULL,
@@ -2580,10 +2583,6 @@ CREATE TABLE [dbo].[SharedExchangeRatesSetup](
  CONSTRAINT [PK_SharedExchangeRatesSetup] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
- CONSTRAINT [UQ_SharedExchangeRatesSetup_CompanyId] UNIQUE NONCLUSTERED 
-(
-	[CompanyId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 END
@@ -4035,12 +4034,32 @@ CREATE TABLE [dbo].[WfmRedistributionOrders](
 	[Status] [smallint] NOT NULL,
 	[Description] [nvarchar](1000) NULL,
 	[UserId] [nvarchar](450) NOT NULL,
-	[CertifiedUserId] [nvarchar](450) NULL,
-	[ApprovedUserId] [nvarchar](450) NULL,
-	[EditUserId] [nvarchar](450) NULL,
-	[VerifiedUserId] [nvarchar](450) NULL,
 	[CompanyId] [int] NOT NULL,
  CONSTRAINT [PK_WfmRedistributionOrders] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrderStatus]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[WfmRedistributionOrderStatus](
+	[Id] [bigint] IDENTITY(1,1) NOT NULL,
+	[RedistributionOrderId] [bigint] NOT NULL,
+	[RequestTime] [datetime] NOT NULL,
+	[CurrentStatus] [smallint] NOT NULL,
+	[AuthorizedPersonId] [int] NOT NULL,
+	[ProcessingTime] [datetime] NULL,
+	[NewStatus] [smallint] NULL,
+	[Returned] [smallint] NOT NULL,
+	[Reason] [nvarchar](500) NULL,
+	[CompanyId] [int] NOT NULL,
+ CONSTRAINT [PK_WfmRedistributionOrderStatus] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
@@ -4337,6 +4356,7 @@ CREATE TABLE [dbo].[WfmWorkPlans](
 	[DateTo] [datetime2](7) NOT NULL,
 	[UserId] [nvarchar](450) NOT NULL,
 	[CompanyId] [int] NOT NULL,
+	[MaxWorkHours] [decimal](10, 2) NULL,
  CONSTRAINT [PK_WfmWorkPlans] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -6320,10 +6340,22 @@ CREATE NONCLUSTERED INDEX [UQ_RegAuthorizedPersonBrancheOffices_1] ON [dbo].[Reg
 	[BranchOfficeId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegAuthorizedPersons]') AND name = N'Index_RegAuthorizedPersons_Approve')
+CREATE NONCLUSTERED INDEX [Index_RegAuthorizedPersons_Approve] ON [dbo].[RegAuthorizedPersons]
+(
+	[Approve] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegAuthorizedPersons]') AND name = N'Index_RegAuthorizedPersons_BranchOfficeId')
 CREATE NONCLUSTERED INDEX [Index_RegAuthorizedPersons_BranchOfficeId] ON [dbo].[RegAuthorizedPersons]
 (
 	[BranchOfficeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegAuthorizedPersons]') AND name = N'Index_RegAuthorizedPersons_Certify')
+CREATE NONCLUSTERED INDEX [Index_RegAuthorizedPersons_Certify] ON [dbo].[RegAuthorizedPersons]
+(
+	[Certify] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegAuthorizedPersons]') AND name = N'Index_RegAuthorizedPersons_CompanyId')
@@ -6369,6 +6401,12 @@ IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[Re
 CREATE NONCLUSTERED INDEX [Index_RegAuthorizedPersons_Status] ON [dbo].[RegAuthorizedPersons]
 (
 	[Status] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegAuthorizedPersons]') AND name = N'Index_RegAuthorizedPersons_Verify')
+CREATE NONCLUSTERED INDEX [Index_RegAuthorizedPersons_Verify] ON [dbo].[RegAuthorizedPersons]
+(
+	[Verify] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RegAuthorizedPersons]') AND name = N'IX_RegAuthorizedPersons_VersionChildId')
@@ -8594,12 +8632,6 @@ IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[Sh
 CREATE NONCLUSTERED INDEX [IX_SharedExchangeRates_Date] ON [dbo].[SharedExchangeRates]
 (
 	[Date] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[SharedExchangeRatesSetup]') AND name = N'IX_SharedExchangeRatesSetup_CompanyId')
-CREATE NONCLUSTERED INDEX [IX_SharedExchangeRatesSetup_CompanyId] ON [dbo].[SharedExchangeRatesSetup]
-(
-	[CompanyId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[SharedExchangeRatesSetup]') AND name = N'UQ_SharedExchangeRatesSetup_1')
@@ -11230,43 +11262,16 @@ CREATE UNIQUE NONCLUSTERED INDEX [UQ_WfmRedistributionOrderEmployees_1] ON [dbo]
 	[EmployeeId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-SET ANSI_PADDING ON
-
-GO
-IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrders]') AND name = N'IX_WfmRedistributionOrders_ApprovedUserId')
-CREATE NONCLUSTERED INDEX [IX_WfmRedistributionOrders_ApprovedUserId] ON [dbo].[WfmRedistributionOrders]
-(
-	[ApprovedUserId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrders]') AND name = N'IX_WfmRedistributionOrders_BranchOfficeId')
 CREATE NONCLUSTERED INDEX [IX_WfmRedistributionOrders_BranchOfficeId] ON [dbo].[WfmRedistributionOrders]
 (
 	[BranchOfficeId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-SET ANSI_PADDING ON
-
-GO
-IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrders]') AND name = N'IX_WfmRedistributionOrders_CertifiedUserId')
-CREATE NONCLUSTERED INDEX [IX_WfmRedistributionOrders_CertifiedUserId] ON [dbo].[WfmRedistributionOrders]
-(
-	[CertifiedUserId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrders]') AND name = N'IX_WfmRedistributionOrders_CompanyId')
 CREATE NONCLUSTERED INDEX [IX_WfmRedistributionOrders_CompanyId] ON [dbo].[WfmRedistributionOrders]
 (
 	[CompanyId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-SET ANSI_PADDING ON
-
-GO
-IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrders]') AND name = N'IX_WfmRedistributionOrders_EditUserId')
-CREATE NONCLUSTERED INDEX [IX_WfmRedistributionOrders_EditUserId] ON [dbo].[WfmRedistributionOrders]
-(
-	[EditUserId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrders]') AND name = N'IX_WfmRedistributionOrders_Number')
@@ -11302,19 +11307,28 @@ CREATE NONCLUSTERED INDEX [IX_WfmRedistributionOrders_UserId] ON [dbo].[WfmRedis
 	[UserId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-SET ANSI_PADDING ON
-
-GO
-IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrders]') AND name = N'IX_WfmRedistributionOrders_VerifiedUserId')
-CREATE NONCLUSTERED INDEX [IX_WfmRedistributionOrders_VerifiedUserId] ON [dbo].[WfmRedistributionOrders]
-(
-	[VerifiedUserId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrders]') AND name = N'IX_WfmRedistributionOrders_WorkType')
 CREATE NONCLUSTERED INDEX [IX_WfmRedistributionOrders_WorkType] ON [dbo].[WfmRedistributionOrders]
 (
 	[WorkType] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrderStatus]') AND name = N'IX_WfmRedistributionOrderStatus_AuthorizedPersonId')
+CREATE NONCLUSTERED INDEX [IX_WfmRedistributionOrderStatus_AuthorizedPersonId] ON [dbo].[WfmRedistributionOrderStatus]
+(
+	[AuthorizedPersonId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrderStatus]') AND name = N'IX_WfmRedistributionOrderStatus_CompanyId')
+CREATE NONCLUSTERED INDEX [IX_WfmRedistributionOrderStatus_CompanyId] ON [dbo].[WfmRedistributionOrderStatus]
+(
+	[CompanyId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrderStatus]') AND name = N'IX_WfmRedistributionOrderStatus_RedistributionOrderId')
+CREATE NONCLUSTERED INDEX [IX_WfmRedistributionOrderStatus_RedistributionOrderId] ON [dbo].[WfmRedistributionOrderStatus]
+(
+	[RedistributionOrderId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
 SET ANSI_PADDING ON
@@ -12216,6 +12230,24 @@ ALTER TABLE [dbo].[RegAuthorizedPersons] ADD  DEFAULT (CONVERT([smallint],(1))) 
 END
 
 GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__RegAuthor__Certi__6AC5C326]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[RegAuthorizedPersons] ADD  DEFAULT ((0)) FOR [Certify]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__RegAuthor__Appro__6BB9E75F]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[RegAuthorizedPersons] ADD  DEFAULT ((0)) FOR [Approve]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__RegAuthor__Verif__6CAE0B98]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[RegAuthorizedPersons] ADD  DEFAULT ((0)) FOR [Verify]
+END
+
+GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__RegBranch__Statu__0A688BB1]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[RegBranchOffices] ADD  DEFAULT (CONVERT([smallint],(1))) FOR [Status]
@@ -12762,7 +12794,7 @@ ALTER TABLE [dbo].[SharedExchangeRates] ADD  DEFAULT ((0.0)) FOR [AccountingRate
 END
 
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__SharedExc__AutoU__613C58EC]') AND type = 'D')
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__SharedExc__AutoU__68DD7AB4]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[SharedExchangeRatesSetup] ADD  DEFAULT ((0)) FOR [AutoUpdate]
 END
@@ -13071,6 +13103,12 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__WfmRedist__Statu__1C9228E4]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[WfmRedistributionOrders] ADD  DEFAULT ((0)) FOR [Status]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__WfmRedist__Retur__6F8A7843]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[WfmRedistributionOrderStatus] ADD  DEFAULT ((0)) FOR [Returned]
 END
 
 GO
@@ -14627,6 +14665,7 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContractProducts_RegContracts]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContractProducts]'))
 ALTER TABLE [dbo].[RegContractProducts]  WITH CHECK ADD  CONSTRAINT [FK_RegContractProducts_RegContracts] FOREIGN KEY([ContractId])
 REFERENCES [dbo].[RegContracts] ([Id])
+ON DELETE CASCADE
 GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RegContractProducts_RegContracts]') AND parent_object_id = OBJECT_ID(N'[dbo].[RegContractProducts]'))
 ALTER TABLE [dbo].[RegContractProducts] CHECK CONSTRAINT [FK_RegContractProducts_RegContracts]
@@ -17559,27 +17598,6 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmRedistributionOrders_CoreCompanies_CompanyId]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrders]'))
 ALTER TABLE [dbo].[WfmRedistributionOrders] CHECK CONSTRAINT [FK_WfmRedistributionOrders_CoreCompanies_CompanyId]
 GO
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmRedistributionOrders_CoreUsers_ApprovedUserId]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrders]'))
-ALTER TABLE [dbo].[WfmRedistributionOrders]  WITH CHECK ADD  CONSTRAINT [FK_WfmRedistributionOrders_CoreUsers_ApprovedUserId] FOREIGN KEY([ApprovedUserId])
-REFERENCES [dbo].[CoreUsers] ([UserId])
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmRedistributionOrders_CoreUsers_ApprovedUserId]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrders]'))
-ALTER TABLE [dbo].[WfmRedistributionOrders] CHECK CONSTRAINT [FK_WfmRedistributionOrders_CoreUsers_ApprovedUserId]
-GO
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmRedistributionOrders_CoreUsers_CertifiedUserId]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrders]'))
-ALTER TABLE [dbo].[WfmRedistributionOrders]  WITH CHECK ADD  CONSTRAINT [FK_WfmRedistributionOrders_CoreUsers_CertifiedUserId] FOREIGN KEY([CertifiedUserId])
-REFERENCES [dbo].[CoreUsers] ([UserId])
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmRedistributionOrders_CoreUsers_CertifiedUserId]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrders]'))
-ALTER TABLE [dbo].[WfmRedistributionOrders] CHECK CONSTRAINT [FK_WfmRedistributionOrders_CoreUsers_CertifiedUserId]
-GO
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmRedistributionOrders_CoreUsers_EditUserId]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrders]'))
-ALTER TABLE [dbo].[WfmRedistributionOrders]  WITH CHECK ADD  CONSTRAINT [FK_WfmRedistributionOrders_CoreUsers_EditUserId] FOREIGN KEY([EditUserId])
-REFERENCES [dbo].[CoreUsers] ([UserId])
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmRedistributionOrders_CoreUsers_EditUserId]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrders]'))
-ALTER TABLE [dbo].[WfmRedistributionOrders] CHECK CONSTRAINT [FK_WfmRedistributionOrders_CoreUsers_EditUserId]
-GO
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmRedistributionOrders_CoreUsers_UserId]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrders]'))
 ALTER TABLE [dbo].[WfmRedistributionOrders]  WITH CHECK ADD  CONSTRAINT [FK_WfmRedistributionOrders_CoreUsers_UserId] FOREIGN KEY([UserId])
 REFERENCES [dbo].[CoreUsers] ([UserId])
@@ -17587,19 +17605,34 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmRedistributionOrders_CoreUsers_UserId]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrders]'))
 ALTER TABLE [dbo].[WfmRedistributionOrders] CHECK CONSTRAINT [FK_WfmRedistributionOrders_CoreUsers_UserId]
 GO
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmRedistributionOrders_CoreUsers_VerifiedUserId]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrders]'))
-ALTER TABLE [dbo].[WfmRedistributionOrders]  WITH CHECK ADD  CONSTRAINT [FK_WfmRedistributionOrders_CoreUsers_VerifiedUserId] FOREIGN KEY([VerifiedUserId])
-REFERENCES [dbo].[CoreUsers] ([UserId])
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmRedistributionOrders_CoreUsers_VerifiedUserId]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrders]'))
-ALTER TABLE [dbo].[WfmRedistributionOrders] CHECK CONSTRAINT [FK_WfmRedistributionOrders_CoreUsers_VerifiedUserId]
-GO
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmRedistributionOrders_RegBranchOffices_BranchOfficeId]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrders]'))
 ALTER TABLE [dbo].[WfmRedistributionOrders]  WITH CHECK ADD  CONSTRAINT [FK_WfmRedistributionOrders_RegBranchOffices_BranchOfficeId] FOREIGN KEY([BranchOfficeId])
 REFERENCES [dbo].[RegBranchOffices] ([Id])
 GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmRedistributionOrders_RegBranchOffices_BranchOfficeId]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrders]'))
 ALTER TABLE [dbo].[WfmRedistributionOrders] CHECK CONSTRAINT [FK_WfmRedistributionOrders_RegBranchOffices_BranchOfficeId]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmRedistributionOrderStatus_CoreCompanies]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrderStatus]'))
+ALTER TABLE [dbo].[WfmRedistributionOrderStatus]  WITH CHECK ADD  CONSTRAINT [FK_WfmRedistributionOrderStatus_CoreCompanies] FOREIGN KEY([CompanyId])
+REFERENCES [dbo].[CoreCompanies] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmRedistributionOrderStatus_CoreCompanies]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrderStatus]'))
+ALTER TABLE [dbo].[WfmRedistributionOrderStatus] CHECK CONSTRAINT [FK_WfmRedistributionOrderStatus_CoreCompanies]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmRedistributionOrderStatus_RegAuthorizedPersons]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrderStatus]'))
+ALTER TABLE [dbo].[WfmRedistributionOrderStatus]  WITH CHECK ADD  CONSTRAINT [FK_WfmRedistributionOrderStatus_RegAuthorizedPersons] FOREIGN KEY([AuthorizedPersonId])
+REFERENCES [dbo].[RegAuthorizedPersons] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmRedistributionOrderStatus_RegAuthorizedPersons]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrderStatus]'))
+ALTER TABLE [dbo].[WfmRedistributionOrderStatus] CHECK CONSTRAINT [FK_WfmRedistributionOrderStatus_RegAuthorizedPersons]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmRedistributionOrderStatus_WfmRedistributionOrders]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrderStatus]'))
+ALTER TABLE [dbo].[WfmRedistributionOrderStatus]  WITH CHECK ADD  CONSTRAINT [FK_WfmRedistributionOrderStatus_WfmRedistributionOrders] FOREIGN KEY([RedistributionOrderId])
+REFERENCES [dbo].[WfmRedistributionOrders] ([Id])
+ON DELETE CASCADE
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmRedistributionOrderStatus_WfmRedistributionOrders]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmRedistributionOrderStatus]'))
+ALTER TABLE [dbo].[WfmRedistributionOrderStatus] CHECK CONSTRAINT [FK_WfmRedistributionOrderStatus_WfmRedistributionOrders]
 GO
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_WfmSchemes_CoreCompanies_CompanyId]') AND parent_object_id = OBJECT_ID(N'[dbo].[WfmSchemes]'))
 ALTER TABLE [dbo].[WfmSchemes]  WITH CHECK ADD  CONSTRAINT [FK_WfmSchemes_CoreCompanies_CompanyId] FOREIGN KEY([CompanyId])
@@ -19216,6 +19249,15 @@ IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'S
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegAuthorizedPersons', N'COLUMN',N'LinkedUserId'))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Poveznica sa korisnikom' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegAuthorizedPersons', @level2type=N'COLUMN',@level2name=N'LinkedUserId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegAuthorizedPersons', N'COLUMN',N'Certify'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Ovjerava: 0 - Ne 1 - Da' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegAuthorizedPersons', @level2type=N'COLUMN',@level2name=N'Certify'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegAuthorizedPersons', N'COLUMN',N'Approve'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Odobrava: 0 - Ne 1 - Da' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegAuthorizedPersons', @level2type=N'COLUMN',@level2name=N'Approve'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegAuthorizedPersons', N'COLUMN',N'Verify'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Verifikuje: 0 - Ne 1 - Da' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegAuthorizedPersons', @level2type=N'COLUMN',@level2name=N'Verify'
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'RegAuthorizedPersons', NULL,NULL))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Ovlaštene osobe' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RegAuthorizedPersons'
@@ -22484,23 +22526,41 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmRedistributionOrders', N'COLUMN',N'UserId'))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Korisnik' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmRedistributionOrders', @level2type=N'COLUMN',@level2name=N'UserId'
 GO
-IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmRedistributionOrders', N'COLUMN',N'CertifiedUserId'))
-	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Korisnik (ovjerio)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmRedistributionOrders', @level2type=N'COLUMN',@level2name=N'CertifiedUserId'
-GO
-IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmRedistributionOrders', N'COLUMN',N'ApprovedUserId'))
-	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Korisnik (odobrio)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmRedistributionOrders', @level2type=N'COLUMN',@level2name=N'ApprovedUserId'
-GO
-IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmRedistributionOrders', N'COLUMN',N'EditUserId'))
-	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Korisnik (evidentirao)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmRedistributionOrders', @level2type=N'COLUMN',@level2name=N'EditUserId'
-GO
-IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmRedistributionOrders', N'COLUMN',N'VerifiedUserId'))
-	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Korisnik (verifikovao)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmRedistributionOrders', @level2type=N'COLUMN',@level2name=N'VerifiedUserId'
-GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmRedistributionOrders', N'COLUMN',N'CompanyId'))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Kompanija' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmRedistributionOrders', @level2type=N'COLUMN',@level2name=N'CompanyId'
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmRedistributionOrders', NULL,NULL))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Nalozi za preraspodjelu' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmRedistributionOrders'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmRedistributionOrderStatus', N'COLUMN',N'RedistributionOrderId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Nalog za preraspodjelu' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmRedistributionOrderStatus', @level2type=N'COLUMN',@level2name=N'RedistributionOrderId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmRedistributionOrderStatus', N'COLUMN',N'RequestTime'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Vrijeme zahtjeva' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmRedistributionOrderStatus', @level2type=N'COLUMN',@level2name=N'RequestTime'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmRedistributionOrderStatus', N'COLUMN',N'CurrentStatus'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Status: 0 - U pripremi, 1 - Aktivan 2 - Ovjeren 3 - Odobren 4 - Evidentiran 5 - Verifikovan' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmRedistributionOrderStatus', @level2type=N'COLUMN',@level2name=N'CurrentStatus'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmRedistributionOrderStatus', N'COLUMN',N'AuthorizedPersonId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Ovlaštena osoba' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmRedistributionOrderStatus', @level2type=N'COLUMN',@level2name=N'AuthorizedPersonId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmRedistributionOrderStatus', N'COLUMN',N'ProcessingTime'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Vrijeme obrade' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmRedistributionOrderStatus', @level2type=N'COLUMN',@level2name=N'ProcessingTime'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmRedistributionOrderStatus', N'COLUMN',N'NewStatus'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Status: 0 - U pripremi, 1 - Aktivan 2 - Ovjeren 3 - Odobren 4 - Evidentiran 5 - Verifikovan' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmRedistributionOrderStatus', @level2type=N'COLUMN',@level2name=N'NewStatus'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmRedistributionOrderStatus', N'COLUMN',N'Returned'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Vraćeno: 0 - Ne 1 - Da' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmRedistributionOrderStatus', @level2type=N'COLUMN',@level2name=N'Returned'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmRedistributionOrderStatus', N'COLUMN',N'Reason'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Razlog vraćanja' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmRedistributionOrderStatus', @level2type=N'COLUMN',@level2name=N'Reason'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmRedistributionOrderStatus', N'COLUMN',N'CompanyId'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Kompanija' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmRedistributionOrderStatus', @level2type=N'COLUMN',@level2name=N'CompanyId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmRedistributionOrderStatus', NULL,NULL))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Statusi naloga za preraspodjelu' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmRedistributionOrderStatus'
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmSchemes', N'COLUMN',N'Label'))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Šifra (inkrement)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmSchemes', @level2type=N'COLUMN',@level2name=N'Label'
@@ -22834,6 +22894,9 @@ IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'S
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmWorkPlans', N'COLUMN',N'CompanyId'))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Kompanija' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmWorkPlans', @level2type=N'COLUMN',@level2name=N'CompanyId'
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmWorkPlans', N'COLUMN',N'MaxWorkHours'))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Maksimalan broj radnih sati' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmWorkPlans', @level2type=N'COLUMN',@level2name=N'MaxWorkHours'
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'WfmWorkPlans', NULL,NULL))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Evidencija plana rada' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'WfmWorkPlans'

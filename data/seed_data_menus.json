@@ -2263,7 +2263,7 @@
     "Icon": "icon-redistribution-orders",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "WfmRedistributionOrders,WfmRedistributionOrderEmployees",
+    "TableName": "WfmRedistributionOrders,WfmRedistributionOrderEmployees,WfmRedistributionOrderStatus",
     "Deleted": 0,
     "languages": [
       {
