@@ -306,5 +306,19 @@
         "Name": "Absence report"
       }
     ]
+  },
+  {
+    "Type": 23,
+    "Deleted": 0,
+    "languages": [
+      {
+        "Locale": "bs",
+        "Name": "Trudničko"
+      },
+      {
+        "Locale": "en",
+        "Name": "Pregnancy"
+      }
+    ]
   }
 ]

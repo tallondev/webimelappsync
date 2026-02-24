@@ -1903,7 +1903,7 @@
     "Icon": "icon-daily-earnings",
     "IsObject": 1,
     "HasReportTemplate": 0,
-    "TableName": "WfmDailyEarnings",
+    "TableName": "WfmDailyEarnings,WfmWorkBooks,HrLeaveDecisions,WfmLeaveDecisions",
     "Deleted": 0,
     "languages": [
       {
